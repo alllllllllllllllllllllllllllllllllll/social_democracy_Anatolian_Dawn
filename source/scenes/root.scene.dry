@@ -906,6 +906,12 @@ Q.lockout_promise = 0;
 Q.working_rights_promise = 0;
 // Working rights achievements
 Q.lokavtt = 0;
+Q.nationall = 0;
+Q.kitt = 0;
+Q.ikincilgrevv = 0;
+Q.healthinspectionss = 0;
+// Set to 1 when at least 3 one-time labour ministry reforms have been passed
+Q.labour_rights_reform = 0;
 
 // have we reformed these institutions to be more democratic?
 Q.judicial_reform = 0;
