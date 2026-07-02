@@ -1,0 +1,33 @@
+title: Lockout Wave in Bursa
+subtitle: Car producers are going on a lockout!
+view-if: year == 1973 and month = 8 and week = 1
+max-visits: 1
+tags: event
+new-page: true
+face-image: img/lokavt.png
+
+= Lockout Wave in Bursa
+
+Eight car factories in the industrial city of Bursa have enacted lockouts and prevented their workers from entering after a dispute between METAL-İŞ, a syndicate under the right wing TÜRK-İŞ, and the Turkish branch of the car manufacturer Renault.
+
+The dispute arose after a disagreement over the terms of collective bargaining over the salaries of the workers. What began as a worker strike evolved into a total lockout as the major car manufacturers in Bursa such as TOFAŞ and Renault closed down their factories to force the workers to surrendering. Overnight over 5,400 workers were left without any income.
+
+After the negotiations on weekend failed to bring any results, the TÜRK-İŞ executive blatantly threatened the companies with a logistically improbable general strike which also failed to achieve any meaningful result. Many including the DİSK, the leftist syndicate, officials we have contacted also think the lockouts may have been a move by the employers to ease the price restrictions for cars set by the government.
+
+Ecevit already has commented on the event and supported the locked out workers verbally. *The nonchalance of the government even passing the boundary into encouragement has proliferated lockouts and has put a great strain on the workers. Lockouts should be permitted only in cases of absolute desparation. However employers in Bursa who enacted the lockout are anything but desparate; they are generally highly profitable enterprises*.
+
+Even though eventually a watered-down deal was reached after MADEN-İŞ accepted slight salary improvements, the lockouts in Bursa are only the latest examples of a rising trend in the number of employee and employer conflicts. Strikes in cities such as İzmir, Eskişehir and Ankara continue to put strain on the economic wellbeing of our labourers. Even though Chairman Ecevit has already supported the locked out workers verbally, we can promise to pass a reform on restricting unlawful lockout if we come to government after the next general elections. However if we fail to do such reforms while we are in government, our relation with DİSK will be significantly degraded.
+
+- @promise: Promise to reform the lawful prequisites for a lockout.
+- @nah: Keep silent on this issue. We cant break a promise we never made.
+
+@promise
+subtitle: We will need to get the Labour Ministry to conduct the reform!
+on-arrival: lockout_promise = 1; workers_chp += 5; disk_relation += 8
+
+We have promised to enact restrictions on unlawful lockouts. We will have to keep our promise.
+
+@nah
+on-arrival: workers_chp -= 2
+
+We restrained from making any solid promises. Even though the workers visibly expected more and we take an electoral hit, the national agenda shifts over time and people move on.
