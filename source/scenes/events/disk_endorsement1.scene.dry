@@ -4,7 +4,7 @@ view-if: year == 1973 and month = 9 and week = 1
 max-visits: 1
 tags: event
 new-page: true
-face-image: img/diskendorse1/png
+face-image: img/diskendorse1.png
 
 = DİSK Endorsement
 
