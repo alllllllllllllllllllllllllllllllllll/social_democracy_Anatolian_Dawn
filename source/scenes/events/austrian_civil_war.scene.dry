@@ -19,6 +19,7 @@ The crisis in Austria is continuing. The "Austrofascist" government led by Engel
 
 [? if sdapo_strength >= 6: The government's attempts to suppress the socialist party and the Schutzbund were met with mass protest, supported by the CHP[? if foreign_minister_party = "CHP":  and the German government?]. [? if eu_austria: They are also supported by the recently formed European Union, with economic sanctions targeting the government. ?] ?]
 
+
 Eventually...
 
 - @crushed
