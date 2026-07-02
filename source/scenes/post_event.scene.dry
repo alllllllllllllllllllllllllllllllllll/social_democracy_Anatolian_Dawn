@@ -76,6 +76,11 @@ if (Q.unemployed <= 0.5) {
     Q.unemployed = 0.5;
 }
 
+// Ensure forex pressure doesn't go below 0
+if ((Q.forex_pressure || 0) < 0) {
+    Q.forex_pressure = 0;
+}
+
 // re-calculate dissent.
 // Calculate total strength, excluding right_kemalists if they have resigned or split
 var total_strength = Q.kemalist_marxists_strength + Q.left_kemalists_strength + Q.orthodox_kemalists_strength;
@@ -1034,6 +1039,14 @@ if (Q.koykent_progress >= 5 && !Q.koykent_effect_applied) {
     Q.rural_chp += 15;
     Q.democracystatus += 10;
     Q.koykent_effect_applied = true;
+}
+
+// Labour rights reform: set once when at least 3 one-time labour ministry reforms are passed
+if (!Q.labour_rights_reform) {
+    var labour_reforms_count = (Q.nationall ? 1 : 0) + (Q.kitt ? 1 : 0) + (Q.ikincilgrevv ? 1 : 0) + (Q.healthinspectionss ? 1 : 0) + (Q.lokavtt ? 1 : 0);
+    if (labour_reforms_count >= 3) {
+        Q.labour_rights_reform = 1;
+    }
 }
 
 // Tiger economic reform effects (year-specific, applied once per year)
