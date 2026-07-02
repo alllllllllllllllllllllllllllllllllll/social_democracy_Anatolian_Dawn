@@ -901,6 +901,9 @@ Q.economicreform = 0
 Q.aet = 0
 Q.oil = 0
 
+// Working rights promises
+Q.lockout_promise = 0
+Q.working_rights_promise = 0
 // have we reformed these institutions to be more democratic?
 Q.judicial_reform = 0;
 Q.bureaucratic_reform = 0;
