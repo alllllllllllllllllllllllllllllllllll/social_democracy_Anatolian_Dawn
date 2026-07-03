@@ -57,7 +57,7 @@ We maximize our employments in the state-run industries, pushing growth up and u
 @kobi
 on-arrival: unemployment_modifier -= 0.3; growth_modifier += 0.4; inflation_modifier -= 0.8; capitalist_chp -= 3; petty_bourgeoisie_chp += 3; industrial_production_index += 3
 
-We utilize the state, planning agency, DPT, to promote concentration of smaller businesses in industrial zones. As smaller businesses gather possible rivals for Turkish industrial giant begin to take shape. 
+We utilize the state planning agency, DPT, to promote concentration of smaller businesses in industrial zones. As smaller businesses gather possible rivals for Turkish industrial giant begin to take shape. 
 
 @kredi
 choose-if: MSP_in_government == 0
