@@ -4,7 +4,7 @@ is-card: true
 tags: govt_affairs, cabinet
 on-arrival: police_timer += 6; month_actions += 1
 view-if: CHP_in_government = 1 and interior_minister_party = "CHP" and police_timer <= 0
-card-image: img/portraits/NecdetUgur.jpg
+card-image: img/portraits/necdetugur2.png
 
 = Internal Security
 
