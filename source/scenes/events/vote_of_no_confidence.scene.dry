@@ -1,7 +1,7 @@
 title: Vote of No Confidence
 subtitle: Our coalition partners call for our removal
 new-page: true
-view-if: CHP_in_government = 1 and (in_weimar_coalition = 1 or in_grand_coalition = 1 or in_popular_front = 1) and coalition_dissent >= 3 and chp_votes < 50 and not constructive_vonc
+view-if: CHP_in_government = 1 and (in_weimar_coalition = 1 or in_grand_coalition = 1 or in_popular_front = 1 or in_msp_coalition = 1) and coalition_dissent >= 3 and chp_votes < 50 and not constructive_vonc
 tags: event
 on-arrival: coalition_dissent = 2 if coalition_dissent > 2
 go-to: vonc_menu
@@ -15,6 +15,25 @@ Our coalition partners have called for a vote of no confidence against us. If th
 - @let_it_happen: Accept the vote.
 
 @let_it_happen
+go-to: nationalist_front if in_msp_coalition = 1; caretaker
+
+@nationalist_front
+on-arrival: {!
+    Q.CHP_in_government = 0;
+    Q.in_msp_coalition = 0;
+    Q.coalition_dissent = 0;
+    Q.chancellor = "Süleyman Demirel";
+    Q.chancellor_party = "AP";
+    Q.z_in_government = 1;
+    Q.MHP_in_government = 1;
+    Q.MSP_in_government = 1;
+    Q.CGP_in_government = 1;
+    Q.democracystatus -= 5;
+!}
+
+The vote succeeds and our government falls. However, the right wing parties, seeing an opportunity, have refused snap elections and formed a 'Nationalist Front' coalition among themselves, comprising: AP, [+ CGP_name +], MSP and MHP.
+
+@caretaker
 on-arrival: {!
     Q.CHP_in_government = 0;
     Q.in_weimar_coalition = 0;

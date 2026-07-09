@@ -427,7 +427,7 @@ MHP: [+ MHP_r +]%
 Others: [+ other_r +]%
 
 <span style="color: #E3000F;">**CHP**</span> position: [? if CHP_toleration : toleration ?][? if CHP_in_government : in government - ?][? if CHP_toleration == 0 and CHP_in_government == 0 and CHP_caretaker == 0 : opposition ?][? if CHP_caretaker : caretaker government ?]
-[? if in_weimar_coalition and CHP_in_government: Weimar Coalition ?][? if in_grand_coalition and CHP_in_government: Grand Coalition ?][? if in_popular_front and CHP_in_government: Popular Front ?][? if in_left_front and CHP_in_government: Left Front ?][? if in_CHP_majority and CHP_in_government: <span style="color: #E3000F;">**CHP**</span> majority ?][? if in_minority_government and CHP_in_government: minority government ?][? if in_emergency_government and CHP_in_government: emergency government ?]
+[? if in_weimar_coalition and CHP_in_government: Weimar Coalition ?][? if in_grand_coalition and CHP_in_government: Grand Coalition ?][? if in_popular_front and CHP_in_government: Popular Front ?][? if in_left_front and CHP_in_government: Left Front ?][? if in_msp_coalition and CHP_in_government: Unholy Coalition ?][? if in_CHP_majority and CHP_in_government: <span style="color: #E3000F;">**CHP**</span> majority ?][? if in_minority_government and CHP_in_government: minority government ?][? if in_emergency_government and CHP_in_government: emergency government ?]
 
 [? if CHP_in_government and not in_CHP_majority and not in_left_front : Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
 
