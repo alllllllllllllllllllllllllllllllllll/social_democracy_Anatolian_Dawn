@@ -844,6 +844,8 @@ Q.in_grand_coalition = 0;
 Q.in_popular_front = 0;
 // left coalition = <span style="color: #E3000F;">**CHP**</span> + TIP + left-splinters
 Q.in_left_front = 0;
+// unholy coalition = <span style="color: #E3000F;">**CHP**</span> + MSP
+Q.in_msp_coalition = 0;
 // emergency government containing the CHP: only president Braun can do this.
 Q.in_emergency_government = 0;
 Q.in_CHP_majority = 0;
