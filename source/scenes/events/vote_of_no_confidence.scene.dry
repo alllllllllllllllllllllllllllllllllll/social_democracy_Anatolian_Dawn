@@ -27,11 +27,11 @@ on-arrival: {!
     Q.z_in_government = 1;
     Q.MHP_in_government = 1;
     Q.MSP_in_government = 1;
-    Q.DP_in_government = 1;
+    Q.CGP_in_government = 1;
     Q.democracystatus -= 5;
 !}
 
-The vote succeeds and our government falls. However, the right wing parties, seeing an opportunity, have refused snap elections and formed a 'Nationalist Front' coalition among themselves, comprising: AP, DP, MSP and MHP.
+The vote succeeds and our government falls. However, the right wing parties, seeing an opportunity, have refused snap elections and formed a 'Nationalist Front' coalition among themselves, comprising: AP, [+ CGP_name +], MSP and MHP.
 
 @caretaker
 on-arrival: {!
