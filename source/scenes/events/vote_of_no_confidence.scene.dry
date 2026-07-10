@@ -1,7 +1,7 @@
 title: Vote of No Confidence
 subtitle: Our coalition partners call for our removal
 new-page: true
-view-if: CHP_in_government = 1 and (in_weimar_coalition = 1 or in_grand_coalition = 1 or in_popular_front = 1 or in_msp_coalition = 1) and coalition_dissent >= 3 and chp_votes < 50 and not constructive_vonc
+view-if: CHP_in_government = 1 and (in_weimar_coalition = 1 or in_grand_coalition = 1 or in_popular_front = 1 or in_msp_coalition = 1) and coalition_dissent >= 4 and chp_votes < 50 and not constructive_vonc
 tags: event
 on-arrival: coalition_dissent = 2 if coalition_dissent > 2
 go-to: vonc_menu
@@ -60,6 +60,6 @@ on-arrival: {!
     Q.democracystatus -= 5;
 !}
 
-The vote succeeds and our government falls. New elections will be held soon.
+The vote succeeds and our government falls. Since the right wing parties think they will benefit from snap elections in our expense, a new government is not formed. New elections will be held soon.
 
 New elections have been set for [+ next_election_month : month +] [+ next_election_year +].
