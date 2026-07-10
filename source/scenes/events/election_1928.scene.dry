@@ -62,7 +62,7 @@ for (var party of Q.parties) {
     }
     Q['change_' + party + '_r'] = Q[party + '_r'] - Q['old_' + party + '_r'];
     var sign = Q['change_' + party + '_r'] > 0 ? '+'  : '';
-    Q['str_change_' + party] = sign + Q['change_' + party + '_r'];//.toFixed(1);
+    Q['str_change_' + party] = sign + Q['change_' + party + '_r'].toFixed(1);
 }
 // calculate new party sum if electoral reform
 if (Q.electoral_threshold && Q.electoral_threshold > 0) {
@@ -81,7 +81,7 @@ if (Q.electoral_threshold && Q.electoral_threshold > 0) {
         }
         Q['change_' + party + '_r'] = Q[party + '_r'] - Q['old_' + party + '_r'];
         var sign = Q['change_' + party + '_r'] > 0 ? '+'  : '';
-        Q['str_change_' + party] = sign + Q['change_' + party + '_r'];//.toFixed(1);
+        Q['str_change_' + party] = sign + Q['change_' + party + '_r'].toFixed(1);
     }
 }
 
@@ -326,24 +326,24 @@ go-to: coalition_menu
 {!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
 
 {!<table>!} 
-{!<tr><td>Party</td><td>Vote share</td><td>% Change</td></tr>!}
-{!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div> !} **CHP:** {!</td><td>!} **[+ chp_r +]%** {!</td><td>!} **[+ str_change_chp +]** {!</td></tr>!}
+{!<tr><td>Party</td><td>Vote share</td><td>% Change</td><td>Seats</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div> !} **CHP:** {!</td><td>!} **[+ chp_r +]%** {!</td><td>!} **[+ str_change_chp +]** {!</td><td>!} **[+ chp_seats +]** {!</td></tr>!}
 
-[? if sapd_formed : {!<tr><td><div class="box" style='background-color:#C40000'> </div> !}SAPD: {!</td><td>!} [+ sapd_r +]% {!</td><td>!} [+ str_change_sapd +] {!</td></tr>!} ?]
+[? if sapd_formed : {!<tr><td><div class="box" style='background-color:#C40000'> </div> !}SAPD: {!</td><td>!} [+ sapd_r +]% {!</td><td>!} [+ str_change_sapd +] {!</td><td>!} [+ sapd_seats +] {!</td></tr>!} ?]
 
-{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !}TIP: {!</td><td>!} [+ TIP_r +]% {!</td><td>!} [+ str_change_TIP +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !}TIP: {!</td><td>!} [+ TIP_r +]% {!</td><td>!} [+ str_change_TIP +] {!</td><td>!} [+ TIP_seats +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#5a5f63'> </div> !} [+ CGP_name +]: {!</td><td>!} [+ CGP_r +]% {!</td><td>!} [+ str_change_CGP +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#5a5f63'> </div> !} [+ CGP_name +]: {!</td><td>!} [+ CGP_r +]% {!</td><td>!} [+ str_change_CGP +] {!</td><td>!} [+ CGP_seats +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#750a6f'> </div> !} AP: {!</td><td>!} [+z_r +]% {!</td><td>!} [+ str_change_z +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#750a6f'> </div> !} AP: {!</td><td>!} [+z_r +]% {!</td><td>!} [+ str_change_z +] {!</td><td>!} [+ z_seats +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#4a4d04'> </div> !} DP: {!</td><td>!} [+ DP_r +]% {!</td><td>!} [+ str_change_DP +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#4a4d04'> </div> !} DP: {!</td><td>!} [+ DP_r +]% {!</td><td>!} [+ str_change_DP +] {!</td><td>!} [+ DP_seats +] {!</td></tr>!}
  
-{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_r +] % {!</td><td>!} [+ str_change_other +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_r +] % {!</td><td>!} [+ str_change_other +] {!</td><td>!} [+ other_seats +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#054521'> </div> !} MSP: {!</td><td>!} [+ MSP_r +]% {!</td><td>!} [+ str_change_MSP +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#054521'> </div> !} MSP: {!</td><td>!} [+ MSP_r +]% {!</td><td>!} [+ str_change_MSP +] {!</td><td>!} [+ MSP_seats +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#954B00'> </div> !} MHP: {!</td><td>!} [+ MHP_r +]% {!</td><td>!} [+ str_change_MHP +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#954B00'> </div> !} MHP: {!</td><td>!} [+ MHP_r +]% {!</td><td>!} [+ str_change_MHP +] {!</td><td>!} [+ MHP_seats +] {!</td></tr>!}
 {!</table>!}
 
 **Potential coalitions** *(226 seats needed for a majority)*
