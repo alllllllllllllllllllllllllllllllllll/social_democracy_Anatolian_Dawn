@@ -88,32 +88,68 @@ if (Q.electoral_threshold && Q.electoral_threshold > 0) {
 // get change arrows and signs
 
 
-var seatMultiplier = 4.2;
-var seatBonus = 30;
+// Tiered proportional apportionment: each party's vote share is weighted more
+// heavily the larger it is (in brackets), seats are then apportioned out of a
+// fixed 450-seat assembly, and any leftover seats from rounding down are
+// settled between CHP and AP (the two historically dominant parties).
+var totalSeatsTarget = 450;
 var majorityThreshold = 226;
 Q.majority_threshold = majorityThreshold;
-Q.total_seats = 0;
+function seatWeightMultiplier(share) {
+    if (share <= 5) {
+        return 0.5;
+    } else if (share <= 15) {
+        return 1.15;
+    } else if (share <= 27) {
+        return 1.25;
+    } else if (share <= 32) {
+        return 1.5;
+    } else if (share <= 40) {
+        return 1.8;
+    } else {
+        return 1.9;
+    }
+}
 Q.largest_party_key = null;
 var largestShare = -1;
+var weightedShares = {};
+var weightedTotal = 0;
 for (var party of Q.parties) {
     var share = Q[party + '_r'] || 0;
-    var seats = Math.max(0, Math.round(share * seatMultiplier));
-    Q[party + '_seats'] = seats;
-    Q.total_seats += seats;
+    var weighted = share * seatWeightMultiplier(share);
+    weightedShares[party] = weighted;
+    weightedTotal += weighted;
     if (share > largestShare || (share === largestShare && !Q.largest_party_key)) {
         largestShare = share;
         Q.largest_party_key = party;
     }
 }
+if (Q.sapd_formed && Q.sapd_r) {
+    var sapdShare = Q.sapd_r;
+    weightedShares['sapd'] = sapdShare * seatWeightMultiplier(sapdShare);
+    weightedTotal += weightedShares['sapd'];
+}
+if (weightedTotal <= 0) {
+    weightedTotal = 1;
+}
+Q.total_seats = 0;
+for (var party of Q.parties) {
+    var seats = Math.max(0, Math.floor(weightedShares[party] / weightedTotal * totalSeatsTarget));
+    Q[party + '_seats'] = seats;
+    Q.total_seats += seats;
+}
 Q.sapd_seats = 0;
 if (Q.sapd_formed && Q.sapd_r) {
-    Q.sapd_seats = Math.max(0, Math.round(Q.sapd_r * seatMultiplier));
+    Q.sapd_seats = Math.max(0, Math.floor(weightedShares['sapd'] / weightedTotal * totalSeatsTarget));
     Q.total_seats += Q.sapd_seats;
 }
-if (Q.largest_party_key) {
-    Q[Q.largest_party_key + '_seats'] += seatBonus;
-    Q.total_seats += seatBonus;
+var seatRemainder = totalSeatsTarget - Q.total_seats;
+if (seatRemainder < 0) {
+    Q.chp_seats += seatRemainder;
+} else if (seatRemainder > 0) {
+    Q.z_seats += seatRemainder;
 }
+Q.total_seats = totalSeatsTarget;
 var partyDisplayNames = {
     'chp': 'CHP',
     'TIP': 'TIP',
