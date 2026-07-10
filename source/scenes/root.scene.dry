@@ -675,10 +675,10 @@ Q.cooperative_progress = 0;
 // Support for party by social group - Turkish political alignment baseline (1972)
 // Rural (45% of population)
 Q.rural_TIP = 0.4;
-Q.rural_chp = 14;
+Q.rural_chp = 13;
 Q.rural_z = 44; // AP uses 'z' variable
 Q.rural_CGP = 4;
-Q.rural_DP = 21;
+Q.rural_DP = 22;
 Q.rural_MSP = 9.6;
 Q.rural_MHP = 4;
 Q.rural_other = 3;
