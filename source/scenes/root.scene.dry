@@ -678,18 +678,18 @@ Q.rural_TIP = 0.4;
 Q.rural_chp = 16;
 Q.rural_z = 44; // AP uses 'z' variable
 Q.rural_CGP = 4;
-Q.rural_DP = 18;
-Q.rural_MSP = 11.6;
+Q.rural_DP = 20;
+Q.rural_MSP = 9.6;
 Q.rural_MHP = 3;
 Q.rural_other = 3;
 
 // Workers (15% of population)
 Q.workers_TIP = 14;
-Q.workers_chp = 43;
+Q.workers_chp = 42;
 Q.workers_z = 18; // AP
-Q.workers_CGP = 2;
-Q.workers_DP = 5;
-Q.workers_MSP = 12;
+Q.workers_CGP = 3;
+Q.workers_DP = 7;
+Q.workers_MSP = 10;
 Q.workers_MHP = 3;
 Q.workers_other = 3;
 
@@ -714,10 +714,10 @@ Q.petty_bourgeoisie_other = 2;
 
 // State Employees (7% of population)
 Q.state_employees_TIP = 0;
-Q.state_employees_chp = 47;
+Q.state_employees_chp = 42;
 Q.state_employees_z = 18; // AP
 Q.state_employees_CGP = 23;
-Q.state_employees_DP = 5;
+Q.state_employees_DP = 7;
 Q.state_employees_MSP = 0;
 Q.state_employees_MHP = 4;
 Q.state_employees_other = 3;
@@ -734,9 +734,9 @@ Q.capitalists_other = 0;
 
 // Alevis (10% of population)
 Q.alevis_TIP = 8;
-Q.alevis_chp = 64;
+Q.alevis_chp = 63;
 Q.alevis_z = 8; // AP
-Q.alevis_CGP = 0;
+Q.alevis_CGP = 1;
 Q.alevis_DP = 1;
 Q.alevis_MSP = 0;
 Q.alevis_MHP = 1;
