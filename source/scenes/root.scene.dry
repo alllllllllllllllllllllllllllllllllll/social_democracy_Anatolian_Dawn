@@ -704,22 +704,22 @@ if (Q.disk_turkis_conflict >= 0.60 && Q.disk_turkis_conflict < 0.80) {
 
 // Petty Bourgeoisie (15% of population)
 Q.petty_bourgeoisie_TIP = 0;
-Q.petty_bourgeoisie_chp = 17;
+Q.petty_bourgeoisie_chp = 15;
 Q.petty_bourgeoisie_z = 36; // AP
 Q.petty_bourgeoisie_CGP = 9;
 Q.petty_bourgeoisie_DP = 15;
 Q.petty_bourgeoisie_MSP = 16;
-Q.petty_bourgeoisie_MHP = 5;
+Q.petty_bourgeoisie_MHP = 7;
 Q.petty_bourgeoisie_other = 2;
 
 // State Employees (7% of population)
 Q.state_employees_TIP = 0;
-Q.state_employees_chp = 42;
+Q.state_employees_chp = 41;
 Q.state_employees_z = 18; // AP
 Q.state_employees_CGP = 27;
 Q.state_employees_DP = 8;
 Q.state_employees_MSP = 0;
-Q.state_employees_MHP = 4;
+Q.state_employees_MHP = 5;
 Q.state_employees_other = 3;
 
 // Capitalists and Land Owners (3% of population)
