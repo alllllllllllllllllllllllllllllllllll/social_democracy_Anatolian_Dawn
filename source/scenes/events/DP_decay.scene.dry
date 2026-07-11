@@ -1,0 +1,18 @@
+title: Decay of the Democratic Party
+subtitle: DP has failed to establish itself as an independent political force!
+view-if: year == 1974 and month = 10 and week = 1
+max-visits: 1
+tags: event
+new-page: true
+face-image: img/DP.png
+
+= Decay of the Democratic Party
+
+DP, as a splinter party of AP, claimed to be the true representative of the right wing 'Demirkırat' tradition and needed to distance itself from AP in order to distinguish itself as a political force. However, whether its because they are sharing a coalition or because DP is sidelined in the opposition and thus is unable to establish a political periphery for itself, DP is increasingly losing its political standing in a political arena dominated by CHP and AP. As DP is kept away from the true spheres of power such as high government and mass media, their electoral standing will keep declining until they are no more a prominent party.
+
+- @dp: And AP is to benefit from its decline.
+
+@dp
+on-arrival: DP_collapse = 1
+
+*DP will gradually decline in the polls until the next general elections*
