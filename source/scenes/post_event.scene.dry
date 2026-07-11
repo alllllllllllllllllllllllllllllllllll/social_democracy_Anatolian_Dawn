@@ -350,10 +350,10 @@ if (Q.month_actions >= 1) {
     
     // DP Collapse - if enabled, DP loses 80% of its support to AP between 1974 and 1977
     if (Q.DP_collapse && Q.year >= 1974 && Q.year <= 1977) {
-        // Transfer 80% of DP support to AP (z) over 4 years (1974-1977 inclusive)
-        // Game runs in bi-weekly turns: 4 years × 24 turns/year = 96 turns
+        // Transfer 80% of DP support to AP (z) over 3 years (1974-1977 inclusive)
+        // Game runs in bi-weekly turns: 3 years × 24 turns/year = 96 turns
         var TOTAL_TRANSFER_PERCENTAGE = 0.80;
-        var YEARS_OF_TRANSFER = 4;
+        var YEARS_OF_TRANSFER = 3;
         var TURNS_PER_YEAR = 24;
         var TOTAL_TURNS = YEARS_OF_TRANSFER * TURNS_PER_YEAR;
         var dp_transfer_rate = TOTAL_TRANSFER_PERCENTAGE / TOTAL_TURNS;
