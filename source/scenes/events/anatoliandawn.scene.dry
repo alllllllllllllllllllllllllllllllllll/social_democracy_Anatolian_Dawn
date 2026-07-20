@@ -4,7 +4,7 @@ view-if: year == 1972 and month = 1 and week = 2
 max-visits: 1
 tags: event
 new-page: true
-face-image: img/ecevittt.jpeg
+face-image: img/ecevitttt.jpeg
 on-display: {!
 var cardEl = document.createElement('div');
 cardEl.className = "face-figure2";
