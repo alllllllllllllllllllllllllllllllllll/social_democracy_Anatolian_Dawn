@@ -4,13 +4,13 @@ view-if: year == 1972 and month = 1 and week = 2
 max-visits: 1
 tags: event
 new-page: true
-face-image: img/ecevitt.webp
+face-image: img/ecevittt.jpeg
 on-display: {!
 var cardEl = document.createElement('div');
 cardEl.className = "face-figure2";
 var image = new Image();
 image.className = "face-img";
-image.src = "img/yenibirturkiye.jpg";
+image.src = "img/yenibirturkiyee.jpg";
 cardEl.appendChild(image);
 var contentDiv = document.querySelector("#page #mid_panel #content");
 contentDiv.appendChild(cardEl);
