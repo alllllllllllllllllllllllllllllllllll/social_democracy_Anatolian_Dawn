@@ -756,6 +756,14 @@ if (Q.chancellor_party == "I") {
     // Ensure economic values remain tied to base paths and modifiers after all adjustments
     syncDirectEconomicChangesToModifiers(false);
     recalcProductionAndHeadlineValues();
+
+    // MSP coalition decay (only applied once per turn, not on every arrival/navigation)
+    if (Q.MSP_in_government == 1 && Q.CHP_in_government == 1 && Q.cyprus_problem == 0) {
+        Q.coalition_dissent += 5/24
+    }
+    if (Q.MSP_in_government == 1 && Q.CHP_in_government == 1 && Q.cyprus_problem !== 0) {
+        Q.coalition_dissent += 10/24
+    }
 }
 Q.has_event = 0;
 Q.calculate_economy_health = 1; // Run economy health calculator every turn
@@ -781,14 +789,6 @@ if (this.ui && this.ui.show_portraits) {
 }
 
 if (typeof window !== "undefined" && window.generateBar) {
-}
-
-// MSP coalition decay
-if (Q.MSP_in_government == 1 && Q.CHP_in_government == 1 && Q.cyprus_problem == 0) {
-    Q.coalition_dissent += 5/24
-}
-if (Q.MSP_in_government == 1 && Q.CHP_in_government == 1 && Q.cyprus_problem !== 0) {
-    Q.coalition_dissent += 10/24
 }
 
 // Recalculate paramilitary force effectiveness (strength × militancy) every turn
