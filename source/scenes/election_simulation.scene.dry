@@ -19,80 +19,23 @@ Q.kurds = 5; // Kurdish political movement
 
 Q.classes = ['rural', 'workers', 'petty_bourgeoisie', 'state_employees', 'capitalists', 'alevis', 'kurds'];
 Q.parties = ['chp', 'TIP', 'z', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
-if (typeof Q.disk_endorsement === 'undefined') {
-    Q.disk_endorsement = false;
+Q.disk_endorsement = false;
+Q.TIP_banned = 0;
+Q.use_decimals = true;
+Q.sim_year = 1973;
+
+// 1973 general election results: CHP 33%, TIP 0%, AP 30%, DP 12%, MSP 12%, CGP 5%, MHP 3%, Others 5%.
+// Applied uniformly across every demographic group so the simulated national result matches exactly.
+for (var c of Q.classes) {
+    Q[c + '_chp'] = 33;
+    Q[c + '_TIP'] = 0;
+    Q[c + '_z'] = 30; // AP uses 'z' variable
+    Q[c + '_DP'] = 12;
+    Q[c + '_MSP'] = 12;
+    Q[c + '_CGP'] = 5;
+    Q[c + '_MHP'] = 3;
+    Q[c + '_other'] = 5;
 }
-
-// Support for party by social group - Turkish political alignment
-// Rural (45% of population)
-Q.rural_TIP = 0;
-Q.rural_chp = 21;
-Q.rural_z = 40; // AP uses 'z' variable
-Q.rural_CGP = 3;
-Q.rural_DP = 15;
-Q.rural_MSP = 15;
-Q.rural_MHP = 3;
-Q.rural_other = 3;
-
-// Workers (15% of population)
-Q.workers_TIP = 0;
-Q.workers_chp = 50;
-Q.workers_z = 18; // AP
-Q.workers_CGP = 2;
-Q.workers_DP = 5;
-Q.workers_MSP = 12;
-Q.workers_MHP = 3;
-Q.workers_other = 3;
-
-// Petty Bourgeoisie (15% of population)
-Q.petty_bourgeoisie_TIP = 0;
-Q.petty_bourgeoisie_chp = 19;
-Q.petty_bourgeoisie_z = 36; // AP
-Q.petty_bourgeoisie_CGP = 7;
-Q.petty_bourgeoisie_DP = 13;
-Q.petty_bourgeoisie_MSP = 18;
-Q.petty_bourgeoisie_MHP = 5;
-Q.petty_bourgeoisie_other = 2;
-
-// State Employees (7% of population)
-Q.state_employees_TIP = 0;
-Q.state_employees_chp = 47;
-Q.state_employees_z = 18; // AP
-Q.state_employees_CGP = 23;
-Q.state_employees_DP = 5;
-Q.state_employees_MSP = 0;
-Q.state_employees_MHP = 4;
-Q.state_employees_other = 3;
-
-// Capitalists and Land Owners (3% of population)
-Q.capitalists_TIP = 0;
-Q.capitalists_chp = 7;
-Q.capitalists_z = 55; // AP
-Q.capitalists_CGP = 8;
-Q.capitalists_DP = 25;
-Q.capitalists_MSP = 5;
-Q.capitalists_MHP = 0;
-Q.capitalists_other = 0;
-
-// Alevis (10% of population)
-Q.alevis_TIP = 0;
-Q.alevis_chp = 66;
-Q.alevis_z = 8; // AP
-Q.alevis_CGP = 0;
-Q.alevis_DP = 1;
-Q.alevis_MSP = 0;
-Q.alevis_MHP = 1;
-Q.alevis_other = 24;
-
-// Kurdish Political Movement (5% of population)
-Q.kurds_TIP = 0;
-Q.kurds_chp = 33;
-Q.kurds_z = 32; // AP
-Q.kurds_CGP = 3;
-Q.kurds_DP = 2;
-Q.kurds_MSP = 3;
-Q.kurds_MHP = 0;
-Q.kurds_other = 19;
 !}
 go-to: election_algorithm
 set-jump: post_election
@@ -110,80 +53,23 @@ Q.kurds = 5; // Kurdish political movement
 
 Q.classes = ['rural', 'workers', 'petty_bourgeoisie', 'state_employees', 'capitalists', 'alevis', 'kurds'];
 Q.parties = ['chp', 'TIP', 'z', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
-if (typeof Q.disk_endorsement === 'undefined') {
-    Q.disk_endorsement = false;
+Q.disk_endorsement = false;
+Q.TIP_banned = 0;
+Q.use_decimals = true;
+Q.sim_year = 1977;
+
+// 1977 general election results: CHP 41%, TIP 0.1%, AP 37%, MSP 9%, MHP 6%, DP 2%, CGP 2%, Others 2.9% (remainder).
+// Applied uniformly across every demographic group so the simulated national result matches exactly.
+for (var c of Q.classes) {
+    Q[c + '_chp'] = 41;
+    Q[c + '_TIP'] = 0.1;
+    Q[c + '_z'] = 37; // AP uses 'z' variable
+    Q[c + '_MSP'] = 9;
+    Q[c + '_MHP'] = 6;
+    Q[c + '_DP'] = 2;
+    Q[c + '_CGP'] = 2;
+    Q[c + '_other'] = 2.9;
 }
-
-// Support for party by social group - slight variations for 1930 economic changes
-// Rural (45% of population) - slight increase in MHP due to rising nationalism
-Q.rural_TIP = 0.3;
-Q.rural_chp = 15;
-Q.rural_z = 44; // AP slightly down
-Q.rural_CGP = 3;
-Q.rural_DP = 14;
-Q.rural_MSP = 13;
-Q.rural_MHP = 7; // increased nationalism
-Q.rural_other = 3.7;
-
-// Workers (15% of population) - more polarized in 1930
-Q.workers_TIP = 18; // increased left support
-Q.workers_chp = 40;
-Q.workers_z = 16; // AP slightly down
-Q.workers_CGP = 2;
-Q.workers_DP = 4;
-Q.workers_MSP = 10;
-Q.workers_MHP = 6; // some nationalist drift
-Q.workers_other = 4;
-
-// Petty Bourgeoisie (15% of population) - economic pressures
-Q.petty_bourgeoisie_TIP = 0;
-Q.petty_bourgeoisie_chp = 17;
-Q.petty_bourgeoisie_z = 33; // economic concerns hurt AP
-Q.petty_bourgeoisie_CGP = 8;
-Q.petty_bourgeoisie_DP = 15;
-Q.petty_bourgeoisie_MSP = 19;
-Q.petty_bourgeoisie_MHP = 7; // nationalist appeal
-Q.petty_bourgeoisie_other = 1;
-
-// State Employees (7% of population) - similar to 1928
-Q.state_employees_TIP = 0;
-Q.state_employees_chp = 45;
-Q.state_employees_z = 19;
-Q.state_employees_CGP = 24;
-Q.state_employees_DP = 5;
-Q.state_employees_MSP = 0;
-Q.state_employees_MHP = 4;
-Q.state_employees_other = 3;
-
-// Capitalists (3% of population) - similar to 1928
-Q.capitalists_TIP = 0;
-Q.capitalists_chp = 6;
-Q.capitalists_z = 56;
-Q.capitalists_CGP = 9;
-Q.capitalists_DP = 24;
-Q.capitalists_MSP = 5;
-Q.capitalists_MHP = 0;
-Q.capitalists_other = 0;
-
-// Alevis (10% of population) - similar to 1928
-Q.alevis_TIP = 9;
-Q.alevis_chp = 63;
-Q.alevis_z = 7;
-Q.alevis_CGP = 0;
-Q.alevis_DP = 1;
-Q.alevis_MSP = 0;
-Q.alevis_MHP = 2;
-Q.alevis_other = 18;
-
-// Kurdish Political Movement (5% of population) - similar to 1928
-Q.kurds_TIP = 9;
-Q.kurds_chp = 32;
-Q.kurds_z = 31;
-Q.kurds_CGP = 3;
-Q.kurds_DP = 2;
-Q.kurds_MSP = 4;
-Q.kurds_MHP = 0;
-Q.kurds_other = 19;
 !}
 go-to: election_algorithm
 set-jump: post_election
@@ -201,80 +87,24 @@ Q.kurds = 5; // Kurdish political movement
 
 Q.classes = ['rural', 'workers', 'petty_bourgeoisie', 'state_employees', 'capitalists', 'alevis', 'kurds'];
 Q.parties = ['chp', 'TIP', 'z', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
-if (typeof Q.disk_endorsement === 'undefined') {
-    Q.disk_endorsement = false;
+Q.disk_endorsement = false;
+Q.TIP_banned = 0;
+Q.use_decimals = true;
+Q.sim_year = 1979;
+
+// 1979 general election results: AP 54%, CHP 29%, Socialist Left (shown in TIP's color) 2%,
+// MSP 7%, MHP 5%, CGP 2%, DP 0%, Others 1% (remainder).
+// Applied uniformly across every demographic group so the simulated national result matches exactly.
+for (var c of Q.classes) {
+    Q[c + '_z'] = 54; // AP uses 'z' variable
+    Q[c + '_chp'] = 29;
+    Q[c + '_TIP'] = 2; // Socialist Left, covered in the same color as TIP
+    Q[c + '_MSP'] = 7;
+    Q[c + '_MHP'] = 5;
+    Q[c + '_CGP'] = 2;
+    Q[c + '_DP'] = 0;
+    Q[c + '_other'] = 1;
 }
-
-// Support for party by social group - 1932 crisis increases polarization
-// Rural (45% of population) - further drift to extreme parties
-Q.rural_TIP = 0.2;
-Q.rural_chp = 12;
-Q.rural_z = 40; // AP hurt by economic crisis
-Q.rural_CGP = 2;
-Q.rural_DP = 12;
-Q.rural_MSP = 16; // religious conservatism rises
-Q.rural_MHP = 12; // nationalism increases
-Q.rural_other = 5.8;
-
-// Workers (15% of population) - crisis increases left and extreme support
-Q.workers_TIP = 22; // increased left support
-Q.workers_chp = 35;
-Q.workers_z = 12; // AP loses worker support
-Q.workers_CGP = 1;
-Q.workers_DP = 3;
-Q.workers_MSP = 8;
-Q.workers_MHP = 12; // economic crisis drives some to extremes
-Q.workers_other = 7;
-
-// Petty Bourgeoisie (15% of population) - crisis hits hard, extremism rises
-Q.petty_bourgeoisie_TIP = 0;
-Q.petty_bourgeoisie_chp = 14;
-Q.petty_bourgeoisie_z = 28; // economic crisis hurts AP more
-Q.petty_bourgeoisie_CGP = 9;
-Q.petty_bourgeoisie_DP = 17;
-Q.petty_bourgeoisie_MSP = 22; // turn to religious parties
-Q.petty_bourgeoisie_MHP = 10; // nationalist appeal increases
-Q.petty_bourgeoisie_other = 0;
-
-// State Employees (7% of population) - still relatively stable
-Q.state_employees_TIP = 0;
-Q.state_employees_chp = 42;
-Q.state_employees_z = 20;
-Q.state_employees_CGP = 25;
-Q.state_employees_DP = 5;
-Q.state_employees_MSP = 0;
-Q.state_employees_MHP = 5;
-Q.state_employees_other = 3;
-
-// Capitalists (3% of population) - seek stability
-Q.capitalists_TIP = 0;
-Q.capitalists_chp = 5;
-Q.capitalists_z = 58; // still prefer AP despite crisis
-Q.capitalists_CGP = 10;
-Q.capitalists_DP = 22;
-Q.capitalists_MSP = 5;
-Q.capitalists_MHP = 0;
-Q.capitalists_other = 0;
-
-// Alevis (10% of population) - remain stable 
-Q.alevis_TIP = 10;
-Q.alevis_chp = 61;
-Q.alevis_z = 6;
-Q.alevis_CGP = 0;
-Q.alevis_DP = 1;
-Q.alevis_MSP = 0;
-Q.alevis_MHP = 4; // some nationalist drift
-Q.alevis_other = 18;
-
-// Kurdish Political Movement (5% of population) - remain stable
-Q.kurds_TIP = 10;
-Q.kurds_chp = 30;
-Q.kurds_z = 29;
-Q.kurds_CGP = 3;
-Q.kurds_DP = 2;
-Q.kurds_MSP = 5;
-Q.kurds_MHP = 0;
-Q.kurds_other = 21;
 !}
 go-to: election_algorithm
 set-jump: post_election
@@ -342,19 +172,15 @@ if (Q.largest_party_key) {
     Q.largest_party = 'CHP';
 }
 
-Q.weimar_coalition = Q.chp_seats + Q.CGP_seats + Q.z_seats;
-Q.grand_coalition = Q.chp_seats + Q.CGP_seats + Q.z_seats + Q.DP_seats;
-Q.bourgeois_coalition = Q.CGP_seats + Q.z_seats + Q.DP_seats + Q.other_seats;
-Q.center_right_coalition = Q.z_seats + Q.CGP_seats + Q.DP_seats + Q.other_seats + Q.MSP_seats;
-Q.right_coalition = Q.z_seats + Q.DP_seats + Q.other_seats + Q.MSP_seats;
-Q.far_right_coalition = Q.MSP_seats + Q.MHP_seats;
-Q.left_coalition = Q.chp_seats + Q.TIP_seats;
+// Coalition options mirrored from the actual Grand National Assembly election scene (election_1928.scene.dry).
+Q.left_coalition = (Q.chp_seats || 0) + (Q.TIP_seats || 0);
+Q.kemalist_coalition = (Q.chp_seats || 0) + (Q.CGP_seats || 0);
+Q.grand_coalition = (Q.chp_seats || 0) + (Q.z_seats || 0);
+Q.unholy_coalition = (Q.chp_seats || 0) + (Q.MSP_seats || 0);
+Q.bourgeois_coalition = (Q.CGP_seats || 0) + (Q.z_seats || 0) + (Q.DP_seats || 0);
+Q.right_coalition = (Q.z_seats || 0) + (Q.DP_seats || 0) + (Q.other_seats || 0) + (Q.MSP_seats || 0);
 Q.nationalist_front_coalition = (Q.z_seats || 0) + (Q.CGP_seats || 0) + (Q.MSP_seats || 0) + (Q.MHP_seats || 0);
-// this is an absurd concept lol
-Q.united_front_coalition = Q.chp_seats + Q.TIP_seats + Q.z_seats + Q.CGP_seats;
-Q.anti_democratic_coalition = Q.TIP_seats + Q.MHP_seats + Q.MSP_seats;
-// aka everyone except nazi, TIP, MSP
-Q.neo_weimar_coalition = Q.chp_seats + Q.CGP_seats + Q.z_seats + Q.DP_seats + Q.other_seats;
+Q.far_right_coalition = (Q.MSP_seats || 0) + (Q.MHP_seats || 0);
 !}
 
 The electoral system is essentially proportional, with the proportion of parliament seats roughly equal to the proportion of votes.
@@ -366,9 +192,9 @@ A working majority in this simulation requires 226 seats, reflecting the +30 sea
 
 **AP (Adalet Partisi):** [+ z_r +]%
 
-**TİP (Türkiye İşçi Partisi):** [+ TIP_r +]%
+**[? if sim_year == 1979: Socialist Left?][? if sim_year != 1979: TİP (Türkiye İşçi Partisi)?]:** [+ TIP_r +]%
 
-**CGP (Cumhuriyetçi Güven Partisi):** [+ CGP_r +]%
+**[+ CGP_name +] (Cumhuriyetçi Güven Partisi):** [+ CGP_r +]%
 
 **DP (Demokratik Parti):** [+ DP_r +]%
 
@@ -378,19 +204,21 @@ A working majority in this simulation requires 226 seats, reflecting the +30 sea
 
 **Other parties:** [+ other_r +]%
 
-**Potential coalitions:**
+**Potential coalitions** *(226 seats needed for a majority)*:
 
-**Left Alliance** (CHP + TİP): [+ left_coalition +] seats
+**Left Coalition** (CHP + TİP): [+ left_coalition +] seats
 
-**Center Coalition** (CHP + AP + CGP): [+ weimar_coalition +] seats
+**Kemalist Coalition** (CHP + [+ CGP_name +]): [+ kemalist_coalition +] seats
 
-**Grand Coalition** (CHP + AP + CGP + DP): [+ grand_coalition +] seats
+**Grand Coalition** (CHP + AP): [+ grand_coalition +] seats
 
-**Conservative Alliance** (AP + CGP + DP + Others): [+ bourgeois_coalition +] seats
+**Unholy Coalition** (CHP + MSP): [+ unholy_coalition +] seats
+
+**Bourgeois Coalition** (AP + [+ CGP_name +] + DP): [+ bourgeois_coalition +] seats
 
 **Right-wing Coalition** (AP + DP + Others + MSP): [+ right_coalition +] seats
 
 **Far-right Coalition** (MSP + MHP): [+ far_right_coalition +] seats
 
-**Nationalist Front** (AP + CGP + MSP + MHP): [+ nationalist_front_coalition +] seats
+**Nationalist Front Coalition** (AP + [+ CGP_name +] + MSP + MHP): [+ nationalist_front_coalition +] seats
 
