@@ -20,7 +20,8 @@ Q.kurds = 5; // Kurdish political movement
 Q.classes = ['rural', 'workers', 'petty_bourgeoisie', 'state_employees', 'capitalists', 'alevis', 'kurds'];
 Q.parties = ['chp', 'TIP', 'z', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
 Q.disk_endorsement = false;
-Q.TIP_banned = 0;
+Q.sim_prev_TIP_banned = (typeof Q.TIP_banned !== 'undefined') ? Q.TIP_banned : 1;
+Q.TIP_banned = 0; // TİP ran openly in these historical elections; restored after the simulation in post_election
 Q.use_decimals = true;
 Q.sim_year = 1973;
 
@@ -54,7 +55,8 @@ Q.kurds = 5; // Kurdish political movement
 Q.classes = ['rural', 'workers', 'petty_bourgeoisie', 'state_employees', 'capitalists', 'alevis', 'kurds'];
 Q.parties = ['chp', 'TIP', 'z', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
 Q.disk_endorsement = false;
-Q.TIP_banned = 0;
+Q.sim_prev_TIP_banned = (typeof Q.TIP_banned !== 'undefined') ? Q.TIP_banned : 1;
+Q.TIP_banned = 0; // TİP ran openly in these historical elections; restored after the simulation in post_election
 Q.use_decimals = true;
 Q.sim_year = 1977;
 
@@ -88,7 +90,8 @@ Q.kurds = 5; // Kurdish political movement
 Q.classes = ['rural', 'workers', 'petty_bourgeoisie', 'state_employees', 'capitalists', 'alevis', 'kurds'];
 Q.parties = ['chp', 'TIP', 'z', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
 Q.disk_endorsement = false;
-Q.TIP_banned = 0;
+Q.sim_prev_TIP_banned = (typeof Q.TIP_banned !== 'undefined') ? Q.TIP_banned : 1;
+Q.TIP_banned = 0; // TİP ran openly in these historical elections; restored after the simulation in post_election
 Q.use_decimals = true;
 Q.sim_year = 1979;
 
@@ -111,6 +114,12 @@ set-jump: post_election
 
 @post_election
 on-arrival: {!
+// restore the real TIP_banned state now that the simulated votes have been computed,
+// so the simulation does not permanently unban TIP in the main game state
+if (typeof Q.sim_prev_TIP_banned !== 'undefined') {
+    Q.TIP_banned = Q.sim_prev_TIP_banned;
+    delete Q.sim_prev_TIP_banned;
+}
 // set congress proportion to votes
 Q.chp_r = Q.chp_votes;
 Q.z_r = Q.z_votes;
