@@ -24,6 +24,11 @@ Q.sim_prev_TIP_banned = (typeof Q.TIP_banned !== 'undefined') ? Q.TIP_banned : 1
 Q.TIP_banned = 0; // TİP ran openly in these historical elections; restored after the simulation in post_election
 Q.use_decimals = true;
 Q.sim_year = 1973;
+// the simulation may be entered directly from the start menu, before the main
+// game state (and CGP_name) has been initialized
+if (typeof Q.CGP_name === 'undefined') {
+    Q.CGP_name = 'CGP';
+}
 
 // 1973 general election results: CHP 33%, TIP 0%, AP 30%, DP 12%, MSP 12%, CGP 5%, MHP 3%, Others 5%.
 // Applied uniformly across every demographic group so the simulated national result matches exactly.
@@ -59,6 +64,11 @@ Q.sim_prev_TIP_banned = (typeof Q.TIP_banned !== 'undefined') ? Q.TIP_banned : 1
 Q.TIP_banned = 0; // TİP ran openly in these historical elections; restored after the simulation in post_election
 Q.use_decimals = true;
 Q.sim_year = 1977;
+// the simulation may be entered directly from the start menu, before the main
+// game state (and CGP_name) has been initialized
+if (typeof Q.CGP_name === 'undefined') {
+    Q.CGP_name = 'CGP';
+}
 
 // 1977 general election results: CHP 41%, TIP 0.1%, AP 37%, MSP 9%, MHP 6%, DP 2%, CGP 2%, Others 2.9% (remainder).
 // Applied uniformly across every demographic group so the simulated national result matches exactly.
@@ -94,6 +104,11 @@ Q.sim_prev_TIP_banned = (typeof Q.TIP_banned !== 'undefined') ? Q.TIP_banned : 1
 Q.TIP_banned = 0; // TİP ran openly in these historical elections; restored after the simulation in post_election
 Q.use_decimals = true;
 Q.sim_year = 1979;
+// the simulation may be entered directly from the start menu, before the main
+// game state (and CGP_name) has been initialized
+if (typeof Q.CGP_name === 'undefined') {
+    Q.CGP_name = 'CGP';
+}
 
 // 1979 general election results: AP 54%, CHP 29%, Socialist Left (shown in TIP's color) 2%,
 // MSP 7%, MHP 5%, CGP 2%, DP 0%, Others 1% (remainder).
@@ -131,45 +146,65 @@ Q.MSP_r = Q.MSP_votes;
 Q.MHP_r = Q.MHP_votes;
 Q.other_r = Q.other_votes;
 
-var seatMultiplier = 4;
-var firstSeatBonus = 40;
-var secondSeatBonus = 10;
+// Tiered proportional apportionment, mirroring the algorithm used for the actual
+// Grand National Assembly election (see post_election_1928 in election_1928.scene.dry):
+// each party's vote share is weighted more heavily the larger it is (in brackets),
+// seats are then apportioned out of a fixed 450-seat assembly, and any leftover
+// seats from rounding down are settled between CHP and AP.
+var totalSeatsTarget = 450;
 var majorityThreshold = 226;
 Q.majority_threshold = majorityThreshold;
-Q.total_seats = 0;
-Q.largest_party_key = null;
-Q.second_party_key = null;
-var largestShare = -1;
-var secondShare = -1;
-for (var party of Q.parties) {
-    var share = Q[party + '_r'] || 0;
-    var seats = Math.max(0, Math.round(share * seatMultiplier));
-    Q[party + '_seats'] = seats;
-    Q.total_seats += seats;
-    if (share > largestShare || (share === largestShare && !Q.largest_party_key)) {
-        secondShare = largestShare;
-        Q.second_party_key = Q.largest_party_key;
-        largestShare = share;
-        Q.largest_party_key = party;
-    } else if (share > secondShare || (share === secondShare && !Q.second_party_key)) {
-        secondShare = share;
-        Q.second_party_key = party;
+function seatWeightMultiplier(share) {
+    if (share <= 5) {
+        return 0.5;
+    } else if (share <= 15) {
+        return 1.15;
+    } else if (share <= 27) {
+        return 1.25;
+    } else if (share <= 32) {
+        return 1.5;
+    } else if (share <= 40) {
+        return 1.8;
+    } else {
+        return 1.9;
     }
 }
+Q.largest_party_key = null;
+var largestShare = -1;
+var weightedShares = {};
+var weightedTotal = 0;
+for (var party of Q.parties) {
+    var share = Q[party + '_r'] || 0;
+    var weighted = share * seatWeightMultiplier(share);
+    weightedShares[party] = weighted;
+    weightedTotal += weighted;
+    if (share > largestShare || (share === largestShare && !Q.largest_party_key)) {
+        largestShare = share;
+        Q.largest_party_key = party;
+    }
+}
+if (weightedTotal <= 0) {
+    weightedTotal = 1;
+}
+Q.total_seats = 0;
+for (var party of Q.parties) {
+    var seats = Math.max(0, Math.floor(weightedShares[party] / weightedTotal * totalSeatsTarget));
+    Q[party + '_seats'] = seats;
+    Q.total_seats += seats;
+}
 Q.sapd_seats = 0;
-if (Q.largest_party_key) {
-    Q[Q.largest_party_key + '_seats'] += firstSeatBonus;
-    Q.total_seats += firstSeatBonus;
+var seatRemainder = totalSeatsTarget - Q.total_seats;
+if (seatRemainder < 0) {
+    Q.chp_seats += seatRemainder;
+} else if (seatRemainder > 0) {
+    Q.z_seats += seatRemainder;
 }
-if (Q.second_party_key) {
-    Q[Q.second_party_key + '_seats'] += secondSeatBonus;
-    Q.total_seats += secondSeatBonus;
-}
+Q.total_seats = totalSeatsTarget;
 var partyDisplayNames = {
     'chp': 'CHP',
     'TIP': 'TIP',
     'z': 'AP',
-    'CGP': 'CGP',
+    'CGP': Q.CGP_name,
     'DP': 'DP',
     'MSP': 'MSP',
     'MHP': 'MHP',
@@ -192,8 +227,8 @@ Q.nationalist_front_coalition = (Q.z_seats || 0) + (Q.CGP_seats || 0) + (Q.MSP_s
 Q.far_right_coalition = (Q.MSP_seats || 0) + (Q.MHP_seats || 0);
 !}
 
-The electoral system is essentially proportional, with the proportion of parliament seats roughly equal to the proportion of votes.
-A working majority in this simulation requires 226 seats, reflecting the +30 seat bonus granted to the largest party.
+The electoral system uses a tiered proportional apportionment, weighting each party's vote share more heavily the larger it is, out of a 450-seat assembly.
+A working majority in this simulation requires 226 seats.
  
 **Election results:**
 
