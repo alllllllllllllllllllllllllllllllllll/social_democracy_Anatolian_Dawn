@@ -444,6 +444,19 @@ a.card:focus .card-tooltip, a.card:hover .card-tooltip {
   margin-bottom: 0.5em;
   overflow: hidden;
 }
+.mhp-figure {
+  border: 5px solid var(--card-border-color);
+  display: inline-block;
+  max-width: 100%;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  overflow: hidden;
+}
+.mhp-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 .guzelistanbul-figure {
   max-width: 60%;
   margin-left: auto;
