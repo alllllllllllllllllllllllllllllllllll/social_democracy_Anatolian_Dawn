@@ -7,9 +7,9 @@ new-page: true
 face-image: img/mhppp.webp
 on-display: {!
 var cardEl = document.createElement('div');
-cardEl.className = "face-figure2";
+cardEl.className = "mhp-figure";
 var image = new Image();
-image.className = "face-img";
+image.className = "mhp-img";
 image.src = "img/mhpp.jpg";
 cardEl.appendChild(image);
 var contentDiv = document.querySelector("#page #mid_panel #content");
