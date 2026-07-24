@@ -51,6 +51,10 @@ const tooltipList = [{
     explanationText: "<img src=img/MHP.png> Nationalist Movement Party"
 },
 {
+    searchString: "CKMP",
+    explanationText: "<img src=img/CKMP.png> Republican Peasant Nation Party. The Nationalist predecessor to MHP."
+},                    
+{
     searchString: "Blue Mosque",
     explanationText: "<img src=img/blue_mosque.jpeg> The Blue Mosque(Sultanahmet Camii) is one of the most iconic monuments of Ottoman architecture, built between 1606-1617. Its famous for being the first Turkish Mosque with 6 minarets."
 },                     
@@ -108,7 +112,11 @@ const colourList = [{
 {
         word: "MHP",
         style: "color: #954B00; font-weight: bold;"
-},
+},       
+{
+        word: "CKMP",
+        style: "color: #b55d04; font-weight: bold;"
+},                    
 {
         word: "SBP",
         style: "color: #9E5747; font-weight: bold;"
