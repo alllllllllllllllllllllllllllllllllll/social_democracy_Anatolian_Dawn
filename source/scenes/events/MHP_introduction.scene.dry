@@ -10,7 +10,7 @@ var cardEl = document.createElement('div');
 cardEl.className = "mhp-figure";
 var image = new Image();
 image.className = "mhp-img";
-image.src = "img/mhpp.jpg";
+image.src = "img/mhppp.png";
 cardEl.appendChild(image);
 var contentDiv = document.querySelector("#page #mid_panel #content");
 contentDiv.appendChild(cardEl);
