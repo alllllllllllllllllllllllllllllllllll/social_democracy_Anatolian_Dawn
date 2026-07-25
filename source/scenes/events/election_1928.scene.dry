@@ -663,7 +663,7 @@ go-to: ministries
 title: As a compromise name, we can offer the name of Orhan Eyüboğlu.
 choose-if: z_relation >= 49
 unavailable-subtitle: you aren't supposed to be here.
-subtitle: Although originally an Orthodox Kemalist, Eyüboğlu has repeatedly proven his loyalty and capability. Now it rests upon his shoulders to form a coalition that can satisfy both sides.
+subtitle: Although originally an Reformist Kemalist, Eyüboğlu has repeatedly proven his loyalty and capability. Now it rests upon his shoulders to form a coalition that can satisfy both sides.
 on-arrival: CHP_in_government = 1; z_in_government = 1; chancellor = "Orhan Eyüboğlu"; chancellor_party = "CHP"; in_grand_coalition = 1; democracystatus += 10;
 go-to: ministries
 

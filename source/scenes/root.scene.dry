@@ -1157,7 +1157,7 @@ Q.celikbas_advisor = 0; // Fethi Çelikbaş
 
 // Turkish advisors - other factions
 Q.avcioglu_advisor = 0; // Doğan Avcıoğlu (Kemalist Marxist)
-Q.eyuboglu_advisor = 0; // Sabahattin Eyüboğlu (Orthodox Kemalist)
+Q.eyuboglu_advisor = 0; // Sabahattin Eyüboğlu (Reformist Kemalist)
 
 // Function to calculate municipality control level dynamically
 function getMunicipalityControlLevel() {

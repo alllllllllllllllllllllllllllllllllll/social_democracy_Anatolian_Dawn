@@ -40,7 +40,7 @@ on-arrival: inonu_advisor = 0; orthodox_kemalists_dissent += 10; n_advisors -= 1
 tags: remove_advisor
 go-to: rm_main
 
-İnönü has been removed as a member. The Orthodox Kemalist faction deeply disapproves.
+İnönü has been removed as a member. The Reformist Kemalist faction deeply disapproves.
 
 @remove_satir
 title: Remove Satır
@@ -49,7 +49,7 @@ on-arrival: satir_advisor = 0; orthodox_kemalists_dissent += 10; n_advisors -= 1
 tags: remove_advisor
 go-to: rm_main
 
-Satır has been removed as a member. The Orthodox Kemalist faction disapproves.
+Satır has been removed as a member. The Reformist Kemalist faction disapproves.
 
 @remove_eyuboglu
 title: Remove Eyüboğlu
@@ -58,7 +58,7 @@ on-arrival: eyuboglu_advisor = 0; orthodox_kemalists_dissent += 5; n_advisors -=
 tags: remove_advisor
 go-to: rm_main
 
-Eyüboğlu has been removed as a member. The Orthodox Kemalist faction disapproves.
+Eyüboğlu has been removed as a member. The Reformist Kemalist faction disapproves.
 
 
 # left kemalists
@@ -71,7 +71,7 @@ tags: remove_advisor
 on-arrival: ecevit_advisor = 0; left_kemalists_dissent += 10; n_advisors -= 1
 go-to: rm_main
 
-Ecevit has been removed as a member. The Left Kemalist faction deeply disapproves.
+Ecevit has been removed as a member. The Leftist Kemalist faction deeply disapproves.
 
 @remove_baykal
 title: Remove Baykal
@@ -80,7 +80,7 @@ tags: remove_advisor
 on-arrival: baykal_advisor = 0; left_kemalists_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Baykal has been removed as a member. The Left Kemalist faction disapproves.
+Baykal has been removed as a member. The Leftist Kemalist faction disapproves.
 
 @remove_aksoy
 title: Remove Aksoy
@@ -89,7 +89,7 @@ tags: remove_advisor
 on-arrival: aksoy_advisor = 0; left_kemalists_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Aksoy has been removed as a member. The Left Kemalist faction disapproves.
+Aksoy has been removed as a member. The Leftist Kemalist faction disapproves.
 
 @remove_ustundag
 title: Remove Üstündağ
@@ -98,7 +98,7 @@ tags: remove_advisor
 on-arrival: ustundag_advisor = 0; left_kemalists_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Üstündağ has been removed as a member. The Left Kemalist faction disapproves.
+Üstündağ has been removed as a member. The Leftist Kemalist faction disapproves.
 
 @remove_rahsan
 title: Remove Rahşan
@@ -116,7 +116,7 @@ tags: remove_advisor
 on-arrival: topuz_advisor = 0; left_kemalists_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Ali Topuz has been removed as a member. The Left Kemalist faction disapproves.
+Ali Topuz has been removed as a member. The Leftist Kemalist faction disapproves.
 
 @remove_gunes
 title: Remove Güneş
@@ -125,7 +125,7 @@ tags: remove_advisor
 on-arrival: gunes_advisor = 0; left_kemalists_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Turan Güneş has been removed as a member. The Left Kemalist faction disapproves.
+Turan Güneş has been removed as a member. The Leftist Kemalist faction disapproves.
 
 @remove_sav
 title: Remove Sav
@@ -134,7 +134,7 @@ tags: remove_advisor
 on-arrival: sav_advisor = 0; left_kemalists_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Önder Sav has been removed as a member. The Left Kemalist faction disapproves.
+Önder Sav has been removed as a member. The Leftist Kemalist faction disapproves.
 
 
 # kemalist marxists
@@ -260,8 +260,8 @@ frequency: 1
 
 
 - @kemalist_marxist: Add Kemalist Marxists
-- @left_kemalist: Add Left Kemalists
-- @orthodox_kemalist: Add Orthodox Kemalists
+- @left_kemalist: Add Leftist Kemalists
+- @orthodox_kemalist: Add Reformist Kemalists
 - @right_kemalist: Add Right Kemalists
 - @nonfactional: Add non-factional members
 - @rm_main: Remove members instead.
