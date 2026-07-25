@@ -16,9 +16,9 @@ If we can decrease the old guard influence enough, we can dismantle their clique
 - @base: Curb the appeal of old guard rhetoric in our base.
 - @leadership: Remove members of the old guard from the party leadership.
 - @tbmm: Consolidate the delegates of TBMM behind Social Democracy.
-- @intellectual: Contract Orthodox Kemalist sentiments among the party Intelligentsia.
+- @intellectual: Contract Reformist Kemalist sentiments among the party Intelligentsia.
 - @local: Wane old guard influence over the municipalities and local party chapters.
-- @finishoff: Dismantle the Orthodox Kemalist clique!
+- @finishoff: Dismantle the Reformist Kemalist clique!
 - @root: We should not do anything about old guard influence at the moment.
 - @easy_discard
 - @cancel_advisor_action
@@ -55,7 +55,7 @@ We gradually purge the local chapters of our party through the executive powers 
 
 @finishoff
 choose-if: ok_congress_seats <= 200
-unavailable-subtitle: Orthodox Kemalists need to have less than 200 seats in the projected party congress for their clique to be dismantled!
+unavailable-subtitle: Reformist Kemalists need to have less than 200 seats in the projected party congress for their clique to be dismantled!
 on-arrival: orthodox_kemalist_destruction = 1; inonuu += 1
 
 We are finally able to end old guard influence over the party and complete the transformation towards a Social Democratic party! Based on an archaic interpretation of progressivism and fear over class politics, Orthodox Kemalism chained the party to electoral failures. Now our party has properly evolved to suit the needs of the time and become the true representative of the masses pushed into poverty. Now Orthodox Kemalism is no longer a prominent current in the party and its clique has collapsed into irrelevancy.

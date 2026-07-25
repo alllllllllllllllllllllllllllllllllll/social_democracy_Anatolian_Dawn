@@ -635,17 +635,17 @@ Strength: [+ km_strength_label +]
 
 Dissent: [+ kemalist_marxists_dissent : dissent +]
 
-**Left Kemalists**
+**Leftist Kemalists**
 
-The Left Kemalists are a group of reformers who want to sway <span style="color: #E3000F;">**CHP**</span> from its authoritarian stance of "For the people, in spite of the people". Led by Bülent Ecevit, they have been gaining power within the party since 1965 and now seems to be overshadowing the old guard in strength and rhetoric. The Left Kemalists want to complete the Kemalist revolution through the spread of progressive values and the improvement of the lives of the labourers, so that Turkey can become the modern republic, in peace with the values of civilization as Atatürk once envisioned.
+The Leftist Kemalists are a group of reformers who want to sway <span style="color: #E3000F;">**CHP**</span> from its authoritarian stance of "For the people, in spite of the people". Led by Bülent Ecevit, they have been gaining power within the party since 1965 and now seems to be overshadowing the old guard in strength and rhetoric. The Leftist Kemalists want to complete the Kemalist revolution through the spread of progressive values and the improvement of the lives of the labourers, so that Turkey can become the modern republic, in peace with the values of civilization as Atatürk once envisioned.
 
 Strength: [+ lk_strength_label +]
 
 Dissent: [+ left_kemalists_dissent : dissent +]
 
-**Orthodox Kemalists**
+**Reformist Kemalists**
 
-The Orthodox Kemalists' perception of Atatürk and Kemalism is much more solid and impervious. Continuing the one party era ideology of "for the people, in spite of the people" Orthodox Kemalists keep advocating for a top-down modernization and reject any motion of class differences or conflict. 
+The Reformist Kemalists' perception of Atatürk and Kemalism is much more solid and impervious. Continuing the one party era ideology of "for the people, in spite of the people" Reformist Kemalists keep advocating for a top-down modernization and reject any motion of class differences or conflict. 
 
 Strength: [+ ok_strength_label +]
 
@@ -653,7 +653,7 @@ Dissent: [+ orthodox_kemalists_dissent : dissent +]
 
 **Right Kemalists**
 
-The Right Kemalists have an especially nationalistic perception of Atatürk, and perhaps share more in ideology with the counter revolutionaries than they do with the other Kemalists. They have increasingly been sidelined by the Left Kemalists during the last decade and even though they have split into a party of their own, CGP, sympathizers of Right Kemalism are still in <span style="color: #E3000F;">**CHP**</span> and search for any opportunity to prevent the rise of Ecevit.
+The Right Kemalists have an especially nationalistic perception of Atatürk, and perhaps share more in ideology with the counter revolutionaries than they do with the other Kemalists. They have increasingly been sidelined by the Leftist Kemalists during the last decade and even though they have split into a party of their own, CGP, sympathizers of Right Kemalism are still in <span style="color: #E3000F;">**CHP**</span> and search for any opportunity to prevent the rise of Ecevit.
 
 Strength: [+ rk_strength_label +]
 

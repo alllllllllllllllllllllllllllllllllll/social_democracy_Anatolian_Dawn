@@ -85,7 +85,7 @@ Mass rallies are a common feature of multi party democracies, especially in the 
 view-if: kemalist_marxists_strength >= 25 and chp_party_leader == "Ecevit" 
 on-arrival: workers_chp += 1*(1-dissent); state_employees_chp -= 5; rural_chp -= 3; petty_bourgeoisie_chp -= 5; capitalists_chp -= 10; kemalist_marxists_strength += 10; left_kemalists_dissent += 10; orthodox_kemalists_dissent += 20; right_kemalists_dissent += 30; disk_relation += 10; coup_timer += 3
 
-Even though <span style="color: #E3000F;">**CHP**</span> stands for the working class, it preaches for justice, not worker domination. The Marxist rhetoric generally fall on deaf ears and gathers serious backlash from even the Left Kemalists within the party. Our enemies are quick to capitalize on this, calling us "unnational" and "godless marxists".
+Even though <span style="color: #E3000F;">**CHP**</span> stands for the working class, it preaches for justice, not worker domination. The Marxist rhetoric generally fall on deaf ears and gathers serious backlash from even the Leftist Kemalists within the party. Our enemies are quick to capitalize on this, calling us "unnational" and "godless marxists".
 	
 @leftofcenter	
 view-if: CHP_party_leader == "Ecevit"

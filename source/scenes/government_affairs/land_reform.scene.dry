@@ -28,7 +28,7 @@ view-if: land_reform < 3
 subtitle: Radical reform
 on-arrival: land_reform = 3; left_kemalists_dissent -= 5; kemalist_marxists_dissent -= 5
 
-The Köykent project is a comprehensive reform proposed by Ecevit that aims to reorganize the countryside and the dispersed villages into larger city-like structures that specialize in agriculture. The Left Kemalist and Marxist Kemalist factions voice their support.
+The Köykent project is a comprehensive reform proposed by Ecevit that aims to reorganize the countryside and the dispersed villages into larger city-like structures that specialize in agriculture. The Leftist Kemalist and Marxist Kemalist factions voice their support.
 
 The party leadership has announced its intention to put the Köykent project in its policy platform, however convincing the rest of the party will take both effort and time.
 
@@ -37,7 +37,7 @@ view-if: land_reform < 2
 subtitle: Significant reform
 on-arrival: land_reform = 2; left_kemalists_dissent -= 3;
 
-We have committed to comprehensive land distribution, promising to break up large estates and redistribute land to small farmers. The Left Kemalist and the Orthodox Kemalist factions voice their support.
+We have committed to comprehensive land distribution, promising to break up large estates and redistribute land to small farmers. The Leftist Kemalist and the Reformist Kemalist factions voice their support.
 
 The party leadership has announced its intention to focus on land distribution in its policy platform, however convincing the rest of the party will take both effort and time.
 
@@ -46,7 +46,7 @@ view-if: land_reform < 1
 subtitle: Modest reform
 on-arrival: land_reform = 1; orthodox_kemalists_dissent -= 5
 
-We have announced support for establishing agricultural cooperatives to help small farmers access credit, equipment, and markets. While modest, this cooperative approach demonstrates our commitment to rural development. Orthodox Kemalist and Right Kemalist factions voice their support.
+We have announced support for establishing agricultural cooperatives to help small farmers access credit, equipment, and markets. While modest, this cooperative approach demonstrates our commitment to rural development. Reformist Kemalist and Right Kemalist factions voice their support.
 
 The party leadership has announced its intention to put rural cooperatives in its policy platform, however convincing the rest of the party will take both effort and time.
 
