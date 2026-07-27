@@ -46,19 +46,26 @@ Q.dissent = 0.05;
 Q.dissent_percent = 5;
 
 // factions
-Q.factions = ['kemalist_marxists', 'left_kemalists', 'orthodox_kemalists', 'right_kemalists'];
+Q.factions = ['kemalist_marxists', 'left_kemalists', 'orthodox_kemalists', 'right_kemalists', 'third_worldists'];
+
+// Third Worldists: a minor faction, disabled by default. Toggle Q.third_worldists_enabled
+// to 1 to make it appear in the party UI (Congress Seat Distribution, Party Quarters,
+// Internal Factions list), where it is positioned to the right of the Kemalist Marxists.
+Q.third_worldists_enabled = 0;
+Q.third_worldists_color = '#5f0f91';
+Q.third_worldists_dissent = 20;
 
 // Per-quarter faction strengths (source of truth)
 // Quarters: Grassroots(20%), Base(15%), Bureaucracy(25%), TBMM(20%), Intelligentsia(10%), Local Leadership(10%)
 // q2 (Bureaucracy) base values are lower because party leadership figures add +1 each dynamically.
 // Starting leadership: İnönü(ok), Kırıkoğlu(km), Ecevit(lk), Satır(ok) → bonus km=1, lk=1, ok=2, rk=0
 // So q2 base + bonus = effective: km(-1+1=0), lk(1+1=2), ok(2+2=4), rk(1+0=1)
-Q.q0_km_str = 2; Q.q0_lk_str = 4; Q.q0_ok_str = 2; Q.q0_rk_str = 1;
-Q.q1_km_str = 1; Q.q1_lk_str = 4; Q.q1_ok_str = 2; Q.q1_rk_str = 1;
-Q.q2_km_str = 0; Q.q2_lk_str = 1; Q.q2_ok_str = 2; Q.q2_rk_str = 1;
-Q.q3_km_str = 1; Q.q3_lk_str = 3; Q.q3_ok_str = 3; Q.q3_rk_str = 2;
-Q.q4_km_str = 2; Q.q4_lk_str = 4; Q.q4_ok_str = 2; Q.q4_rk_str = 1;
-Q.q5_km_str = 1; Q.q5_lk_str = 3; Q.q5_ok_str = 3; Q.q5_rk_str = 1;
+Q.q0_km_str = 2; Q.q0_lk_str = 4; Q.q0_ok_str = 2; Q.q0_rk_str = 1; Q.q0_tw_str = 3;
+Q.q1_km_str = 1; Q.q1_lk_str = 4; Q.q1_ok_str = 2; Q.q1_rk_str = 1; Q.q1_tw_str = 2;
+Q.q2_km_str = 0; Q.q2_lk_str = 1; Q.q2_ok_str = 2; Q.q2_rk_str = 1; Q.q2_tw_str = 1;
+Q.q3_km_str = 1; Q.q3_lk_str = 3; Q.q3_ok_str = 3; Q.q3_rk_str = 2; Q.q3_tw_str = 2;
+Q.q4_km_str = 2; Q.q4_lk_str = 4; Q.q4_ok_str = 2; Q.q4_rk_str = 1; Q.q4_tw_str = 2;
+Q.q5_km_str = 1; Q.q5_lk_str = 3; Q.q5_ok_str = 3; Q.q5_rk_str = 1; Q.q5_tw_str = 1;
 
 // Advisor-to-faction mapping for dynamic Bureaucracy quarter (q2) computation.
 // km = kemalist_marxist, lk = left_kemalist, ok = orthodox_kemalist, rk = right_kemalist, nf = nonfactional
@@ -67,13 +74,13 @@ Q._advisor_factions = 'kirikoglu:km,avcioglu:km,selcuk:km,belli:km,ecevit:lk,bay
 // Compute initial global strengths as weighted averages of per-quarter values
 // q2 effective values = q2 base + party leadership bonus (computed dynamically)
 var _qW = [0.20, 0.15, 0.25, 0.20, 0.10, 0.10];
-var _fKeys = ['km', 'lk', 'ok', 'rk'];
-var _fGlobals = ['kemalist_marxists_strength', 'left_kemalists_strength', 'orthodox_kemalists_strength', 'right_kemalists_strength'];
+var _fKeys = ['km', 'lk', 'ok', 'rk', 'tw'];
+var _fGlobals = ['kemalist_marxists_strength', 'left_kemalists_strength', 'orthodox_kemalists_strength', 'right_kemalists_strength', 'third_worldists_strength'];
 
 // Compute party leadership bonus for q2
 var _afMap = {};
 Q._advisor_factions.split(',').forEach(function(e) { var p = e.split(':'); _afMap[p[0]] = p[1]; });
-var _q2Bonus = {km: 0, lk: 0, ok: 0, rk: 0};
+var _q2Bonus = {km: 0, lk: 0, ok: 0, rk: 0, tw: 0};
 var _advisorList = Object.keys(_afMap);
 for (var _ai = 0; _ai < _advisorList.length; _ai++) {
     var _aName = _advisorList[_ai];
@@ -85,7 +92,7 @@ for (var _ai = 0; _ai < _advisorList.length; _ai++) {
     }
 }
 
-for (var _fi = 0; _fi < 4; _fi++) {
+for (var _fi = 0; _fi < _fKeys.length; _fi++) {
     var _sum = 0;
     for (var _qi = 0; _qi < 6; _qi++) {
         var _val = Q['q' + _qi + '_' + _fKeys[_fi] + '_str'];
@@ -116,6 +123,7 @@ Q.kemalist_marxists_support = 0;
 Q.left_kemalists_support = 1;
 Q.orthodox_kemalists_support = 2;
 Q.right_kemalists_support = 2;
+Q.third_worldists_support = 0;
 
 // secret events...
 Q.unions_independent = 0;
