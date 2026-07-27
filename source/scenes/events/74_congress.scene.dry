@@ -1,0 +1,16 @@
+title: The Party Congress of 1974
+subtitle: test event
+view-if: year == 1974 and month = 12 and week = 2
+max-visits: 1
+tags: event
+new-page: true
+
+= The Party Congress of 1974
+
+test
+
+
+- @root
+  
+@root
+on-arrival: third_worldists_enabled = 1
