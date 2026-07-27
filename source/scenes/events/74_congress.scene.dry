@@ -10,7 +10,7 @@ new-page: true
 test
 
 
-- @tw
+- @tw: test2
   
 @tw
 on-arrival: third_worldists_enabled = 1
