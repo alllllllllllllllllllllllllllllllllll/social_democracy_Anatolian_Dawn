@@ -88,6 +88,23 @@ if (typeof Q.q0_km_str === 'undefined') {
     }
 }
 
+// Third Worldists: backward compatibility with saves created before this faction existed.
+if (typeof Q.third_worldists_enabled === 'undefined') {
+    Q.third_worldists_enabled = 0;
+}
+if (typeof Q.third_worldists_color === 'undefined') {
+    Q.third_worldists_color = '#5f0f91';
+}
+if (typeof Q.third_worldists_dissent === 'undefined') {
+    Q.third_worldists_dissent = 20;
+}
+if (typeof Q.q0_tw_str === 'undefined') {
+    var _twDefaults = [3, 2, 1, 2, 2, 1];
+    for (var _twi = 0; _twi < 6; _twi++) {
+        Q['q' + _twi + '_tw_str'] = _twDefaults[_twi];
+    }
+}
+
 // Per-quarter faction strengths are the source of truth and are only
 // modified by direct assignment in game events/advisors (not by global sync).
 // Global faction strengths are normalized independently by post_event.
@@ -113,23 +130,26 @@ for (var _aniS = 0; _aniS < _aNamesS.length; _aniS++) {
 // Scale: 0-0.5 Nonexistant, 0.5-1.5 Very weak, 1.5-2.5 Weak,
 // 2.5-3.5 Medium, 3.5-4.5 High, 4.5-5.5 Very High, 5.5+ & > others combined = Hegemonic
 var _qWgts = [0.20, 0.15, 0.25, 0.20, 0.10, 0.10];
-var _fKeysS = ['km', 'lk', 'ok', 'rk'];
-var _kmAvg = 0, _lkAvg = 0, _okAvg = 0, _rkAvg = 0;
+var _fKeysS = ['km', 'lk', 'ok', 'rk', 'tw'];
+var _kmAvg = 0, _lkAvg = 0, _okAvg = 0, _rkAvg = 0, _twAvg = 0;
 for (var _qi = 0; _qi < 6; _qi++) {
     var _kmVal = (Q['q' + _qi + '_km_str'] || 0);
     var _lkVal = (Q['q' + _qi + '_lk_str'] || 0);
     var _okVal = (Q['q' + _qi + '_ok_str'] || 0);
     var _rkVal = (Q['q' + _qi + '_rk_str'] || 0);
+    var _twVal = (Q['q' + _qi + '_tw_str'] || 0);
     if (_qi === 2) {
         _kmVal = Math.max(0, _kmVal + _q2Bonus.km);
         _lkVal = Math.max(0, _lkVal + _q2Bonus.lk);
         _okVal = Math.max(0, _okVal + _q2Bonus.ok);
         _rkVal = Math.max(0, _rkVal + _q2Bonus.rk);
+        _twVal = Math.max(0, _twVal + (_q2Bonus.tw || 0));
     }
     _kmAvg += _qWgts[_qi] * _kmVal;
     _lkAvg += _qWgts[_qi] * _lkVal;
     _okAvg += _qWgts[_qi] * _okVal;
     _rkAvg += _qWgts[_qi] * _rkVal;
+    _twAvg += _qWgts[_qi] * _twVal;
 }
 
 function _strengthLabel(score, myAvg, othersAvg) {
@@ -144,11 +164,13 @@ function _strengthLabel(score, myAvg, othersAvg) {
 
 var _rkAvgActive = Q.right_kemalist_split ? 0 : _rkAvg;
 var _okAvgActive = Q.orthodox_kemalist_destruction ? 0 : _okAvg;
+var _twAvgActive = Q.third_worldists_enabled ? _twAvg : 0;
 
-Q.km_strength_label = _strengthLabel(_kmAvg, _kmAvg, _lkAvg + _okAvgActive + _rkAvgActive);
-Q.lk_strength_label = _strengthLabel(_lkAvg, _lkAvg, _kmAvg + _okAvgActive + _rkAvgActive);
-Q.ok_strength_label = Q.orthodox_kemalist_destruction ? "Nonexistant" : _strengthLabel(_okAvg, _okAvg, _kmAvg + _lkAvg + _rkAvgActive);
-Q.rk_strength_label = Q.right_kemalist_split ? "Nonexistant" : _strengthLabel(_rkAvg, _rkAvg, _kmAvg + _lkAvg + _okAvgActive);
+Q.km_strength_label = _strengthLabel(_kmAvg, _kmAvg, _lkAvg + _okAvgActive + _rkAvgActive + _twAvgActive);
+Q.lk_strength_label = _strengthLabel(_lkAvg, _lkAvg, _kmAvg + _okAvgActive + _rkAvgActive + _twAvgActive);
+Q.ok_strength_label = Q.orthodox_kemalist_destruction ? "Nonexistant" : _strengthLabel(_okAvg, _okAvg, _kmAvg + _lkAvg + _rkAvgActive + _twAvgActive);
+Q.rk_strength_label = Q.right_kemalist_split ? "Nonexistant" : _strengthLabel(_rkAvg, _rkAvg, _kmAvg + _lkAvg + _okAvgActive + _twAvgActive);
+Q.tw_strength_label = Q.third_worldists_enabled ? _strengthLabel(_twAvg, _twAvg, _kmAvg + _lkAvg + _okAvgActive + _rkAvgActive) : "Nonexistant";
 !}
 
 = Status
@@ -261,6 +283,8 @@ Municipality Control: [+ municipalities_controlled +]/[+ total_municipalities +]
 = Internal Factions of the CHP
 
 {!<span class="tooltip-text" title="Marxists within the party desire a realignment of the party alongside Socialist elements. Even though many intellectuals such as Tevfik Rüştü Aras and Doğan Avcıoğlu subscribe to this faction, there is no central organization nor a figure that leads the Marxist camp, largely due to ideological differences. However the general secretary, Kamil Kırıkoğlu, is the most prominent member in the party.">Kemalist Marxists</span>!} strength: [+ km_strength_label +], dissent: [+ kemalist_marxists_dissent : dissent +]
+
+[? if third_worldists_enabled : {!<span class="tooltip-text" title="The Third Worldists see the CHP's future aligned with the anti-imperialist movements of the Global South, drawing inspiration from the non-aligned movement and tricontinentalist thought rather than the domestic factional squabbles of Kemalism.">Third Worldists</span>!} strength: [+ tw_strength_label +], dissent: [+ third_worldists_dissent : dissent +] ?]
 
 {!<span class="tooltip-text" title="Leftist Kemalists aka the Left of Center movement is a movement within CHP led by poet Bülent Ecevit which wishes to compliment the Progressive nature of the party with Social Democracy and in face of the growing urban working class, instead of swimming against the current, desires to lead the stream.">Leftist Kemalists</span>!} strength: [+ lk_strength_label +], dissent: [+ left_kemalists_dissent : dissent +]
 
@@ -679,7 +703,7 @@ for (var _piT = 0; _piT < _afPairsT.length; _piT++) {
     var _ppT = _afPairsT[_piT].split(':');
     _afMapT[_ppT[0]] = _ppT[1];
 }
-var _q2BonusT = {km: 0, lk: 0, ok: 0, rk: 0};
+var _q2BonusT = {km: 0, lk: 0, ok: 0, rk: 0, tw: 0};
 var _aNamesT = Object.keys(_afMapT);
 for (var _aniT = 0; _aniT < _aNamesT.length; _aniT++) {
     if (Q[_aNamesT[_aniT] + '_advisor'] === 1 && _afMapT[_aNamesT[_aniT]] !== 'nf') {
@@ -693,6 +717,7 @@ Q.km_congress_seats = 0;
 Q.lk_congress_seats = 0;
 Q.ok_congress_seats = 0;
 Q.rk_congress_seats = 0;
+Q.tw_congress_seats = 0;
 
 function _qLabel(v) {
     if (v < 0.5) return "Nonexistent";
@@ -709,7 +734,8 @@ for (var qi = 0; qi < qPcts.length; qi++) {
     var _eLk = (Q['q' + qi + '_lk_str'] || 0) + (qi === 2 ? _q2BonusT.lk : 0);
     var _eOk = (Q['q' + qi + '_ok_str'] || 0) + (qi === 2 ? _q2BonusT.ok : 0);
     var _eRk = (Q['q' + qi + '_rk_str'] || 0) + (qi === 2 ? _q2BonusT.rk : 0);
-    if (qi === 2) { _eKm = Math.max(0, _eKm); _eLk = Math.max(0, _eLk); _eOk = Math.max(0, _eOk); _eRk = Math.max(0, _eRk); }
+    var _eTw = (Q['q' + qi + '_tw_str'] || 0) + (qi === 2 ? _q2BonusT.tw : 0);
+    if (qi === 2) { _eKm = Math.max(0, _eKm); _eLk = Math.max(0, _eLk); _eOk = Math.max(0, _eOk); _eRk = Math.max(0, _eRk); _eTw = Math.max(0, _eTw); }
 
     var qSeats = Math.round(qPcts[qi] * 1200);
     var qTotal = _eKm + _eLk;
@@ -719,6 +745,9 @@ for (var qi = 0; qi < qPcts.length; qi++) {
     if (!Q.right_kemalist_split) {
         qTotal += _eRk;
     }
+    if (Q.third_worldists_enabled) {
+        qTotal += _eTw;
+    }
     if (qTotal <= 0) qTotal = 1;
 
     Q['q' + qi + '_total'] = qSeats;
@@ -726,25 +755,30 @@ for (var qi = 0; qi < qPcts.length; qi++) {
     Q['q' + qi + '_lk'] = Math.round(qSeats * _eLk / qTotal);
     Q['q' + qi + '_ok'] = Q.orthodox_kemalist_destruction ? 0 : Math.round(qSeats * _eOk / qTotal);
     Q['q' + qi + '_rk'] = Q.right_kemalist_split ? 0 : Math.round(qSeats * _eRk / qTotal);
+    Q['q' + qi + '_tw'] = Q.third_worldists_enabled ? Math.round(qSeats * _eTw / qTotal) : 0;
 
     // Per-quarter strength text labels (use effective values)
     Q['q' + qi + '_km_label'] = _qLabel(_eKm);
     Q['q' + qi + '_lk_label'] = _qLabel(_eLk);
     Q['q' + qi + '_ok_label'] = Q.orthodox_kemalist_destruction ? "Nonexistent" : _qLabel(_eOk);
     Q['q' + qi + '_rk_label'] = Q.right_kemalist_split ? "Nonexistent" : _qLabel(_eRk);
+    Q['q' + qi + '_tw_label'] = Q.third_worldists_enabled ? _qLabel(_eTw) : "Nonexistent";
 
     // Accumulate total seats from per-quarter results
     Q.km_congress_seats += Q['q' + qi + '_km'];
     Q.lk_congress_seats += Q['q' + qi + '_lk'];
     Q.ok_congress_seats += Q['q' + qi + '_ok'];
     Q.rk_congress_seats += Q['q' + qi + '_rk'];
+    Q.tw_congress_seats += Q['q' + qi + '_tw'];
 }
 
 // Adjust rounding to ensure total is exactly 1200
-var seat_diff = 1200 - (Q.km_congress_seats + Q.lk_congress_seats + Q.ok_congress_seats + Q.rk_congress_seats);
+var seat_diff = 1200 - (Q.km_congress_seats + Q.lk_congress_seats + Q.ok_congress_seats + Q.rk_congress_seats + Q.tw_congress_seats);
 if (seat_diff !== 0) {
-    var maxSeats = Math.max(Q.km_congress_seats, Q.lk_congress_seats, Q.ok_congress_seats, Q.rk_congress_seats);
-    if (Q.lk_congress_seats === maxSeats) {
+    var maxSeats = Math.max(Q.km_congress_seats, Q.lk_congress_seats, Q.ok_congress_seats, Q.rk_congress_seats, Q.third_worldists_enabled ? Q.tw_congress_seats : -1);
+    if (Q.third_worldists_enabled && Q.tw_congress_seats === maxSeats) {
+        Q.tw_congress_seats += seat_diff;
+    } else if (Q.lk_congress_seats === maxSeats) {
         Q.lk_congress_seats += seat_diff;
     } else if (Q.ok_congress_seats === maxSeats) {
         Q.ok_congress_seats += seat_diff;
@@ -771,6 +805,10 @@ if (Q.congress_upcoming) {
         if (Q.right_kemalists_support == 1) Q.candidate_1_seats += Q.rk_congress_seats;
         if (Q.right_kemalists_support == 2) Q.candidate_2_seats += Q.rk_congress_seats;
     }
+    if (Q.third_worldists_enabled) {
+        if (Q.third_worldists_support == 1) Q.candidate_1_seats += Q.tw_congress_seats;
+        if (Q.third_worldists_support == 2) Q.candidate_2_seats += Q.tw_congress_seats;
+    }
 }
 
 // Determine outline colors based on candidate support
@@ -785,6 +823,9 @@ function getOutline(support) {
 var pData = [];
 if (Q.km_congress_seats > 0) {
     pData.push({ id: "km", legend: "Kemalist Marxists", name: "KM", seats: Q.km_congress_seats, color: "#701616", outline: getOutline(Q.kemalist_marxists_support) });
+}
+if (Q.third_worldists_enabled && Q.tw_congress_seats > 0) {
+    pData.push({ id: "tw", legend: "Third Worldists", name: "TW", seats: Q.tw_congress_seats, color: Q.third_worldists_color, outline: getOutline(Q.third_worldists_support) });
 }
 if (Q.lk_congress_seats > 0) {
     pData.push({ id: "lk", legend: "Leftist Kemalists", name: "LK", seats: Q.lk_congress_seats, color: "#c76082", outline: getOutline(Q.left_kemalists_support) });
@@ -806,6 +847,10 @@ if (Q.congress_upcoming) {
     if (Q.left_kemalists_support == 2) s2.push("Leftist Kemalists");
     if (Q.kemalist_marxists_support == 1) s1.push("Kemalist Marxists");
     if (Q.kemalist_marxists_support == 2) s2.push("Kemalist Marxists");
+    if (Q.third_worldists_enabled) {
+        if (Q.third_worldists_support == 1) s1.push("Third Worldists");
+        if (Q.third_worldists_support == 2) s2.push("Third Worldists");
+    }
     if (!Q.orthodox_kemalist_destruction) {
         if (Q.orthodox_kemalists_support == 1) s1.push("Reformist Kemalists");
         if (Q.orthodox_kemalists_support == 2) s2.push("Reformist Kemalists");
@@ -875,8 +920,9 @@ if (Q.CHP_party_leader == "Ecevit" || Q.CHP_party_leader == "ecevit") Q.leader_p
 {!<svg id="party-parliament" style="width: 100%; height: 130px;"> </svg>!}
 
 {!<div style="font-size: 0.75em; margin-top: 4px;">
-<span style="color: #701616;">&#9632;</span> Kemalist Marxists: !}[+ km_congress_seats +]{! (<em>!}[+ km_strength_label +]{!</em>)<br>
-<span style="color: #c76082;">&#9632;</span> Leftist Kemalists: !}[+ lk_congress_seats +]{! (<em>!}[+ lk_strength_label +]{!</em>)<br>!}
+<span style="color: #701616;">&#9632;</span> Kemalist Marxists: !}[+ km_congress_seats +]{! (<em>!}[+ km_strength_label +]{!</em>)<br>!}
+[? if third_worldists_enabled : {!<span style="color: !}[+ third_worldists_color +]{!;">&#9632;</span> Third Worldists: !}[+ tw_congress_seats +]{! (<em>!}[+ tw_strength_label +]{!</em>)<br>!} ?]
+{!<span style="color: #c76082;">&#9632;</span> Leftist Kemalists: !}[+ lk_congress_seats +]{! (<em>!}[+ lk_strength_label +]{!</em>)<br>!}
 [? if not orthodox_kemalist_destruction : {!<span style="color: #5a5f63;">&#9632;</span> Reformist Kemalists: !}[+ ok_congress_seats +]{! (<em>!}[+ ok_strength_label +]{!</em>)<br>!} ?]
 [? if not right_kemalist_split : {!<span style="color: #353057;">&#9632;</span> Right Kemalists: !}[+ rk_congress_seats +]{! (<em>!}[+ rk_strength_label +]{!</em>)!} ?]
 {!</div>!}
@@ -886,43 +932,49 @@ if (Q.CHP_party_leader == "Ecevit" || Q.CHP_party_leader == "ecevit") Q.leader_p
 {!<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 0.7em;">
 <div style="border: 1px solid #ccc; padding: 4px; border-radius: 3px;">
 <div style="font-weight: bold;">The Grassroots (20%)</div>
-<div><span style="color: #701616;">Kemalist Marxists:</span> !}[+ q0_km_label +]{!</div>
-<div><span style="color: #c76082;">Leftist Kemalists:</span> !}[+ q0_lk_label +]{!</div>!}
+<div><span style="color: #701616;">Kemalist Marxists:</span> !}[+ q0_km_label +]{!</div>!}
+[? if third_worldists_enabled : {!<div><span style="color: !}[+ third_worldists_color +]{!;">Third Worldists:</span> !}[+ q0_tw_label +]{!</div>!} ?]
+{!<div><span style="color: #c76082;">Leftist Kemalists:</span> !}[+ q0_lk_label +]{!</div>!}
 [? if not orthodox_kemalist_destruction : {!<div><span style="color: #5a5f63;">Reformist Kemalists:</span> !}[+ q0_ok_label +]{!</div>!} ?]
 [? if not right_kemalist_split : {!<div><span style="color: #353057;">Right Kemalists:</span> !}[+ q0_rk_label +]{!</div>!} ?]
 {!</div>
 <div style="border: 1px solid #ccc; padding: 4px; border-radius: 3px;">
 <div style="font-weight: bold;">The Base (15%)</div>
-<div><span style="color: #701616;">Kemalist Marxists:</span> !}[+ q1_km_label +]{!</div>
-<div><span style="color: #c76082;">Leftist Kemalists:</span> !}[+ q1_lk_label +]{!</div>!}
+<div><span style="color: #701616;">Kemalist Marxists:</span> !}[+ q1_km_label +]{!</div>!}
+[? if third_worldists_enabled : {!<div><span style="color: !}[+ third_worldists_color +]{!;">Third Worldists:</span> !}[+ q1_tw_label +]{!</div>!} ?]
+{!<div><span style="color: #c76082;">Leftist Kemalists:</span> !}[+ q1_lk_label +]{!</div>!}
 [? if not orthodox_kemalist_destruction : {!<div><span style="color: #5a5f63;">Reformist Kemalists:</span> !}[+ q1_ok_label +]{!</div>!} ?]
 [? if not right_kemalist_split : {!<div><span style="color: #353057;">Right Kemalists:</span> !}[+ q1_rk_label +]{!</div>!} ?]
 {!</div>
 <div style="border: 1px solid #ccc; padding: 4px; border-radius: 3px;">
 <div style="font-weight: bold;">Party Bureaucracy (25%)</div>
-<div><span style="color: #701616;">Kemalist Marxists:</span> !}[+ q2_km_label +]{!</div>
-<div><span style="color: #c76082;">Leftist Kemalists:</span> !}[+ q2_lk_label +]{!</div>!}
+<div><span style="color: #701616;">Kemalist Marxists:</span> !}[+ q2_km_label +]{!</div>!}
+[? if third_worldists_enabled : {!<div><span style="color: !}[+ third_worldists_color +]{!;">Third Worldists:</span> !}[+ q2_tw_label +]{!</div>!} ?]
+{!<div><span style="color: #c76082;">Leftist Kemalists:</span> !}[+ q2_lk_label +]{!</div>!}
 [? if not orthodox_kemalist_destruction : {!<div><span style="color: #5a5f63;">Reformist Kemalists:</span> !}[+ q2_ok_label +]{!</div>!} ?]
 [? if not right_kemalist_split : {!<div><span style="color: #353057;">Right Kemalists:</span> !}[+ q2_rk_label +]{!</div>!} ?]
 {!</div>
 <div style="border: 1px solid #ccc; padding: 4px; border-radius: 3px;">
 <div style="font-weight: bold;">TBMM Delegation (20%)</div>
-<div><span style="color: #701616;">Kemalist Marxists:</span> !}[+ q3_km_label +]{!</div>
-<div><span style="color: #c76082;">Leftist Kemalists:</span> !}[+ q3_lk_label +]{!</div>!}
+<div><span style="color: #701616;">Kemalist Marxists:</span> !}[+ q3_km_label +]{!</div>!}
+[? if third_worldists_enabled : {!<div><span style="color: !}[+ third_worldists_color +]{!;">Third Worldists:</span> !}[+ q3_tw_label +]{!</div>!} ?]
+{!<div><span style="color: #c76082;">Leftist Kemalists:</span> !}[+ q3_lk_label +]{!</div>!}
 [? if not orthodox_kemalist_destruction : {!<div><span style="color: #5a5f63;">Reformist Kemalists:</span> !}[+ q3_ok_label +]{!</div>!} ?]
 [? if not right_kemalist_split : {!<div><span style="color: #353057;">Right Kemalists:</span> !}[+ q3_rk_label +]{!</div>!} ?]
 {!</div>
 <div style="border: 1px solid #ccc; padding: 4px; border-radius: 3px;">
 <div style="font-weight: bold;">Party Intelligentsia (10%)</div>
-<div><span style="color: #701616;">Kemalist Marxists:</span> !}[+ q4_km_label +]{!</div>
-<div><span style="color: #c76082;">Leftist Kemalists:</span> !}[+ q4_lk_label +]{!</div>!}
+<div><span style="color: #701616;">Kemalist Marxists:</span> !}[+ q4_km_label +]{!</div>!}
+[? if third_worldists_enabled : {!<div><span style="color: !}[+ third_worldists_color +]{!;">Third Worldists:</span> !}[+ q4_tw_label +]{!</div>!} ?]
+{!<div><span style="color: #c76082;">Leftist Kemalists:</span> !}[+ q4_lk_label +]{!</div>!}
 [? if not orthodox_kemalist_destruction : {!<div><span style="color: #5a5f63;">Reformist Kemalists:</span> !}[+ q4_ok_label +]{!</div>!} ?]
 [? if not right_kemalist_split : {!<div><span style="color: #353057;">Right Kemalists:</span> !}[+ q4_rk_label +]{!</div>!} ?]
 {!</div>
 <div style="border: 1px solid #ccc; padding: 4px; border-radius: 3px;">
 <div style="font-weight: bold;">Local Leaderships (10%)</div>
-<div><span style="color: #701616;">Kemalist Marxists:</span> !}[+ q5_km_label +]{!</div>
-<div><span style="color: #c76082;">Leftist Kemalists:</span> !}[+ q5_lk_label +]{!</div>!}
+<div><span style="color: #701616;">Kemalist Marxists:</span> !}[+ q5_km_label +]{!</div>!}
+[? if third_worldists_enabled : {!<div><span style="color: !}[+ third_worldists_color +]{!;">Third Worldists:</span> !}[+ q5_tw_label +]{!</div>!} ?]
+{!<div><span style="color: #c76082;">Leftist Kemalists:</span> !}[+ q5_lk_label +]{!</div>!}
 [? if not orthodox_kemalist_destruction : {!<div><span style="color: #5a5f63;">Reformist Kemalists:</span> !}[+ q5_ok_label +]{!</div>!} ?]
 [? if not right_kemalist_split : {!<div><span style="color: #353057;">Right Kemalists:</span> !}[+ q5_rk_label +]{!</div>!} ?]
 {!</div>
