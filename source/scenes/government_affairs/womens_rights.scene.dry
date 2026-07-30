@@ -27,7 +27,7 @@ The achievements in terms of women's rights are one of our proudest memories of 
 
 @legalize
 view-if: legalizee == 0
-on-arrival: women_reform += 0.2; legalizee += 1; coalition_dissent -= 1 if MSP_in_government == 1; state_employees_chp += 1; if koykent_progress >= 5, rural_chp += 1; petty_bourgeoisie_chp += 1; workers_chp += 1; if koykent_progress < 5, rural_chp -= 1; MSP_relation -= 10; z_relation -= 5
+on-arrival: women_reform += 0.2; legalizee += 1; coalition_dissent -= 1 if MSP_in_government == 1; state_employees_chp += 1; if koykent_progress >= 5 then rural_chp += 1; petty_bourgeoisie_chp += 1; workers_chp += 1; if koykent_progress < 5 then rural_chp -= 1; MSP_relation -= 10; z_relation -= 5
 
 We have legalized abortions on request until the 10th week of pregnancy, the farthest point we could reasonably push for, so that no women is prevented from making decisions about her own body. [? if koykent_progress < 5 : While the largely urban population approves of this reform, we unfortunately cant break the reactionary sentiments within the ruralty yet without a radical land reform.?]
 
@@ -38,7 +38,7 @@ subtitle: -1 budget.
 view-if: legalizee == 1
 choose-if: legalizee == 1 and budget >= 1
 unavailable-subtitle: [? if budget < 1 : Requires 1 budget.?] [? if legalizee != 1 : We have already legalized abortions until the 10th week of pregnancy and made them widely available!?]
-on-arrival: women_reform += 0.4; budget -= 1; legalizee += 1; coalition_dissent -= 1 if MSP_in_government == 1; state_employees_chp += 1; if koykent_progress >= 5, rural_chp += 1; petty_bourgeoisie_CHP += 1; workers_CHP += 1; MSP_relation -= 10; z_relation -= 5
+on-arrival: women_reform += 0.4; budget -= 1; legalizee += 1; coalition_dissent -= 1 if MSP_in_government == 1; state_employees_chp += 1; if koykent_progress >= 5 then rural_chp += 1; petty_bourgeoisie_CHP += 1; workers_CHP += 1; MSP_relation -= 10; z_relation -= 5
 
 Offering abortions on demand across the nation gives women control over their own body and their reproductive rights, improving women's rights significantly. [? if koykent_progress < 5 : While the largely urban population approves of this reform, we unfortunately cant break the reactionary sentiments within the ruralty yet without a radical land reform.?]
 
@@ -80,7 +80,7 @@ We extend the maternal leave to 24 weeks, securing a length period which women c
 @guvenlik
 subtitle: -1 budget.
 choose-if: budget >= 1 and guvenlikk == 0
-unavailable-subtitle:  [? if budget < 1 : Requires 1 budget.?] [? if guvenlikk != 0 : We have already extended social security services to financially vulnerable women!
+unavailable-subtitle:  [? if budget < 1 : Requires 1 budget.?] [? if guvenlikk != 0 : We have already extended social security services to financially vulnerable women!?]
 on-arrival: women_reform += 0.2; budget -= 1; workers_chp += 3; state_employees_chp += 2; petty_bourgeoisie_chp += 1; guvenlikk += 1
 
 We move to include housewives, maids and servants in the social security services; giving women working in households greater independence from their husbands and employers.
