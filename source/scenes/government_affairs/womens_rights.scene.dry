@@ -5,7 +5,7 @@ tags: govt_affairs, cabinet
 view-if: CHP_in_government = 1 and womens_rights_timer = 0 and chancellor_party == "CHP"
 on-arrival: womens_rights_timer += 8; month_actions += 1
 card-image: img/ikd.jpg
-frequency: 50
+frequency: 100
 
 
 = Women's Rights
