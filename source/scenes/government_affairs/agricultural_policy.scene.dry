@@ -16,10 +16,10 @@ Turkey is largely a rural nation that depends on agricultural production. Even t
 
 - @koykent: Actions regarding the Köykent project.
 - @regular: Actions for land reform and cooperatives.
-- @root: Return card to hand.
+- @return: Do not enact any policies for now.
 - @easy_discard
 - @cancel_advisor_action
- 
+
 
 @koykent
 choose-if: land_reform == 3
