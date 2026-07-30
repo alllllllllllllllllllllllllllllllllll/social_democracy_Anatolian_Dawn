@@ -100,7 +100,7 @@ Some of our smaller syndicates have struggled with getting recognition from the 
 
 @SSK
 subtitle: -1 budget. A lot of our workers depend on state support to make it to the end of the month!
-choose-if: budget > 1
+choose-if: budget >= 1
 unavailable-subtitle: Requires 1 budget.
 on-arrival: disk_relation += 4; budget -= 1; inflation += 0.2; unemployment += 0.5; workers_chp += 6 * (1 - dissent)
 
@@ -108,7 +108,7 @@ We increased spending for the Social Security Institute. Our labourers appreciat
 
 @istihdam
 subtitle: -1 budget.
-choose-if: budget > 1
+choose-if: budget >= 1
 unavailable-subtitle: Requires 1 budget.
 on-arrival: disk_relation += 2; police_loyalty -= 0.05; growth_modifier += 0.5; inflation_modifier += 0.5; unemployment_modifier -= 1.5
 
