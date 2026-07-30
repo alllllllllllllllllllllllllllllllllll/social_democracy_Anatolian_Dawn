@@ -477,6 +477,8 @@ Q.tsk_pacified = 0;
 Q.kurdish_political_consciousness = 0.20; // Starting position: Low (0.14-0.24)
 Q.kurdish_radicalism = 0.25; // Starting position: Medium-low (0.24-0.44)
 
+// Women's Rights
+Q.women_reform = 0
 
 // Factors affecting Kurdish Nationalism
 // Consciousness
