@@ -17,6 +17,7 @@ As Ecevit says one of the most important features of Social Democracy is the sup
 
 - @onetime: One time reforms.
 - @repeatable: Repeatable actions.
+- @return: Do not enact any policies for now.
 - @easy_discard
 - @cancel_advisor_action
 
