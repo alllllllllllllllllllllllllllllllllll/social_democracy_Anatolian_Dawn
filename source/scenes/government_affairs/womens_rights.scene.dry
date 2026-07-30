@@ -35,7 +35,7 @@ We have legalized abortions on request until the 10th week of pregnancy, the far
 
 @legalize2
 subtitle: -1 budget.
-view-if: legalizee == 1
+view-if: legalizee >= 1
 choose-if: legalizee == 1 and budget >= 1
 unavailable-subtitle: [? if budget < 1 : Requires 1 budget.?] [? if legalizee != 1 : We have already legalized abortions until the 10th week of pregnancy and made them widely available!?]
 on-arrival: women_reform += 0.4; budget -= 1; legalizee += 1; coalition_dissent -= 1 if MSP_in_government == 1; state_employees_chp += 1; if koykent_progress >= 5 then rural_chp += 1; petty_bourgeoisie_CHP += 1; workers_CHP += 1; MSP_relation -= 10; z_relation -= 5
@@ -53,7 +53,7 @@ Even though men and women may be putting the same labour and contributed the sam
 
 @maternity
 subtitle: -1 budget.
-choose-if: labor_minister_party = "CHP"
+choose-if: labor_minister_party = "CHP" and budget >= 1
 unavailable-subtitle: [? if labor_minister_party != "CHP" : We need the Labour Ministry for this action!?]  [? if budget < 1 : Requires 1 budget.?]
 view-if: maternityy == 0
 on-arrival: women_reform += 0.2; growth_modifier -= 0.1; workers_chp += 3; state_employees_chp += 3; petty_bourgeoisie_chp -= 1; budget -= 1; maternityy += 1
