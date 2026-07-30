@@ -3,60 +3,84 @@ new-page: true
 is-card: true
 tags: govt_affairs, cabinet
 view-if: CHP_in_government = 1 and womens_rights_timer = 0 and chancellor_party == "CHP"
-on-arrival: womens_rights_timer += 10; month_actions += 1
-card-image: img/portraits/PfülfAntonie.jpg
+on-arrival: womens_rights_timer += 8 month_actions += 1
+card-image: img/portraits/ikd.jpg
 frequency: 50
-max-visits: 6
+
 
 = Women's Rights
 
-According to the Constitution, women are equal to men, but this is not followed in practice. Women in the workforce are not paid equally for the same work, in addition to often being pushed out of employment after marriage. Men are still favored in marriage and family policy, and there are restrictions on women's rights in many other domains. And that is not to mention the overwhelming patriarchal culture present in Germany.
+The achievements in terms of women's rights are one of our proudest memories of Atatürk's reforms. Women were given the right of equal education as men in 1924, given equal status in marriages and the right of unrestricted divorce with the modern Turkish civil code in 1926 and given the right to vote and to be elected in 1934, 10 years earlier than even in France. However despite these previous legal achievements, there is a lot that needs to be done in order to achieve full gender inequality in an age where these rights are increasingly coming under scrutiny by the reactionary right. 
 
-For better or for worse, the Socialists stand virtually alone in supporting increased rights for women, and even within the party, the leadership does not consider it a priority. [? if CHP_r < 50 : Unfortunately, women still disproportionately support the bourgeois parties. ?]
+[? if MSP_in_government == 1 : However, women's rights reforms while we are in a coalition with the Islamists will incur significant coalition dissent! ?]
 
-- @labor: Institute policies that help women in the workforce.
-- @family: Reform marriage, divorce, and property law.
-- @welfare: Improve welfare for single mothers and children.
-- @liberalize: Attempt to liberalize abortion laws.
+- @legalize: Legalize abortions on request, which used to be outlawed, until the 10th week of pregnancy.
+- @legalize2: Extend the availability of abortions on request by offering them in all state-owned hospitals.
+- @labor: Announce directives for establishing equal pay for equal work, regardless of gender.
+- @maternity: Standardize paid maternity leaves. 
+- @maternity1: Work on extending the standardized maternity leaves from 16 weeks to 24 weeks.
+- @maternity2: Extend the maternity leaves to 24 weeks.
+- @guvenlik: Move to include housewives, housemaids and servants in the social security network.
 - @return: Do not enact any policies for now.
 - @easy_discard
 - @cancel_advisor_action
 
+@legalize
+view-if: legalizee == 0
+on-arrival: women_reform += 0.2; legalizee += 1; coalition_dissent -= 1 if MSP_in_government == 1; state_employees_chp += 1; if koykent_progress >= 5, rural_chp += 1; petty_bourgeoisie_chp += 1; workers_chp += 1; if koykent_progress < 5, rural_chp -= 1; MSP_relation -= 10; z_relation: -= 5
+
+We have legalized abortions on request until the 10th week of pregnancy, the farthest point we could reasonably push for, so that no women is prevented from making decisions about her own body. [? if koykent_progress < 5 : While the largely urban population approves of this reform, we unfortunately cant break the reactionary sentiments within the ruralty yet without a radical land reform.?]
+
+[? if MSP_in_government == 1 : Delegates from the MSP decry the achievements of this reform calling it "murder" and "immoral", damaging the stability of our coalition.?]
+
+@legalize2
+subtitle: -1 budget.
+view-if: legalizee == 1
+choose-if: legalizee == 1 and budget >= 1
+unavailable-subtitle: [? if budget < 1 : Requires 1 budget.?] [? if legalizee != 1 : We have already legalized abortions until the 10th week of pregnancy and made them widely available!?]
+on-arrival: women_reform += 0.4; budget -= 1 legalizee += 1; coalition_dissent -= 1 if MSP_in_government == 1; state_employees_chp += 1; if koykent_progress >= 5, rural_chp += 1; petty_bourgeoisie_CHP += 1; workers_CHP += 1; MSP_relation -= 10; z_relation: -= 5
+
+Offering abortions on demand across the nation gives women control over their own body and their reproductive rights, improving women's rights significantly. [? if koykent_progress < 5 : While the largely urban population approves of this reform, we unfortunately cant break the reactionary sentiments within the ruralty yet without a radical land reform.?]
+
+[? if MSP_in_government == 1 : Delegates from the MSP decry the achievements of this reform calling it "murder" and "immoral", damaging the stability of our coalition.?]
+
 @labor
-subtitle: Paid maternal leave policies, equal pay policies, and so on.
-on-arrival: womens_work += 1; womens_rights += 1; workers_CHP -= 4 if unemployed > 15; new_middle_CHP += 4*(1-dissent); workers_CHP += 4*(1 - dissent); economic_growth += 0.1;
-max-visits: 3
+choose-if: labor_minister_party = "CHP"
+unavailable-subtitle: We need the Labour Ministry for this action!
+on-arrival: women_reform += 0.2; growth_modifier -= 0.2; inflation_modifier += 0.2; workers_chp += 4; state_employees_chp += 4; petty_bourgeoisie -= 1; capitalists_chp -= 5
 
-These policies mean that our party is increasing in popularity among the "new women" who work outside the home. [? if unemployed > 15 : However, many male workers develop a backlash towards women in the workplace, especially given the rising unemployment. ?]
+Even though men and women may be putting the same labour and contributed the same amount of revenue to a company, women are often paid less due to societal prejudices. Even though equal pay for equal work wont be achieved in one step, we have to continue our efforts.
 
-@family
-subtitle: Change family and inheritance law to treat women more equally.
-on-arrival: family_law += 1; womens_rights += 1; new_middle_CHP += 2*(1-dissent); workers_CHP += 3*(1-dissent); old_middle_CHP -= 2; rural_CHP -= 2; catholics_CHP -= 4; coalition_dissent += 1;z_relation -= 4;
-max-visits: 2
+@maternity
+subtitle: -1 budget.
+choose-if: labor_minister_party = "CHP"
+unavailable-subtitle: [? if labor_minister_party != "CHP" : We need the Labour Ministry for this action!?]  [? if budget < 1 : Requires 1 budget.?]
+view-if: maternityy == 0
+on-arrival: women_reform += 0.2; growth_modifier -= 0.1; workers_chp += 3; state_employees_chp += 3; petty_bourgeoisie_chp -= 1; budget -= 1; maternityy += 1
 
-These policies aim to ensure that women have equal rights within a marriage, including the right to divorce. The more conservative segments of society treat our reforms as deleterious to the social fabric.
+A maternity leave of 16 weeks is given to working women, 8 prenatal and 8 postnatal. Thanks to this reform now women do not have to depend on the mercy of their predominantly male employers to manage their familial affairs. However we can further increase the duration of the leave if we concentrate our efforts.
 
+@maternity1
+view-if: maternityy == 1
+choose-if: labor_minister_party = "CHP"
+unavailable-subtitle: We need the Labour Ministry for this action!
+on-arrival: maternityy += 1
 
-@welfare
-subtitle: -1 budget
-choose-if: budget > 0
-unavailable-subtitle: We don't have enough budget!
-on-arrival: welfare += 1; workers_CHP += 5*(1-dissent); unemployed_CHP += 5*(1-dissent); budget -= 1; womens_rights += 1; coalition_dissent += 1 if welfare >= 1 and unemployed >= 15; unemployed -= 0.4; inflation += 0.2; economic_growth += 0.3;
+We work on extending the maternity leave from 16 weeks to 24 weeks in cooperation with the Labour Ministry.
 
-We have increased welfare spending on women and children. [? if welfare >= 1 and unemployed >= 15 : Some of our coalition partners consider increased welfare spending profligate at this time. ?]
+@maternity2
+subtitle: -1 budget.
+choose-if: labor_minister_party = "CHP" and maternityy == 2 and budget >= 1
+unavailable-subtitle: [? if labor_minister_party != "CHP" : We need the Labour Ministry for this action!?] [? if maternity != 2 : We have already established an extended maternity leave of 24 weeks!?]  [? if budget < 1 : Requires 1 budget.?]
+view-if: maternityy >= 2
+on-arrival: women_reform += 0.4; growth_modifier -= 0.1; workers_chp += 3; state_employees_chp += 3; petty_bourgeoisie_chp -= 1; budget -= 1; maternityy += 1
 
+We extend the maternal leave to 24 weeks, securing a length period which women can dedicate to their newborn children and household without financial pressure from the greedy employers. 
 
-@liberalize
-max-visits: 1
-subtitle: [? if progressive_coalition < 226 : This is unlikely to succeed; we do not have majority support. ?]
-go-to: liberalize_fail if progressive_coalition < 226; liberalize_success if progressive_coalition >= 226
+@guvenlik
+subtitle: -1 budget.
+choose-if: budget >= 1 and guvenlikk == 0
+unavailable-subtitle:  [? if budget < 1 : Requires 1 budget.?] [? if guvenlikk != 0 : We have already extended social security services to financially vulnerable women!
+on-arrival: women_reform += 0.2; budget -= 1; workers_chp += 3; state_employees_chp += 2; petty_bourgeoisie_chp += 1; guvenlikk += 1
 
-@liberalize_fail
-on-arrival: z_relation -= 5; coalition_dissent += 1; workers_CHP += 3*(1-dissent); catholics_CHP -= 5;
-
-Unfortunately, our proposal is voted down in the Reichstag, with the Catholic Center party (our long-time partners) speaking in particularly vehement opposition, and some of our own members breaking party discipline. The activists, feeling demoralized from this attempt, have decided to bide their time.
-
-@liberalize_success
-on-arrival: abortion_rights += 1; womens_rights += 1; coalition_dissent += 1;z_relation -= 8; catholics_CHP -= 10; DP_relation -= 5; workers_CHP += 3*(1-dissent); new_middle_CHP += 3*(1-dissent); workers_z += 3; new_middle_z += 3; old_middle_z += 3; old_middle_MSP += 3; rural_MSP += 3; workers_MHP -= 3; new_middle_MHP -= 3; old_middle_MHP -= 2; rural_MHP -= 2; unemployed_MHP -= 2; unemployed_z += 3; unemployed_CHP += 3*(1-dissent)
-
-With the support of a "progressive coalition" including the TIP and [+ CGP_name +], we have successfully passed a bill to legalize abortion in Germany! This has heartened our more progressive supporters, while hurting our relations with the Center Party. With the increasing political discourse around abortion, the religiously-oriented Center Party and MSP have gained conservative votes at the expense of the MHP.
+We move to include housewives, maids and servants in the social security services; giving women working in households greater independence from their husbands and employers.
