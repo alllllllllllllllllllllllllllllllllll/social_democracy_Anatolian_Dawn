@@ -1,9 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
-
-/* DVP party color — dynamic. Default canonical gold; JS (_applyDvpColor in game.js)
-   darkens it to #8f6e00 when Stresemann dies, and sets it per dvp_succession winner. */
-:root { --dvp-color: #D5AC27; --spd-color: #c00000; --kpd-color: #8B0000; --z-color: #000000; --dnvp-color: #3E88B3; --ddp-color: #FFCC00; --cvp-color: #3E88B3; }
-
 body {
   --bg-color: #f3f3e3;
   --border-color: #000;
@@ -23,7 +17,6 @@ body {
   padding: 0;
   line-height: 155%;
   overflow-y: scroll;
-  min-height: 1300px;
 }
 body.dark-mode {
   --bg-color: #000;
@@ -48,84 +41,11 @@ body.dark-mode .tools {
   border-width: 4px;
   border-color: #888;
 }
-/* Dark mode: the many per-event hover tooltips (*-wrap / *-tip) set a light
-   background but no text color, so they inherit dark mode's light --text-color
-   and become unreadable. Force a consistent dark tooltip in dark mode. */
-body.dark-mode [class*="-tip"] {
-  background: #2a2a2a !important;
-  color: #f0f0f0 !important;
-  border-color: #555 !important;
-}
-/* Dark mode: lots of UI text (status panel labels, party header, leader names)
-   uses hardcoded dark inline colors that don't flip in dark mode. Remap the known
-   hex values to light equivalents; colored party text (red/gold/blue) is untouched.
-   The trailing ';' keeps #000 from matching longer hexes like #0000ff. */
-body.dark-mode [style*="color:#000;"],
-body.dark-mode [style*="color: #000"],
-body.dark-mode [style*="color:#431;"],
-body.dark-mode [style*="color:#222;"]    { color: #e6e6e6 !important; }
-body.dark-mode [style*="color:#4a3728;"] { color: #efe7d8 !important; }
-body.dark-mode [style*="color:#666;"],
-body.dark-mode [style*="color:#333;"]    { color: #a8a8a8 !important; }
-/* Economics / Government section buttons use a dark #431 outline in their border
-   shorthand (the color remap above only catches text). Lighten the outline too. */
-body.dark-mode [style*="solid #431"]     { border-color: #e6e6e6 !important; }
-/* The Economics button's style attr gets re-serialized to rgb() when JS toggles its
-   opacity each action, which breaks the hex [style*] match and reverts it to dark.
-   Target it by id (stable) so it stays light. */
-body.dark-mode #economics-link {
-  color: #e6e6e6 !important;
-  border-color: #e6e6e6 !important;
-}
-/* History-of-the-economy graphs: axis lines + tick labels are black SVG
-   (presentation attributes, not inline style), invisible on the dark panel.
-   Lighten them in dark mode; the data lines keep their red/blue. */
-body.dark-mode #eco-history-charts text { fill: #e6e6e6 !important; }
-body.dark-mode #eco-history-charts line { stroke: #e6e6e6 !important; }
-/* Länder list: the "action available" rows force a white background, which is a
-   glaring white box in dark mode. Use a dark highlight instead. */
-body.dark-mode ul.choices li.state-action-available {
-  background: #3a3a3a !important;
-  box-shadow: 0 0 6px rgba(255, 255, 255, 0.18) !important;
-}
-body.dark-mode ul.choices li.state-action-available:hover {
-  background: #454545 !important;
-}
-/* The cabinet panel keeps a hardcoded cream background even in dark mode, but its
-   text inherits --text-color (which goes light) -> light-on-cream. Force its text
-   dark so it stays readable on the parchment. Party badges keep their own colors. */
-body.dark-mode #cabinet_overview { color: #2a2418; }
-/* The State Affairs panel is also a white card whose text inherits --text-color
-   (light) and whose #4a3728 title gets caught by the remap -> invisible on white.
-   Keep its text dark; restore the title colour within it. */
-body.dark-mode #state-action-panel { color: #2a2418 !important; }
-body.dark-mode #state-action-panel [style*="color:#4a3728;"] { color: #4a3728 !important; }
-/* Prussian election province tooltip is a white box; its label text inherits the
-   (light) dark-mode --text-color -> unreadable. Force it dark. */
-body.dark-mode #prussia-tt { color: #2a2418 !important; }
-/* Executive Affairs: labels, portrait roles/names, the (I) badge and the priorities
-   text all inherit a dark colour on the dark panel. Lighten the lot (inline party
-   colours like the blue DNVP keep theirs). Bar borders lightened too. */
-body.dark-mode .exec-meter-label,
-body.dark-mode .exec-portrait-role,
-body.dark-mode .exec-portrait-name,
-body.dark-mode .exec-portrait-party,
-body.dark-mode .exec-priorities-text { color: #e6e6e6 !important; }
-body.dark-mode .exec-meter-track,
-body.dark-mode .exec-meter-row.exec-meter-divider { border-color: #888 !important; }
-/* Radio/music control buttons (Pause / Skip / Loop) have a black inline border that
-   is invisible on the dark panel. Make the outline + text white in dark mode. */
-body.dark-mode #status-music-pause,
-body.dark-mode #status-music-pause ~ button {
-  border-color: #ffffff !important;
-  color: #ffffff !important;
-}
-header, #content, #dnvp_dashboard, footer {
+header, #content, footer {
   color: var(--text-color);
   max-width: 540px;
   margin: 0 auto;
   overflow: auto;
-  overflow-x: hidden;    /* ADVISOR-WRAP-TINT: kill horizontal scrollbar caused by .advisor-panel-wrap's negative side margins. Remove this line to roll back. */
 }
 #content {
   position: relative;
@@ -133,167 +53,7 @@ header, #content, #dnvp_dashboard, footer {
   font-size: 1.1em;
   padding: 1em 1.5em 1.5em 1.5em;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
-  
-  
 }
-/* ============================================================
-   ADVISOR FACTION TIMER BAR (conjoined, centered header)
-   ============================================================ */
-
-/* Subtle tint to set the advisor section apart from the page bg.
-   Wraps header + ul.pinned-cards so the tint is one continuous rect.
-   Negative side margins pull the tint out to the content column edges. */
-.advisor-panel-wrap {
-    background-color: rgba(0, 0, 0, 0.035);
-    padding: 12px 24px 28px;
-    margin: -9px -28px -26px;
-}
-
-.advisor-panel-wrap .advisor-panel-head {
-    margin: 0 0 4px !important;
-}
-
-.advisor-panel-wrap > ul.pinned-cards {
-    margin: 0;
-}
-
-.advisor-header {
-    font-size: 1em;
-    margin-bottom: 4px;
-    color: var(--text-color);
-    text-align: center;
-    font-weight: bold;
-}
-
-.advisor-timer-conjoined {
-    display: flex;
-    width: 100%;
-    height: 16px;
-    border: 3px solid #000;
-    overflow: hidden;
-    margin-bottom: 2px;
-}
-
-.advisor-timer-segment {
-    flex: 1;
-    height: 100%;
-    background: #e0e0e0;
-    overflow: hidden;
-    position: relative;
-    --tick-bg: #000;
-    --tick-fill: #fff;
-    --divider-color: #fff;
-    --divider-width: 2px;
-}
-
-/* Divider drawn as an overlay at the right edge, doesn't affect layout, so the
-   fill's `left: 50%` actually lands at the visual center of the segment. */
-.advisor-timer-segment::before {
-    content: "";
-    position: absolute;
-    top: 0; bottom: 0;
-    right: 0;
-    width: var(--divider-width, 2px);
-    background: var(--divider-color, #000);
-    z-index: 3;
-}
-
-.advisor-timer-segment:last-child::before {
-    display: none;
-}
-
-/* Inverted: dark gray background, light fill (left two factions).
-   Black separator matches the black filled-ticks scheme on these segments.
-   Black needs to be 1px wider than the white separators to optically match
-   (white halates against dark adjacent fills). */
-.advisor-timer-segment.invert {
-    background: #6a6a6a;
-    --tick-bg: #fff;
-    --tick-fill: #000;
-    /* No tick shift, keeps the visible tick within a small fill centered on the
-       fill's actual mid-point, so the fill reads as centered in the segment. */
-    --tick-bg-shift: 0px;
-    --tick-fill-shift: 0px;
-}
-
-.advisor-timer-segment:not(.invert) {
-    --tick-bg-shift: 0px;
-    --tick-fill-shift: 0px;
-}
-
-/* Shared 7-tick gradient, color is configurable via --tick-color.
-   White ticks get a small left shift via --shift to keep them visually balanced
-   when adjacent to a dark divider (white halates against dark; black does not). */
-.advisor-timer-segment::after,
-.advisor-timer-fill::before {
-    content: "";
-    position: absolute;
-    top: 0; bottom: 0;
-    background: linear-gradient(to right,
-        transparent calc(12.5% + var(--shift, 0px) - 1px), var(--tick-color) calc(12.5% + var(--shift, 0px) - 1px), var(--tick-color) calc(12.5% + var(--shift, 0px) + 1px),
-        transparent calc(12.5% + var(--shift, 0px) + 1px), transparent calc(25% + var(--shift, 0px) - 1px), var(--tick-color) calc(25% + var(--shift, 0px) - 1px), var(--tick-color) calc(25% + var(--shift, 0px) + 1px),
-        transparent calc(25% + var(--shift, 0px) + 1px), transparent calc(37.5% + var(--shift, 0px) - 1px), var(--tick-color) calc(37.5% + var(--shift, 0px) - 1px), var(--tick-color) calc(37.5% + var(--shift, 0px) + 1px),
-        transparent calc(37.5% + var(--shift, 0px) + 1px), transparent calc(50% + var(--shift, 0px) - 1px), var(--tick-color) calc(50% + var(--shift, 0px) - 1px), var(--tick-color) calc(50% + var(--shift, 0px) + 1px),
-        transparent calc(50% + var(--shift, 0px) + 1px), transparent calc(62.5% + var(--shift, 0px) - 1px), var(--tick-color) calc(62.5% + var(--shift, 0px) - 1px), var(--tick-color) calc(62.5% + var(--shift, 0px) + 1px),
-        transparent calc(62.5% + var(--shift, 0px) + 1px), transparent calc(75% + var(--shift, 0px) - 1px), var(--tick-color) calc(75% + var(--shift, 0px) - 1px), var(--tick-color) calc(75% + var(--shift, 0px) + 1px),
-        transparent calc(75% + var(--shift, 0px) + 1px), transparent calc(87.5% + var(--shift, 0px) - 1px), var(--tick-color) calc(87.5% + var(--shift, 0px) - 1px), var(--tick-color) calc(87.5% + var(--shift, 0px) + 1px),
-        transparent calc(87.5% + var(--shift, 0px) + 1px), transparent 100%);
-    pointer-events: none;
-}
-
-/* Background tick layer (visible in unfilled portion). */
-.advisor-timer-segment::after {
-    left: 0; right: 0;
-    --tick-color: var(--tick-bg);
-    --shift: var(--tick-bg-shift, 0px);
-    z-index: 1;
-}
-
-/* Fill tick layer (covers same segment-wide tick grid but clipped to fill).
-   --w is the fill percentage (numeric) set inline; scales/offsets the ::before
-   so its tick grid aligns with the segment's grid. */
-.advisor-timer-fill::before {
-    left: calc(50% - 5000% / var(--w, 100));
-    width: calc(10000% / var(--w, 100));
-    --tick-color: var(--tick-fill);
-    --shift: var(--tick-fill-shift, 0px);
-    z-index: 2;
-}
-
-.advisor-timer-fill {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    height: 100%;
-    transform: translateX(-50%);
-    transition: width 0.4s ease;
-    overflow: hidden;
-    z-index: 2;
-}
-
-.advisor-timer-labels {
-    display: flex;
-    width: 100%;
-    margin-bottom: 8px;
-    margin-left: -15px;
-}
-
-.advisor-timer-label {
-    flex: 1;
-    text-align: center;
-    font-size: 0.75em;
-    min-height: 1.2em;
-    padding: 0;
-    margin: 0;
-}
-
-.advisor-ready {
-    color: #2d7a2d;
-    font-weight: bold;
-    display: inline-block;
-    text-align: center;
-}
-
 footer {
   margin-top: 1em;
   font-size: 0.8em;
@@ -308,14 +68,32 @@ header {
 #header-links {
   text-align: left;
   float: left;
-  display: inline-block;
   margin-bottom: 0.5em;
-  padding-left: 1em;
+  padding: 0;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
-  background-color: var(--bg-color);
+  background-color: transparent;
 }
 #header-links a {
-  padding-right: 1em;
+  display: inline-block;
+  padding: 0.35em 0.9em;
+  margin-right: 0.4em;
+  border-radius: 4px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+#header-links a:last-of-type {
+  margin-right: 0;
+}
+#header-links a:first-of-type {
+  background-color: #5C0000;
+  color: #ff4747;
+}
+#header-links a:nth-of-type(2) {
+  background-color: #035600;
+  color: #4dff47;
+}
+#header-links a:nth-of-type(3) {
+  background-color: #002D58;
+  color: #55adff;
 }
 header h1, header h2 {
   display: inline-block;
@@ -384,22 +162,6 @@ ul.choices li div.subtitle {
   margin-left: 2em;
   font-style: italic;
 }
-ul.choices.monarchismus {
-  display: flex;
-  flex-direction: column;
-  height: 300px;
-  clear: none;
-  margin-right: 0;
-}
-
-ul.choices.monarchismus li {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
 ul.choices li.unavailable {
   color: var(--unavailable-color);
   background-color: var(--unavailable-bg-color) !important;
@@ -499,6 +261,24 @@ blockquote + blockquote.attribution {
     background-color: var(--tab-hover-color);
 }
 
+/* Party sidebar */
+#party_qualities {
+    text-indent: 0;
+    line-height: 1.3em;
+}
+#party_qualities p {
+    text-indent: 0;
+}
+#party_qualities h1 {
+    font-size: 1.1em;
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-shadow: rgba(255, 255, 255, 0.75) 2px 2px 2px,
+                 rgba(0, 0, 0, 0.1) -1px -1px 2px;
+}
+
 
 .overlay {
     background: rgba(0,0,0,0.7);
@@ -513,9 +293,6 @@ blockquote + blockquote.attribution {
     z-index: 2;
     overflow: scroll;
 }
-.options {
-    text-align: right;
-}
 .overlay_top {
     position: relative;
     max-width: 540px;
@@ -526,24 +303,7 @@ blockquote + blockquote.attribution {
 }
 .save_info {
     min-width: 10em;
-    position: relative;
 }
-.save-info-text[data-tip]:hover::after {
-    content: attr(data-tip);
-    position: absolute;
-    left: 0;
-    top: 100%;
-    margin-top: 2px;
-    background: #222;
-    color: #fff;
-    padding: 2px 8px;
-    border: 1px solid #888;
-    font-size: 0.85em;
-    white-space: nowrap;
-    z-index: 10;
-    pointer-events: none;
-}
-
 .background {
     position: fixed;
     width: 100%;
@@ -568,194 +328,6 @@ blockquote + blockquote.attribution {
 #bg1 {
     z-index: -99;
 }
-.b {
-}
-.save_button {
-}
-.delete_button {
-}
-ul.pinned-cards:not(.decorated),
-ul.choices:not(.decorated),
-ul.decks:not(.decorated) { visibility: hidden; }
-
-/* ============================================================
-   ADVISOR LAYOUT, centered rows, small deputy, faction-ordered bottom
-   ============================================================ */
-
-ul.pinned-cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
-    row-gap: 1.0em;              /* was 1.5em, tighter rows */
-    align-items: flex-start;
-    justify-content: center;
-    padding-left: 0;
-    list-style: none;
-}
-
-ul.pinned-cards .pinned-card {
-    margin-right: 0;
-    display: block;
-    text-align: center;
-    
-}
-
-
-
-/* -------- Faction borders -------- */
-a.card[data-faction="authcon"] {
-    border: 8px solid #000435 !important;   /* was #DAA520, dark navy */
-}
-a.card[data-faction="christsoc"] {
-    border: 8px solid #DAB1DA !important;   /* was #A065A0, pale lavender */
-}
-a.card[data-faction="volkskons"] {
-    border: 8px solid #90D5FF !important;   /* already correct */
-}
-a.card[data-faction="volkisch"] {
-    background-color: #06402B !important;
-    border: 8px solid #06402B !important;   /* already correct */
-}
-
-/* -------- Deputy: smaller, same proportions, tucked against leader -------- */
-a.card[data-faction][data-role="deputy"] {
-    width: 80px !important;
-    height: 100px !important;
-    border-width: 5px !important;
-}
-a.card[data-faction][data-role="deputy"] img.card-img {
-    width: 80px !important;
-    height: 100px !important;
-    object-fit: cover;
-}
-ul.pinned-cards li.pinned-card[data-role="deputy"] {
-    align-self: center;          /* was flex-start */
-    margin-left: -0.5em;
-}
-
-ul.pinned-cards li.pinned-card[data-role="deputy"] .card-caption {
-    font-size: 0.85em;
-    line-height: 1.1;
-}
-
-/* ============================================================
-   PASSIVE EFFECT TOOLTIP (used by deputy cards and similar)
-   ============================================================ */
-
-.passive-wrap {
-    position: relative;
-    display: inline;
-    text-decoration: underline;
-    text-decoration-style: dashed;
-    cursor: help;
-}
-
-.passive-tip {
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    min-width: 220px;
-    max-width: 320px;
-    padding: 10px 12px;
-    background: #2a2a2a;
-    color: #f0f0f0;
-    border: 1px solid #555;
-    border-radius: 4px;
-    font-size: 0.9em;
-    line-height: 1.4;
-    text-align: left;
-    text-decoration: none;
-    z-index: 1000;
-    display: none;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    margin-bottom: 6px;
-    /* Prevent the tooltip from inheriting the dashed underline */
-    pointer-events: none;
-}
-
-.passive-wrap:hover .passive-tip {
-    display: block;
-}
-
-/* ============================================================
-   CARD HOVER TOOLTIP (for deputy advisors, etc.)
-   ============================================================ */
-
-/* The tooltip itself, attached inside a card element */
-/* ============================================================
-   CARD HOVER TOOLTIP (for deputy advisors, etc.)
-   ============================================================ */
-
-.card-passive-tip {
-    position: absolute;
-    bottom: calc(100% + 10px);
-    left: 50%;
-    transform: translateX(-50%);
-    min-width: 240px;
-    max-width: 320px;
-    padding: 10px 12px;
-    background: #ffffff;
-    color: #000000;
-    border: 1px solid #000000;
-    font-family: inherit;           /* uses the game's native serif */
-    font-size: 0.9em;
-    line-height: 1.4;
-    text-align: left;
-    z-index: 1000;
-    display: none;
-    box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
-    pointer-events: none;
-    white-space: normal;
-}
-
-/* Show on card hover */
-ul.pinned-cards a.card:hover .card-passive-tip,
-ul.pinned-cards a.card:focus .card-passive-tip {
-    display: block;
-}
-/* ============================================================
-   EMPOWERED FACTION HIGHLIGHT, gold border replaces faction border
-   ============================================================ */
-
-body.empowered-authcon   a.card[data-faction="authcon"],
-body.empowered-christsoc a.card[data-faction="christsoc"],
-body.empowered-volkskons a.card[data-faction="volkskons"],
-body.empowered-volkisch  a.card[data-faction="volkisch"] {
-    border-color: #DAA520 !important;
-    box-shadow: 0 0 12px rgba(218, 165, 32, 0.5), 3px 3px 8px rgba(0,0,0,0.3) !important;
-}
-
-/* -------- Ordering: empowered leader + deputy first -------- */
-body.empowered-authcon   ul.pinned-cards li.pinned-card[data-faction="authcon"][data-role="leader"],
-body.empowered-christsoc ul.pinned-cards li.pinned-card[data-faction="christsoc"][data-role="leader"],
-body.empowered-volkskons ul.pinned-cards li.pinned-card[data-faction="volkskons"][data-role="leader"],
-body.empowered-volkisch  ul.pinned-cards li.pinned-card[data-faction="volkisch"][data-role="leader"] {
-    order: 1;
-}
-body.empowered-authcon   ul.pinned-cards li.pinned-card[data-faction="authcon"][data-role="deputy"],
-body.empowered-christsoc ul.pinned-cards li.pinned-card[data-faction="christsoc"][data-role="deputy"],
-body.empowered-volkskons ul.pinned-cards li.pinned-card[data-faction="volkskons"][data-role="deputy"],
-body.empowered-volkisch  ul.pinned-cards li.pinned-card[data-faction="volkisch"][data-role="deputy"] {
-    order: 2;
-}
-
-/* Row-break spacer, real DOM element inserted by game.js */
-ul.pinned-cards li.advisor-row-break {
-    flex-basis: 100%;
-    width: 100%;
-    height: 0;
-    margin: 0;
-    padding: 0;
-    order: 3;     /* between empowered pair (1-2) and bottom row (10+) */
-    list-style: none;
-}
-
-/* -------- Bottom row: Volkskons → ChristSoc → AuthCon → Völkisch -------- */
-ul.pinned-cards li.pinned-card[data-faction="volkskons"][data-role="leader"]  { order: 10; }
-ul.pinned-cards li.pinned-card[data-faction="christsoc"][data-role="leader"]  { order: 11; }
-ul.pinned-cards li.pinned-card[data-faction="authcon"][data-role="leader"]    { order: 12; }
-ul.pinned-cards li.pinned-card[data-faction="volkisch"][data-role="leader"]   { order: 13; }
 /*
  * Card stuff for dendrynexus
  * 
@@ -764,207 +336,6 @@ ul.pinned-cards li.pinned-card[data-faction="volkisch"][data-role="leader"]   { 
 ul.decks, ul.hand, ul.pinned-cards {
   list-style: none;
   padding-left: 0;
-}
-/* ============================================================
-   FLANKING DEPUTIES (for Hugenberg-era authcon: 2 deputies)
-   ============================================================ */
-
-/* Left deputy: order 1, tucked against leader from the LEFT */
-body.empowered-authcon ul.pinned-cards li.pinned-card[data-faction="authcon"][data-role="deputy"][data-deputy-side="left"] {
-    order: 1;
-    align-self: center;          /* match right deputy's vertical alignment */
-    margin-left: 0;              /* cancel the default deputy -0.5em left margin */
-    margin-right: -0.5em;        /* tuck against leader from the left */
-}
-
-/* Leader stays center */
-body.empowered-authcon ul.pinned-cards li.pinned-card[data-faction="authcon"][data-role="leader"] {
-    order: 2;
-}
-
-/* Right deputy: order 3 */
-body.empowered-authcon ul.pinned-cards li.pinned-card[data-faction="authcon"][data-role="deputy"][data-deputy-side="right"] {
-    order: 3;
-    align-self: center;          /* explicit, belt-and-suspenders */
-    margin-left: -0.5em;         /* tuck against leader from the right */
-    margin-right: 0;
-}
-
-/* Row break */
-body.empowered-authcon ul.pinned-cards li.advisor-row-break {
-    order: 4;
-}
-
-/* Row break still fires after the rightmost element (order 3 now instead of 2) */
-body.empowered-authcon ul.pinned-cards li.advisor-row-break {
-    order: 4;
-}
-
-.hand {
-
-}
-
-/* ============================================================
-   Executive card: locked to row 2, column 3 of the hand grid
-   ============================================================ */
-ul.hand.has-executive {
-    display: grid;
-    grid-template-columns: repeat(3, 140px);
-    /* Fixed row height: 170px card (150 img + 2x10 border) + ~50px caption
-       budget (fits up to two lines). Prevents row 2 from shifting when row 1
-       cards have long, wrapping captions. */
-    grid-auto-rows: 220px;
-    column-gap: 1em;
-    row-gap: 0.5em;
-    justify-content: start;
-    justify-items: center;
-    align-items: start;
-    padding-left: 0;
-    list-style: none;
-}
-ul.hand.has-executive > li,
-ul.hand.has-executive > div.blank-card {
-    margin-right: 0 !important;
-    max-width: none;
-}
-ul.hand.has-executive > li.executive-fixed {
-    grid-column: 3;
-    grid-row: 2;
-}
-ul.hand.has-executive > li.executive-fixed a.card {
-    border-color: #b0b0b0 !important;
-}
-ul.hand.has-executive > li.executive-fixed .card-caption {
-    display: block;
-    text-align: center;
-    font-size: 1em;
-}
-
-/* ============================================================
-   Executive Affairs page (execute scene)
-   ============================================================ */
-#exec_overview {
-    max-width: 700px;
-    margin: 1em auto;
-    color: #000;
-}
-#exec_overview,
-#exec_overview * {
-    font-weight: normal;
-}
-.exec-portraits-row {
-    display: flex;
-    gap: 2em;
-    justify-content: center;
-    margin-bottom: 2em;
-}
-.exec-portrait-card {
-    text-align: center;
-    width: 200px;
-}
-.exec-portrait-frame {
-    width: 180px;
-    height: 220px;
-    margin: 0 auto;
-    border: 6px solid #000;
-    background: #f3f3f3;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.exec-portrait-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-.exec-portrait-empty {
-    font-size: 2em;
-}
-.exec-portrait-role {
-    font-style: italic;
-    margin-top: 0.5em;
-    font-size: 0.95em;
-}
-.exec-portrait-name {
-    margin-top: 0.1em;
-    font-size: 1.1em;
-}
-.exec-portrait-party {
-    font-size: 0.9em;
-    margin-top: 0.1em;
-}
-.exec-reichsbank {
-    border: 3px solid #000;
-    padding: 1em 1.5em;
-    margin: 1em auto;
-    background: rgba(255,255,255,0.6);
-    max-width: 480px;
-}
-.exec-reichsbank-title {
-    font-size: 1.3em;
-    text-align: center;
-    margin-bottom: 0.6em;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-.exec-reichsbank-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-.exec-reichsbank-table td {
-    padding: 0.25em 0.4em;
-    border-bottom: 1px dotted #000;
-    font-size: 0.95em;
-}
-.exec-reichsbank-table td:first-child {
-    width: 50%;
-}
-.exec-reichsbank-table td:last-child {
-    text-align: right;
-}
-.exec-priorities-text {
-    margin: 1.5em auto 0.5em auto;
-    text-align: center;
-    line-height: 1.6;
-    font-size: 1em;
-}
-.exec-meters {
-    max-width: 480px;
-    margin: 0.5em auto 1em auto;
-}
-.exec-meter-row {
-    display: grid;
-    grid-template-columns: 9em 1fr;
-    align-items: center;
-    gap: 0.8em;
-    padding: 0.45em 0;
-    font-size: 0.95em;
-}
-.exec-meter-row.exec-meter-divider {
-    border-bottom: 1px solid #000;
-}
-.exec-meter-label {
-    text-align: left;
-}
-.exec-meter-track {
-    height: 14px;
-    border: 2px solid #000;
-    background: transparent;
-    overflow: hidden;
-}
-.exec-meter-fill {
-    height: 100%;
-    transition: width 0.4s ease, background 0.4s ease;
-}
-
-.pinned-cards {
-
-}
-
-.deck {
-
 }
 
 a.card {
@@ -990,6 +361,13 @@ div.blank-card {
   margin-bottom: 0.5em;
 }
 
+.leader-card a.card {
+  border-color: #B8860B;
+}
+.secretary-card a.card {
+  border-color: silver;
+}
+
 .card-in-hand, .pinned-card, .deck {
   display: inline-block;
   position: relative;
@@ -1009,6 +387,14 @@ div.blank-card {
   text-align: center;
   display: block;
   font-size: 1em;
+}
+
+.card-role-label {
+  text-align: center;
+  display: block;
+  font-size: 0.8em;
+  font-weight: bold;
+  margin-bottom: 2px;
 }
 
 .card-tooltip {
@@ -1038,7 +424,6 @@ a.card:focus .card-tooltip, a.card:hover .card-tooltip {
 /* Unlike cards, face images can have different sizes. */
 .face-figure {
   /*vertical-align: top;*/
-  display: inline-block;
   border: 5px solid var(--card-border-color);
   float: left;
   max-width: 35%;
@@ -1051,6 +436,48 @@ a.card:focus .card-tooltip, a.card:hover .card-tooltip {
   /*max-width: 150px;*/
   vertical-align: bottom;
   object-fit: cover;
+}
+.face-figure2 {
+  border: 5px solid var(--card-border-color);
+  max-width: 100%;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  overflow: hidden;
+}
+.mhp-figure {
+  border: 5px solid var(--card-border-color);
+  display: inline-block;
+  max-width: 100%;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  overflow: hidden;
+}
+.mhp-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.guzelistanbul-figure {
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.guzelistanbul-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.anatoliandawn-figure {
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.anatoliandawn-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 /*
@@ -1095,53 +522,6 @@ img {
     top: 50%;
 }
 
-.rw-tooltip {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    pointer-events: none;
-}
-
-.rw-tooltip img {
-    width: 220px;
-    border: 2px solid #000435;
-}
-
-ul.choices li.ww2-notification {
-    background: linear-gradient(90deg, #1a0505 0%, #3a0a0a 50%, #1a0505 100%) !important;
-    border: 2px solid #8B0000 !important;
-    box-shadow: 0 0 4px rgba(139, 0, 0, 0.3);
-}
-ul.choices li.ww2-notification a,
-ul.choices li.ww2-notification b {
-    color: #ff3030 !important;
-}
-ul.choices li.ww2-notification .subtitle span[style*="00008B"] {
-    color: #6080ff !important;
-}
-ul.choices li.ww2-notification .subtitle b {
-    color: #ffaaaa !important;
-}
-ul.choices li.ww2-notification:hover {
-    background: linear-gradient(90deg, #2a0808 0%, #4a1010 50%, #2a0808 100%) !important;
-    box-shadow: 0 0 6px rgba(139, 0, 0, 0.5);
-}
-
-/* Länder action availability indicator. Same gate as the bulletin
-   (Q[control] === 1 && Q[timer] === 0). Applied by _decorateChoices. */
-ul.choices li.state-action-available {
-    background: #ffffff !important;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
-}
-ul.choices li.state-action-available:hover {
-    background: #fafafa !important;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.28);
-}
-ul.choices li.state-action-unavailable {
-    opacity: 0.45;
-    filter: grayscale(60%);
-}
-
 /* smaller screens: hide left margin */
 @media screen and (max-width: 1200px) {
   .tools {
@@ -1153,304 +533,39 @@ ul.choices li.state-action-unavailable {
   }
 }
 
-
-
-.tools.left-mission {
-    position: absolute;
-    left: -240px;
-    top: 50px;
-    width: 220px;
-    padding: 0.6em;
-    color: var(--text-color);
-    background-color: var(--content-bg-color);
-    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
-    display: none;
-    font-family: Georgia, serif;
-    font-size: 0.9em;
+/* Tooltip styles - these need to be outside media queries to work on all screen sizes */
+.mytooltip {
+  position: relative;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 2px 0;
 }
+.mytooltip:hover { background-color: rgb(100, 140, 220); }
 
-.entente-tab {
-    position: absolute;
-    left: -22px;
-    top: 50px;
-    width: 22px;
-    height: 80px;
-    background-color: var(--content-bg-color);
-    border: 1px solid #431;
-    border-right: none;
-    cursor: pointer;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: Georgia, serif;
-    font-size: 0.7em;
-    color: #431;
-    letter-spacing: 0.05em;
-    box-shadow: -2px 2px 6px rgba(0,0,0,0.1);
+.mytooltip .mytooltiptext {
+  position: fixed;
+  z-index: 999999;
+  width: 120px;
+  background: #fff4e6;
+  color: #3b1f0a;
+  text-align: center;
+  border-radius: 8px;
+  padding: 12px 14px;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+  border: 1px solid #b22222;
+  pointer-events: none;
+  font-size: 14px !important;
+  line-height: 1.5em !important;
+  font-weight: 500 !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  bottom: auto;
+  top: calc(var(--mouse-y, 0px) - 20px);
+  left: calc(var(--mouse-x, 0px));
+  transform: translate(-50%, -100%);
 }
-
-@media screen and (max-width: 1200px) {
-    .tools.left-mission {
-        position: static;
-        width: 90%;
-        margin: 0.4em;
-    }
-    .entente-tab {
-        position: static;
-        writing-mode: horizontal-tb;
-        width: auto;
-        height: auto;
-        padding: 4px 10px;
-        border: 1px solid #431;
-        margin: 8px auto;
-        display: inline-block;
-    }
-}
-/* Mobile FABs*/
-#news-fab, #advisors-fab { display: none; }
-
-@media screen and (max-width: 767px) {
-  html, body {
-    overflow-x: hidden;
-    -webkit-text-size-adjust: 100%;
-    text-size-adjust: 100%;
-
-    touch-action: pan-y;
-    -webkit-overflow-scrolling: auto;
-  }
-
-  img, table, .card-img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  #page, #content, #mid_panel, #tools_wrapper {
-    position: static;
-  }
-  #content {
-    padding: 1em 1em 1.5em 1em;
-    line-height: 1.55;
-  }
-
-
-  header, #content, #dnvp_dashboard, footer,
-  #mid_panel, #tools_wrapper, #qualities,
-  #stats_sidebar, .tools, .tools.left {
-    overflow-y: visible !important;
-    overflow-x: hidden;
-  }
-  .tools.left, .tools.right {
-    float: none;
-    width: auto;
-    margin: 0.4em;
-  }
-
-  .tab_button {
-    min-height: 44px;
-    font-size: 0.95em;
-    padding: 0.4em 0.3em;
-  }
-
-  #header-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4em;
-    justify-content: center;
-  }
-  #header-links a {
-    padding: 0.4em 0.8em;
-  }
-
-  ul.choices li a {
-    padding: 0.6em 0.5em;
-  }
-
-
-  ul.hand.has-executive {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: 0.5em;
-  }
-
-  .tools.right { display: none !important; }
-
-
-  .tools.right.state-mode {
-    display: block !important;
-    position: static !important;
-    left: auto !important;
-    top: auto !important;
-    width: auto !important;
-    margin: 0.4em !important;
-    z-index: auto !important;
-  }
-
-  body.news-open .tools.right {
-    display: block !important;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    border: none;
-    z-index: 9999;
-    background-color: var(--content-bg-color);
-    overflow-y: auto;
-    overscroll-behavior: contain;  
-    box-sizing: border-box;
-    padding: 1em 1em 6em 1em; 
-  }
-
-  body.news-open,
-  body.advisors-open {
-    overflow: hidden !important;
-  }
-
-
-  body.news-open header,
-  body.news-open #stats_sidebar,
-  body.news-open #content,
-  body.news-open #dnvp_dashboard,
-  body.news-open footer {
-    display: none !important;
-  }
-
-
-  body:not(:has(#newsbox-frame)) #news-fab,
-  body:not(:has(#newsbox-frame)) #advisors-fab,
-  body:not(:has(ul.hand)) #news-fab,
-  body:not(:has(ul.hand)) #advisors-fab {
-    display: none !important;
-  }
-
-  #news-fab {
-    display: inline-block;
-    position: fixed;
-    bottom: 16px;
-    left: 16px;
-    padding: 10px 16px;
-    background-color: #fff;
-    color: #000;
-    border: 2px solid #000;
-    font-family: "Minion Pro", Georgia, serif;
-    font-size: 0.95em;
-    font-weight: bold;
-    letter-spacing: 0.05em;
-    line-height: 1;
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.25);
-    cursor: pointer;
-    z-index: 10000;
-  }
-  #news-fab:active { transform: translate(1px, 1px); }
-
-  #news-fab-dot {
-    position: absolute;
-    top: -4px;
-    right: -4px;
-    width: 8px;
-    height: 8px;
-    background: #c00;
-    image-rendering: pixelated;
-    display: none;
-  }
-
-
-  #advisors-fab {
-    display: inline-block;
-    position: fixed;
-    bottom: 16px;
-    left: 110px;
-    padding: 10px 16px;
-    background-color: #fff;
-    color: #000;
-    border: 2px solid #000;
-    font-family: "Minion Pro", Georgia, serif;
-    font-size: 0.95em;
-    font-weight: bold;
-    letter-spacing: 0.05em;
-    line-height: 1;
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.25);
-    cursor: pointer;
-    z-index: 10000;
-  }
-  #advisors-fab:active { transform: translate(1px, 1px); }
-
-  #advisors-fab-dot {
-    position: absolute;
-    top: -4px;
-    right: -4px;
-    width: 8px;
-    height: 8px;
-    background: #c00;
-    image-rendering: pixelated;
-    display: none;
-  }
-
-  .advisor-panel-wrap { display: none !important; }
-
-  body.advisors-open .advisor-panel-wrap {
-    display: block !important;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 1em 1em 6em 1em;
-    background-color: var(--content-bg-color);
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    box-sizing: border-box;
-    z-index: 9999;
-  }
-
-  /* Entente / rearmament side panel (Mission tab) — JS in status.scene.dry
-     positions the button and panel at (sidebar.offsetLeft - 21px / -243px).
-     On mobile the sidebar is at left:0, so both end up off-screen to the left.
-     Override the inline left/top with !important to surface them. */
-  #entente-btn-wrap {
-    position: fixed !important;
-    top: auto !important;
-    bottom: 16px !important;       /* bottom-right corner */
-    left: auto !important;
-    right: 16px !important;
-    width: auto !important;
-    height: auto !important;
-    margin: 0 !important;
-    padding: 10px 16px !important;
-    background-color: #fff !important;
-    color: #000 !important;
-    border: 2px solid #000 !important;
-    font-family: "Minion Pro", Georgia, serif !important;
-    font-size: 0.95em !important;
-    font-weight: bold !important;
-    letter-spacing: 0.05em !important;
-    line-height: 1 !important;
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.25) !important;
-    cursor: pointer !important;
-    z-index: 10001 !important;     /* persists ABOVE news/advisors/entente modals */
-  }
-  /* Hide the three-tick decoration the JS injects, replace with "WAR" text */
-  #entente-btn-wrap > div { display: none !important; }
-  #entente-btn-wrap::before { content: "WAR"; }
-  #entente-btn-wrap:active { transform: translate(1px, 1px); }
-
-  /* Panel becomes a centered modal */
-  #entente-side-panel {
-    position: fixed !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    width: 90vw !important;
-    max-width: 360px !important;
-    max-height: 85vh !important;
-    margin: 0 !important;
-    overflow-y: auto !important;
-    z-index: 9999 !important;
-  }
-}
+.mytooltip:hover .mytooltiptext { opacity: 1; }
+.mytooltip .mytooltiptext img { display: block; margin: 0 auto 4px auto; max-width: 90%; height: auto; }
 
 /* mobile: move the stat box to the top if the screen is too small,
  * and reduce font size slightly. */
@@ -1486,14 +601,6 @@ ul.choices li.state-action-unavailable {
   #mid_panel {
       margin: 0 auto;
   }
-
-  body.shuffle-leadership-scene #content {
-    padding-top: 0;
-}
-
-body.shuffle-leadership-scene #content h1:first-child {
-    margin-top: 0.3em;
-}
 
   /* cards are smaller on mobile */
   .card-img {
@@ -1535,207 +642,32 @@ table {
 }
 
 /* Styles for parties */
-.seat.kpd {
-    fill: var(--kpd-color);
+.seat.TIP {
+    fill: #8B0000;
 }
-.seat.spd {
-    fill: var(--spd-color);
+.seat.chp {
+    fill: #E3000F;
+    stroke: var(--border-color);
+    stroke-width: 1.5px;
 }
-.seat.ddp {
-    fill: var(--ddp-color);
-}
-#reichstag.spd-bloc-merged .seat.ddp {
-    fill: var(--spd-color);
+.seat.CGP {
+    fill: #5a5f63;
 }
 .seat.z {
-    fill: var(--z-color);
+    fill: #750a6f;
 }
-.seat.rlb {
-    fill: #2D5A1B;
-}
-.seat.wp {
-    fill: #D2B48C;
-}
-.seat.cnbl {
-    fill: #7ECDB1;
-}
-.seat.csvd {
-    fill: #1CB3E1;
-}
-.seat.guelph {
-    fill: #62C389;
-}
-.seat.polish {
-    fill: #c55c6a;
-}
-@keyframes whosThatShine {
-  0%   { filter: brightness(1); }
-  50%  { filter: brightness(1.2) drop-shadow(0 0 4px rgba(255,255,255,0.6)); }
-  100% { filter: brightness(1); }
-}
-.ach-icon.shiny {
-  cursor: pointer;
-  animation: whosThatShine 2.4s ease-in-out infinite;
-}
-.ach-icon.shiny:hover {
-  filter: brightness(1.35);
-}
-.others-logo {
-  text-decoration: underline dotted;
-}
-#reichstag.dim-others .seat {
-  opacity: 0.45;
-}
-#reichstag.dim-others .seat.wp,
-#reichstag.dim-others .seat.rlb,
-#reichstag.dim-others .seat.vrp,
-#reichstag.dim-others .seat.guelph,
-#reichstag.dim-others .seat.polish,
-#reichstag.dim-others .seat.cnbl,
-#reichstag.dim-others .seat.csvd,
-#reichstag.dim-others .seat.kvp {
-  opacity: 1;
-  stroke: #444;
-  stroke-width: 1.5px;
-}
-#reichstag.dim-others .seat.dnvp,
-#reichstag.dim-others .seat.cvp {
-  stroke: none;
-}
-
-/* ===== Coalition builder ===== */
-.ce-card {
-  border: 2px solid #876;
-  border-radius: 4px;
-  padding: 0.5em 0.75em;
-  margin: 0.5em 0 0 0;
-  cursor: pointer;
-  color: var(--link-color);
-}
-.ce-card:hover { background-color: var(--link-hover-color); }
-#ce-panel {
-  border: 2px solid #876;
-  border-radius: 0 0 4px 4px;
-  padding: 0.6em 1em 0.45em;
-  margin: -2px 0 0 0;
-  color: #000;
-}
-body.dark-mode #ce-panel { color: #e8e8e8; }
-ul.choices.ce-attached { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
-#ce-panel.ce-has-adopt { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
-#ce-adopt-ul { margin-top: -2px; border-top-left-radius: 0; border-top-right-radius: 0; }
-#ce-panel .ce-hide { text-align: center; margin-top: 0.9em; cursor: pointer; color: var(--link-color); }
-#ce-panel .ce-hide:hover { text-decoration: underline; }
-.ce-head { display: flex; align-items: center; justify-content: center; position: relative; margin-bottom: 0.6em; }
-.ce-title { font-size: 1.05em; text-transform: uppercase; letter-spacing: 0.08em; }
-.ce-close { cursor: pointer; font-size: 1.3em; line-height: 1; color: #000; opacity: 0.55; background: none; border: none; font-family: inherit; padding: 0 0.15em; position: absolute; right: 0; top: 0; }
-body.dark-mode .ce-close { color: #e8e8e8; }
-.ce-close:hover { opacity: 1; }
-.ce-pct { font-weight: bold; }
-.ce-cols { display: flex; gap: 1.1em; align-items: center; margin-top: 0.3em; }
-.ce-col-left { flex: 1 1 52%; min-width: 0; }
-#ce-panel.ce-noselect .ce-col-left { align-self: stretch; display: flex; flex-direction: column; justify-content: center; }
-.ce-col-right { flex: 1 1 48%; min-width: 0; }
-.ce-parl { display: block; width: 100%; max-width: 100%; margin: 0 auto; }
-.ce-parl .seat { transition: opacity 0.15s; }
-.ce-logos { display: block; margin-top: 0.5em; min-height: 36px; }
-.ce-logos-row { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: center; gap: 0.5em 0.9em; }
-.ce-logos-minor { margin-top: 0.55em; }
-.ce-logo { display: flex; flex-direction: column; align-items: center; gap: 2px; cursor: pointer; }
-.ce-logo img { object-fit: contain; display: block; }
-.ce-logo-cap { font-size: 0.68em; opacity: 0.7; letter-spacing: 0.03em; }
-.ce-badge { border-radius: 5px; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15); }
-.ce-badge span { color: #fff; font-size: 0.72em; font-weight: bold; text-shadow: 0 1px 2px rgba(0,0,0,0.45); padding: 0 2px; text-align: center; line-height: 1; }
-.ce-logos-empty { font-size: 0.85em; opacity: 0.6; font-style: italic; }
-.ce-sec { margin-bottom: 0.9em; }
-.ce-sec-h { text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.78em; border-bottom: 1px solid currentColor; padding-bottom: 2px; margin-bottom: 0.4em; text-align: center; }
-.ce-rel-row { display: flex; align-items: baseline; gap: 0.4em; font-size: 0.95em; margin: 0.22em 0; }
-.ce-rel-name { flex: 0 0 4em; text-align: left; font-weight: bold; }
-.ce-rel-val { flex: 1; text-align: center; font-weight: bold; }
-.ce-rel-low { color: #b00; }
-.ce-rel-high { color: #2e7d32; }
-.ce-rel-na { opacity: 0.5; }
-.ce-rel-empty { font-size: 0.85em; opacity: 0.6; font-style: italic; }
-#ce-panel .ce-rel-enth { color: #2e7d32; }
-#ce-panel .ce-rel-will { color: #5f8a2c; }
-#ce-panel .ce-rel-unwill { color: #c0681c; }
-#ce-panel .ce-rel-none { color: #b00020; }
-.ce-rel-in .ce-rel-name { font-weight: bold; }
-body.dark-mode #ce-panel .ce-rel-enth { color: #7ec48a; }
-body.dark-mode #ce-panel .ce-rel-will { color: #aac46a; }
-body.dark-mode #ce-panel .ce-rel-unwill { color: #e0975a; }
-body.dark-mode #ce-panel .ce-rel-none { color: #e07a7a; }
-.ce-sec-name { margin-top: 0.7em; text-align: center; }
-.ce-coalname { font-size: 1.15em; font-weight: bold; line-height: 1.2; }
-.ce-leverage-line { font-size: 0.9em; margin-top: 0.25em; opacity: 0.85; }
-.ce-lev-num { font-size: 1.7em; font-weight: bold; }
-.ce-sec-pie { text-align: center; }
-.ce-pie { width: 118px; margin: 0.15em auto 0; }
-.ce-pie-svg { width: 118px; height: 118px; display: block; }
-.ce-pie-status { font-size: 0.9em; }
-#ce-panel .ce-pie-status.ce-maj { color: #2e7d32; font-weight: bold; }
-body.dark-mode #ce-panel .ce-pie-status.ce-maj { color: #7ec48a; }
-.ce-pie-status .ce-pct { font-size: 1.1em; }
-@media (max-width: 480px) { .ce-cols { flex-direction: column; } .ce-col-left, .ce-col-right { flex-basis: auto; width: 100%; } }
-
-.seat.vrp {
-    fill: #9a762f;
-}
-.seat.bvp {
-    fill: #69A2BE;
-}
-.seat.dvp {
-    fill: var(--dvp-color);
-}
-#reichstag.dvp-in-list .seat.dvp {
-    stroke: var(--border-color);
-    stroke-width: 1.5px;
-}
-#reichstag.dnvp-bloc-merged .seat.dvp {
-    fill: var(--dnvp-color);
-    stroke: var(--border-color);
-    stroke-width: 1.5px;
+.seat.DP {
+    fill: #4a4d04;
 }
 .seat.other {
     fill: #909090;
 }
-.seat.dnvp {
-    fill: var(--dnvp-color);
-    stroke: var(--border-color);
-    stroke-width: 1.5px;
+.seat.MSP {
+    fill: #054521;
 }
-.seat.cvp {
-    fill: var(--dnvp-color);
-    stroke: var(--border-color);
-    stroke-width: 1.5px;
-}
-.seat.ndnp {
-    fill: #0E2345;
-}
-.seat.kvp {
-    fill: #90D5FF;
-}
-.seat.sapd {
-    fill: #9B0000;
-}
-.seat.nsdap {
+.seat.MHP {
     fill: #954B00;
 }
-.seat.nsfp {
-    fill: #954B00;
-}
-
-/* Dormant-party seats — post_event mirrors Q.<id>_color into --<id>-color each turn, so these light up once the party's _formed flag triggers. */
-.seat.rspd { fill: var(--rspd-color, #ff3b3b); }
-.seat.fakecvp { fill: var(--z-color); }
-.seat.dap  { fill: var(--dap-color, #8a6d20); }
-.seat.dnrk { fill: var(--dnrk-color, #52441f); }
-.seat.nsvp { fill: var(--nsvp-color, #7d5c00); }
-.seat.dstp { fill: var(--dstp-color, #D3C24D); }
-.seat.dfp  { fill: var(--dfp-color, #ccba2f); }
-.seat.dlp  { fill: var(--dlp-color, #9c8e25); }
-.seat.drdp { fill: var(--drdp-color, #ff6b0f); }
-
 .seat.sapd {
     fill: #C40000;
 }
@@ -1745,234 +677,82 @@ body.dark-mode #ce-panel .ce-pie-status.ce-maj { color: #7ec48a; }
     text-decoration-style: dotted;
 }
 
-.tools.right {
-    float: right;
-    display: none;
-    width: 220px;
-    margin-top: 0.5em;
-    border: 1px solid #ffffff;
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+/* Custom tab sizing - Exterior Affairs = Main + Politics, Economy = Defense + Polls */
+/* Main and Politics keep their natural sizes, Defense and Polls keep theirs */
+
+#exterior_affairs_tab {
+    width: 120px; /* Approximately Main (~45px) + Politics (~55px) */
+    min-width: 120px;
 }
 
-.tools.right.state-mode {
-    position: absolute;
-    left: calc(50% + 306px);
-    top: -6px;
-    right: auto;
-    float: none;
-    width: 300px;
-    box-sizing: border-box;
-    z-index: 100;
+#economy_tab {
+    width: 110px; /* Reduced from 120px */
+    min-width: 110px;
 }
 
-.state-tip-wrap {
-    position: relative;
-    display: inline;
-    cursor: help;
-    text-decoration: underline dotted;
+/* Music toggle button - fixed top right corner */
+#music-toggle-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 3;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid #555;
+    border-radius: 8px;
+    padding: 4px 6px;
+    cursor: pointer;
+    line-height: 0;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 }
-.state-tip-wrap .state-tip {
-    display: none;
-    position: absolute;
-    bottom: 125%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #fff;
-    border: 2px solid #999;
-    padding: 10px;
-    width: 200px;
-    font-size: 0.95em;
-    text-align: center;
-    z-index: 100;
-    box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
-    color: #000;
-}
-.state-tip-wrap:hover .state-tip {
-    display: block;
+#music-toggle-btn:hover {
+    background: rgba(220, 220, 220, 0.95);
 }
 
-.seat.volkskons {
-    fill: #90D5FF;
-}
-.seat.chrsozial {
-    fill: #DAB1DA;
-}
-.seat.authkons {
-    fill: #000435;
-}
-.seat.volkisch {
-    fill: #06402B;
+/* cool af wide tooltip */
+.wide_tooltip-text {
+  text-decoration: underline;
+  text-decoration-style: dotted;
 }
 
-.seat.nonaffiliated {
-    fill: #888888;
+.wide_tooltip-wrap {
+  position: relative;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  cursor: help;
 }
 
-.seat.einheitsliste {
-    fill: #D9BB9B;
-    stroke: var(--border-color);
-    stroke-width: 1.5px;
+.wide_tooltip-tip {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  z-index: 9999; 
+  width: max-content; 
+  max-width: 220px; 
+  
+  top: 100%;
+  left: 0; 
+  margin-top: 0.4em;
+  padding: 0.6em;
+  font-size: 0.85em;
+  text-align: center;
+  text-decoration: none;
+  
+  border: 1px solid var(--border-color);
+  background-color: var(--content-bg-color);
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.4);
+  
+  transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
-.seat.unity {
-    fill: #9F8C76;
-    stroke: var(--border-color);
-    stroke-width: 1.5px;
+.wide_tooltip-wrap:hover .wide_tooltip-tip,
+.wide_tooltip-wrap:focus .wide_tooltip-tip {
+  visibility: visible;
+  opacity: 1;
 }
 
-.seat.dvfp {
-  fill: #bb6f23;
-}
-
-.seat.hausbesitzer {
-  fill: #8B7355;
-}
-
-.seat.bbmb {
-  fill: #38C538;
-}
-
-.seat.saxpeasants {
-  fill: #2D5A1B;
-}
-
-.seat.peasants {
-  fill: #2D5A1B;
-}
-
-.seat.aspd {
-  fill: #FF4D00;
-}
-
-.seat.spd_expelled {
-  fill: #E85D2C;
-}
-
-.seat.bauern {
-  fill: #2D5A1B;
-}
-
-.seat.wbwb {
-  fill: #2D5A1B;
-}
-
-
-
-#dnvp_dashboard {
-    clear: both;
-    display: none;
-    position: relative;
-    background-color: var(--content-bg-color);
-    font-size: 1.1em;
-    padding: 1em 1.5em 1.5em 1.5em;
-    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
-    margin-bottom: 1em;
-    font-family: Georgia, serif;
-    box-sizing: border-box;
-}
-
-/* ============================================================
-   SHUFFLE LEADERSHIP BUTTON (rendered as a deck via JS reparenting)
-   ============================================================ */
-
-/* The shuffle_leadership card inherits .deck sizing from the existing deck CSS,
-   so minimal overrides needed. Optional tweaks below. */
-
-/* Optional: tint the border or add emphasis if you want it to stand out */
-/* Match shuffle leadership card border width and shadow to Party Affairs deck */
-ul.decks a.card[card-id="advisor_switcher"] {
-    border-width: 10px !important;
-    border-style: solid !important;
-    /* border-color stays whatever your current dark gray is, not overridden */
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2) !important;
-    background-color: transparent !important;
-    padding: 0 !important;
-}
-
-/* ============================================================
-   CARD TOOLTIP FOR advisor_switcher (lives in ul.decks)
-   ============================================================ */
-
-ul.decks a.card {
-    position: relative;
-}
-
-ul.decks a.card .card-passive-tip {
-    display: none;
-    position: absolute;
-    bottom: 110%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #fff;
-    color: #000;
-    border: 2px solid #000;
-    padding: 12px 14px;
-    width: 280px;
-    font-size: 0.9em;
-    font-style: normal;
-    text-align: left;
-    z-index: 100;
-    box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
-    pointer-events: none;
-    white-space: normal;
-}
-
-ul.decks a.card:hover .card-passive-tip {
-    display: block;
-}
-
-/* Subtitle portraits in choice rows, lock to left column, text beside not below */
-/* Subtitle portraits: lock to left column, text flows beside (not under) */
-ul.choices li .subtitle:has(> img) {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-top: 12px;
-}
-
-ul.choices li .subtitle:has(> img) > img {
-    flex-shrink: 0;
-    display: block;
-    margin: 0 !important;
-    width: 100px !important;
-    height: 125px !important;
-    object-fit: cover;
-    border: 1px solid #999;
-}
-
-ul.choices li .subtitle:has(> img) > span {
-    flex: 1;
-    min-width: 0;
-}
-
-ul.choices li a:has(> img) {
-    display: grid !important;
-    grid-template-columns: 21px 100px 1fr;
-    grid-template-areas:
-        "name    name      name"
-        ".       portrait  text";
-    gap: 9px 14px;
-    align-items: center;
-    padding-left: 0;
-}
-
-ul.choices li a:has(> img) > div:first-child {
-    grid-area: name;
-}
-
-ul.choices li a:has(> img) > img {
-    grid-area: portrait;
-    width: 100px !important;
-    height: 125px !important;
-    object-fit: cover;
-    border: 1px solid #999;
-    display: block;
-    margin: 0 !important;
-}
-
-ul.choices li a:has(> img) > span {
-    grid-area: text;
-    font-style: italic;
-    color: #000;
-    align-self: center;
+.wide_tooltip-tip img {
+  width: 100%;
+  display: block;
+  margin: 0 auto 6px auto;
+  border: 1px solid #999;
 }
