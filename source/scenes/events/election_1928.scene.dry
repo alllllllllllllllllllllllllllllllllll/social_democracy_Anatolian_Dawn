@@ -38,6 +38,10 @@ Let us hope this does not backfire.
 
 @post_election_1928
 on-arrival: I_in_government = 0; {!
+// Snapshot whether the Socialist Left bloc existed as of this election, so the "Last
+// election vote share" section on the status screen can reflect the state at the last
+// election rather than whatever the current (possibly later-changed) state is.
+Q.socialist_left_formed_last_election = Q.socialist_left_formed;
 // set old results
 // election threshold constitutional reform
 // banning parties

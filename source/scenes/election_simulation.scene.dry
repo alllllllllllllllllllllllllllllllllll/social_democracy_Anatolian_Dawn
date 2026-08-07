@@ -225,6 +225,15 @@ Q.bourgeois_coalition = (Q.CGP_seats || 0) + (Q.z_seats || 0) + (Q.DP_seats || 0
 Q.right_coalition = (Q.z_seats || 0) + (Q.DP_seats || 0) + (Q.other_seats || 0) + (Q.MSP_seats || 0);
 Q.nationalist_front_coalition = (Q.z_seats || 0) + (Q.CGP_seats || 0) + (Q.MSP_seats || 0) + (Q.MHP_seats || 0);
 Q.far_right_coalition = (Q.MSP_seats || 0) + (Q.MHP_seats || 0);
+// Socialist Left breakdown for the 1979 simulation result, mirroring the split used
+// for the main game's aggregate TIP_r breakdown (see status.scene.dry).
+if (Q.sim_year == 1979) {
+    Q.TKP_r = Q.TIP_r * 0.25;
+    Q.TSIP_r = Q.TIP_r * 0.25;
+    Q.TEP_r = Q.TIP_r * 0.10;
+    Q.SDP_r = Q.TIP_r * 0.20;
+    Q.TIP_socialist_left_r = Q.TIP_r * 0.20;
+}
 !}
 
 The electoral system uses a tiered proportional apportionment, weighting each party's vote share more heavily the larger it is, out of a 450-seat assembly.
@@ -236,7 +245,7 @@ A working majority in this simulation requires 226 seats.
 
 **AP (Adalet Partisi):** [+ z_r +]%
 
-**[? if sim_year == 1979: Socialist Left?][? if sim_year != 1979: TİP (Türkiye İşçi Partisi)?]:** [+ TIP_r +]%
+**[? if sim_year == 1979: <span class="wide_tooltip-wrap">Socialist Left<span class="wide_tooltip-tip">TİP: [+ TIP_socialist_left_r +]%<br>TKP: [+ TKP_r +]%<br>TSİP: [+ TSIP_r +]%<br>TEP: [+ TEP_r +]%<br>SDP: [+ SDP_r +]%</span></span>?][? if sim_year != 1979: TİP (Türkiye İşçi Partisi)?]:** [+ TIP_r +]%
 
 **[+ CGP_name +] (Cumhuriyetçi Güven Partisi):** [+ CGP_r +]%
 
