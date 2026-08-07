@@ -551,7 +551,7 @@ Q.socialism_disp = Math.round(Q.socialism);
 
 <span style="color: #750a6f;">**AP**</span>: [+ z_votes +]%
 
-<span style="color: #8B0000;">**TIP**</span>: [+ TIP_votes +]%
+[? if socialist_left_formed: Socialist Left: [+ TIP_votes +]% ?][? if not socialist_left_formed: <span style="color: #8B0000;">**TIP**</span>: [+ TIP_votes +]% ?]
 
 {!<span style="color: #5a5f63;">!}**[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]**{!</span>!}: [+ CGP_votes +]%
 
