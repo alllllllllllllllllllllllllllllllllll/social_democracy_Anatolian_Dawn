@@ -58,6 +58,28 @@ if (typeof Q.chp_seats === 'undefined') {
 if (typeof Q.sapd_seats === 'undefined') {
     Q.sapd_seats = 0;
 }
+// Socialist Left: once formed, TİP's vote share is treated as the aggregate "Socialist Left"
+// bloc, and is displayed broken down into TİP itself and its minor splinter parties
+// (TKP, TSİP, TEP, SDP), each taking a fixed share of the bloc's total vote. Recomputed on
+// every visit so it always reflects the current (aggregate) TIP_r, without altering TIP_r
+// itself (which is still used elsewhere, e.g. for seat calculations).
+if (typeof Q.socialist_left_formed === 'undefined') {
+    Q.socialist_left_formed = 0;
+}
+Q.former_TIP_r = Q.TIP_r;
+if (Q.socialist_left_formed) {
+    Q.TKP_r = Q.former_TIP_r * 0.25;
+    Q.TSIP_r = Q.former_TIP_r * 0.25;
+    Q.TEP_r = Q.former_TIP_r * 0.10;
+    Q.SDP_r = Q.former_TIP_r * 0.20;
+    Q.TIP_socialist_left_r = Q.former_TIP_r * 0.20;
+} else {
+    Q.TKP_r = 0;
+    Q.TSIP_r = 0;
+    Q.TEP_r = 0;
+    Q.SDP_r = 0;
+    Q.TIP_socialist_left_r = Q.former_TIP_r;
+}
 if (typeof Q.majority_threshold === 'undefined') {
     Q.majority_threshold = 226;
 }
@@ -219,7 +241,7 @@ Last election vote share:
 <span class="tooltip-text" title="Republican People's Party" style="color: #E3000F;">**CHP**</span>: [+ chp_r +]%
 [? if sapd_formed and sapd_r > 0: SAPD: [+ sapd_r +]% ?]
 <span class="tooltip-text" title="Justice Party" style="color: #750a6f;">**AP**</span>: [+ z_r +]%
-<span class="tooltip-text" title="Turkish Worker's Party" style="color: #8B0000;">**TIP**</span>: [+ TIP_r +]%
+[? if socialist_left_formed: Socialist Left: [+ former_TIP_r +]% ?][? if not socialist_left_formed: <span class="tooltip-text" title="Turkish Worker's Party" style="color: #8B0000;">**TIP**</span>: [+ TIP_r +]% ?]
 <span class="tooltip-text" title="Republican Trust Party" style="color: #5a5f63;">**[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]**{!</span></span>!}: [+ CGP_r +]%
 <span class="tooltip-text" title="Democratic Party" style="color: #4a4d04;">**DP**</span>: [+ DP_r +]%
 <span class="tooltip-text" title="National Salvation Party" style="color: #054521;">**MSP**</span>: [+ MSP_r +]%
