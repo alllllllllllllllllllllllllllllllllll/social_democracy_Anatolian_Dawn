@@ -25,4 +25,4 @@ However, none of these parties seem capable of consolidating the Left like TİP 
 - @root: "United we rise; divided we fall."
 
 @root
-on-arrival: socialist_left_formed = 1; TIP_party_leader = "Behice Boran"
+on-arrival: socialist_left_formed = 1; TIP_party_leader = "Behice Boran"; TIP_banned = 0; disk_endorsement = "false"
