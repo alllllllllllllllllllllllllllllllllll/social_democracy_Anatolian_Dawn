@@ -296,6 +296,24 @@ function getPartyIdeology(party, Q) {
             var relationText = getRelationshipText(Q['TIP_relation']);
             return baseTooltip.explanationText + '<br>Politics: ' + ideology + '<br>Relation: ' + relationText;
         }
+        if (searchString === 'Socialist Left') {
+            var socialistLeftParties = [
+                { word: 'TİP', voteQuality: 'TIP_socialist_left_r' },
+                { word: 'TKP', voteQuality: 'TKP_r' },
+                { word: 'TSİP', voteQuality: 'TSIP_r' },
+                { word: 'TEP', voteQuality: 'TEP_r' },
+                { word: 'SDP', voteQuality: 'SDP_r' }
+            ];
+            var rows = socialistLeftParties.map(function(party) {
+                var colourEntry = colourList.find(function(c) { return c.word === party.word; });
+                var colourMatch = colourEntry ? colourEntry.style.match(/color:\s*([^;]+)/) : null;
+                var colour = colourMatch ? colourMatch[1] : '#8B0000';
+                var vote = Q[party.voteQuality] !== undefined ? Number(Q[party.voteQuality]).toFixed(1) : '0.0';
+                return '<div style="text-align: left;"><span style="display: inline-block; width: 10px; height: 10px; background-color: ' +
+                    colour + '; margin-right: 4px;"></span><b>' + party.word + '</b>: ' + vote + '%</div>';
+            }).join('');
+            return baseTooltip.explanationText + '<br>' + rows;
+        }
         if (searchString === 'DP' && Q['DP_relation'] !== undefined) {
             var ideology = getPartyIdeology(searchString, Q);
             var relationText = getRelationshipText(Q['DP_relation']);

@@ -817,6 +817,18 @@ Q.leverage = Q.chp_seats/1.5;
 Q.sapd_r = 0;
 Q.old_sapd_r = 0;
 
+// Socialist Left: TİP hasn't splintered into the Socialist Left bloc yet, but it may in the future.
+// Once socialist_left_formed is set, TİP's (aggregate) vote share is displayed broken down into
+// itself and its minor splinter parties (TKP, TSİP, TEP, SDP), each taking a fixed share of the
+// bloc's total vote.
+Q.socialist_left_formed = 0;
+Q.former_TIP_r = 0;
+Q.TIP_socialist_left_r = 0;
+Q.TKP_r = 0;
+Q.TSIP_r = 0;
+Q.TEP_r = 0;
+Q.SDP_r = 0;
+
 // for changing the CGP's name to the DStP
 Q.CGP_name = "CGP";
 

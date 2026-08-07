@@ -15,6 +15,26 @@ const tooltipList = [{
     explanationText: "<img src=img/TİP_1970'ler.png> Workers Party of Turkey"
 },                    
 {
+    searchString: "Socialist Left",
+    explanationText: "The Socialist Left is the splintered successor bloc of the TİP, made up of TİP itself and its minor breakaway parties: TKP, TSİP, TEP and SDP."
+},
+{
+    searchString: "TKP",
+    explanationText: "Communist Party of Turkey (Türkiye Komünist Partisi), a Marxist-Leninist splinter of the Socialist Left."
+},
+{
+    searchString: "TSİP",
+    explanationText: "Socialist Workers' Party of Turkey (Türkiye Sosyalist İşçi Partisi), a Marxist-Leninist splinter of the Socialist Left."
+},
+{
+    searchString: "TEP",
+    explanationText: "Socialist Labor Party of Turkey (Türkiye Emekçi Partisi), a Democratic Socialist splinter of the Socialist Left."
+},
+{
+    searchString: "SDP",
+    explanationText: "Social Democratic Party (Sosyal Demokrat Parti), a splinter of the Socialist Left."
+},
+{
     searchString: "DP",
     explanationText: "<img src=img/DP.png> Democratic Party"
 },
@@ -81,6 +101,26 @@ const colourList = [{
         word: "TİP",
         style: "color: #8B0000; font-weight: bold;"
 },                    
+{
+        word: "Socialist Left",
+        style: "color: #8B0000; font-weight: bold;"
+},
+{
+        word: "TKP",
+        style: "color: #820b09; font-weight: bold;"
+},
+{
+        word: "TSİP",
+        style: "color: #abab1a; font-weight: bold;"
+},
+{
+        word: "TEP",
+        style: "color: #ad673b; font-weight: bold;"
+},
+{
+        word: "SDP",
+        style: "color: #a83a32; font-weight: bold;"
+},
 {
         word: "Raiders",
         style: "color: #367824; font-weight: bold;"
