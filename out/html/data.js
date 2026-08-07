@@ -15,6 +15,10 @@ const tooltipList = [{
     explanationText: "<img src=img/TİP_1970'ler.png> Workers Party of Turkey"
 },                    
 {
+    searchString: "Socialist Left",
+    explanationText: "<img src=img/TİP_1970'ler.png> The Socialist Left, the fragmented bloc of Turkish Socialist parties descended from TİP."
+},
+{
     searchString: "TKP ",
     explanationText: "<img src=img/tkp.png>Communist Party of Turkey"
 },
