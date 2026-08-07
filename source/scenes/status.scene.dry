@@ -62,12 +62,17 @@ if (typeof Q.sapd_seats === 'undefined') {
 // bloc, and is displayed broken down into TİP itself and its minor splinter parties
 // (TKP, TSİP, TEP, SDP), each taking a fixed share of the bloc's total vote. Recomputed on
 // every visit so it always reflects the current (aggregate) TIP_r, without altering TIP_r
-// itself (which is still used elsewhere, e.g. for seat calculations).
+// itself (which is still used elsewhere, e.g. for seat calculations). This uses
+// socialist_left_formed_last_election (a snapshot taken at the last election) rather than
+// the live socialist_left_formed, since TIP_r itself is the result of the last election.
 if (typeof Q.socialist_left_formed === 'undefined') {
     Q.socialist_left_formed = 0;
 }
+if (typeof Q.socialist_left_formed_last_election === 'undefined') {
+    Q.socialist_left_formed_last_election = Q.socialist_left_formed;
+}
 Q.former_TIP_r = Q.TIP_r;
-if (Q.socialist_left_formed) {
+if (Q.socialist_left_formed_last_election) {
     Q.TKP_r = Q.former_TIP_r * 0.25;
     Q.TSIP_r = Q.former_TIP_r * 0.25;
     Q.TEP_r = Q.former_TIP_r * 0.10;
@@ -241,7 +246,7 @@ Last election vote share:
 <span class="tooltip-text" title="Republican People's Party" style="color: #E3000F;">**CHP**</span>: [+ chp_r +]%
 [? if sapd_formed and sapd_r > 0: SAPD: [+ sapd_r +]% ?]
 <span class="tooltip-text" title="Justice Party" style="color: #750a6f;">**AP**</span>: [+ z_r +]%
-[? if socialist_left_formed: <span class="wide_tooltip-wrap">Socialist Left<span class="wide_tooltip-tip">TİP: [+ TIP_socialist_left_r +]%<br>TKP: [+ TKP_r +]%<br>TSİP: [+ TSIP_r +]%<br>TEP: [+ TEP_r +]%<br>SDP: [+ SDP_r +]%</span></span>: [+ former_TIP_r +]% ?][? if not socialist_left_formed: <span class="tooltip-text" title="Turkish Worker's Party" style="color: #8B0000;">**TIP**</span>: [+ TIP_r +]% ?]
+[? if socialist_left_formed_last_election: <span class="wide_tooltip-wrap">Socialist Left<span class="wide_tooltip-tip">TİP: [+ TIP_socialist_left_r +]%<br>TKP: [+ TKP_r +]%<br>TSİP: [+ TSIP_r +]%<br>TEP: [+ TEP_r +]%<br>SDP: [+ SDP_r +]%</span></span>: [+ former_TIP_r +]% ?][? if not socialist_left_formed_last_election: <span class="tooltip-text" title="Turkish Worker's Party" style="color: #8B0000;">**TIP**</span>: [+ TIP_r +]% ?]
 <span class="tooltip-text" title="Republican Trust Party" style="color: #5a5f63;">**[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]**{!</span></span>!}: [+ CGP_r +]%
 <span class="tooltip-text" title="Democratic Party" style="color: #4a4d04;">**DP**</span>: [+ DP_r +]%
 <span class="tooltip-text" title="National Salvation Party" style="color: #054521;">**MSP**</span>: [+ MSP_r +]%

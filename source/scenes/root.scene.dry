@@ -822,6 +822,11 @@ Q.old_sapd_r = 0;
 // itself and its minor splinter parties (TKP, TSİP, TEP, SDP), each taking a fixed share of the
 // bloc's total vote.
 Q.socialist_left_formed = 0;
+// Snapshot of socialist_left_formed as of the last election, used to decide whether the
+// "Last election vote share" section on the status screen shows the Socialist Left
+// breakdown (it must reflect whether the split existed AT the last election, not whether
+// it currently exists).
+Q.socialist_left_formed_last_election = 0;
 Q.former_TIP_r = 0;
 Q.TIP_socialist_left_r = 0;
 Q.TKP_r = 0;
