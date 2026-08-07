@@ -1,0 +1,28 @@
+title: The Reformation of Workers' Party of Turkey
+subtitle: Behice Boran and her Leninist allies reestablish TİP!
+view-if: year == 1975 and month = 5 and week = 1
+max-visits: 1
+tags: event
+new-page: true
+face-image: img/tippp.webp
+
+= The Reformation of TİP
+
+TİP had used to be the powerhouse of the Socialist movement and had been the first Socialist mass party in Turkey ever. However the <span class="wide_tooltip-wrap">12 March 1971 Memorandum<span class="wide_tooltip-tip"><span class="wide_tooltip-tip"><img src="img/12mart.jpg">12 March Memorandum was an ultimatum delivered by the military for Prime Minister Süleyman Demirel to resign as a result of the increasingly anarchic situation in the late 60's and the Leftist coup attempt on 9 March.</span></span> had led to the banning of the party with only one figure legally allowed to reestablish it one day: Leninist academician Behice Boran who had been serving as the former chairman.
+
+Now that the restrictions on the political parties have been loosened, Boran and her allies have moved to reestablish the former spearhead of the Left. However due to many reasons, many Socialists' hesitancy to join a party dominated by <span class="wide_tooltip-wrap">Marxist Leninists<span class="wide_tooltip-tip"><img src="img/leninism.jpg">Marxism-Leninism is a far left ideology that wishes to overthrow Capitalism through a revolution which would be led by a vanguard party of ideologically loyal members. Such a party would lead the way towards a world revolution after which Communism, a stateless, moneyless and classless society would be achieved as the final stage of human history.</span></span>, the radicalization of the far left after the memorandum towards militancy and perhaps our pivot to the left, Boran's announcement of the reestablishment on the 1st of May did not raise the expected sensation. In contrast, with the gradual establishment of rival groups, the Socialist left is increasingly marching towards fragmentation.
+
+The chairman prior to Behice Boran, Mehmet Ali Aybar, is said to have accelerated his efforts to form an opponent <span class="wide_tooltip-wrap">Democratic Socialist<span class="wide_tooltip-tip"><img src="img/demsoc.jpg">Democratic Socialism is a left-wing ideology that wishes to overthrow Capitalism and establish a Socialist economy through democratic means.</span></span> party, "Socialist Revolution Party" or SDP. 
+
+TSİP, Socialist Workers Party of Turkey, is establishing itself as a party in favor of establishing Socialism through a conciliation with religious values and military interventions based on the writings of <span class="wide_tooltip-wrap">Dr. Hikmet Kızılcımlı<span class="wide_tooltip-tip"><img src="img/kivilcimli.jpg">Hikmet Kıvılcımlı was a psychiatrist and Marxist ideologue who advocated for a reconciliation of Marxist and Islamic values. He was famous for his "thesis of history" which argued that just as there were social revolutions that resulted from conflicts within a nation, there were also "historic revolutions" arising from conflicts between especially "egalitarian nomads" and "classified civils" which exemplified the Socialist politics in the prehistoric age.</span></span>.
+
+The supporters of MDD, a thesis for a "two-tiered" Socialist revolution which would begin first with the coup of "determined" young officers and then completed with a bloodless workers' takeover, are seemingly conciliating around the "Labourers' Party of Turkey", TEP.
+
+And the illegal TKP, Communist Party of Turkey, which has long been banned since 1920 is also making a return with infiltrations in many Socialist organizations and unions; most prominently DİSK.
+
+However, none of these parties seem capable of consolidating the Left like TİP had done over a decade ago. While the Left is in a chaos, the relations we cultivated previously with the unorganized cadres of TİP still hold on and will now be seen as our relations with the Socialist Left.
+
+- @root: "United we rise; divided we fall."
+
+@root
+on-arrival: socialist_left_formed = 1; TIP_party_leader = "Behice Boran"
