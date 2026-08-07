@@ -15,24 +15,20 @@ const tooltipList = [{
     explanationText: "<img src=img/TİP_1970'ler.png> Workers Party of Turkey"
 },                    
 {
-    searchString: "Socialist Left",
-    explanationText: "The Socialist Left is the splintered successor bloc of the TİP, made up of TİP itself and its minor breakaway parties: TKP, TSİP, TEP and SDP."
-},
-{
-    searchString: "TKP",
-    explanationText: "Communist Party of Turkey (Türkiye Komünist Partisi), a Marxist-Leninist splinter of the Socialist Left."
+    searchString: "TKP ",
+    explanationText: "<img src=img/tkp.png>Communist Party of Turkey"
 },
 {
     searchString: "TSİP",
-    explanationText: "Socialist Workers' Party of Turkey (Türkiye Sosyalist İşçi Partisi), a Marxist-Leninist splinter of the Socialist Left."
+    explanationText: "<img src=img/tsip.gif>Socialist Workers' Party of Turkey"
 },
 {
     searchString: "TEP",
-    explanationText: "Socialist Labor Party of Turkey (Türkiye Emekçi Partisi), a Democratic Socialist splinter of the Socialist Left."
+    explanationText: "<img src=img/tep.jpeg>Labourers' Party of Turkey"
 },
 {
     searchString: "SDP",
-    explanationText: "Social Democratic Party (Sosyal Demokrat Parti), a splinter of the Socialist Left."
+    explanationText: "<img src=img/sdp.jpg>Socialist Revolution Party"
 },
 {
     searchString: "DP",
