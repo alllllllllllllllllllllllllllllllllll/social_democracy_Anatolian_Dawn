@@ -246,12 +246,12 @@ function getPartyIdeology(party, Q) {
     switch(party) {
         case 'TIP':
             if (Q.TIP_party_leader === "Unorganized") return '<span style="color: #C42424;">Left Wing</span> (Disorganized)';
-            if (Q.TIP_party_leader === "Behice Boran") return '<span style="color: #607808;">Far Left</span>  (Marxism-Leninism)';
+            if (Q.TIP_party_leader === "Behice Boran") return '<span style="color: #780808;">Far Left</span>  (Marxism-Leninism)';
             if (Q.TIP_party_leader === "Mehmet Ali Aybar") return '<span style="color: #C42424;">Left Wing</span> (Democratic Socialism)';
             return 'Unknown';
         case 'TİP':
             if (Q.TIP_party_leader === "Unorganized") return '<span style="color: #C42424;">Left Wing</span> (Disorganized)';
-            if (Q.TIP_party_leader === "Behice Boran") return '<span style="color: #607808;">Far Left</span>  (Marxism-Leninism)';
+            if (Q.TIP_party_leader === "Behice Boran") return '<span style="color: #780808;">Far Left</span>  (Marxism-Leninism)';
             if (Q.TIP_party_leader === "Mehmet Ali Aybar") return '<span style="color: #C42424;">Left Wing</span> (Democratic Socialism)';
             return 'Unknown';
         case 'CGP':
