@@ -241,7 +241,7 @@ Last election vote share:
 <span class="tooltip-text" title="Republican People's Party" style="color: #E3000F;">**CHP**</span>: [+ chp_r +]%
 [? if sapd_formed and sapd_r > 0: SAPD: [+ sapd_r +]% ?]
 <span class="tooltip-text" title="Justice Party" style="color: #750a6f;">**AP**</span>: [+ z_r +]%
-[? if socialist_left_formed: Socialist Left: [+ former_TIP_r +]% ?][? if not socialist_left_formed: <span class="tooltip-text" title="Turkish Worker's Party" style="color: #8B0000;">**TIP**</span>: [+ TIP_r +]% ?]
+[? if socialist_left_formed: <span class="wide_tooltip-wrap">Socialist Left<span class="wide_tooltip-tip">TİP: [+ TIP_socialist_left_r +]%<br>TKP: [+ TKP_r +]%<br>TSİP: [+ TSIP_r +]%<br>TEP: [+ TEP_r +]%<br>SDP: [+ SDP_r +]%</span></span>: [+ former_TIP_r +]% ?][? if not socialist_left_formed: <span class="tooltip-text" title="Turkish Worker's Party" style="color: #8B0000;">**TIP**</span>: [+ TIP_r +]% ?]
 <span class="tooltip-text" title="Republican Trust Party" style="color: #5a5f63;">**[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]**{!</span></span>!}: [+ CGP_r +]%
 <span class="tooltip-text" title="Democratic Party" style="color: #4a4d04;">**DP**</span>: [+ DP_r +]%
 <span class="tooltip-text" title="National Salvation Party" style="color: #054521;">**MSP**</span>: [+ MSP_r +]%
@@ -539,6 +539,22 @@ on-arrival: {!
 Q.pro_republic_disp = Math.round(Q.pro_republic);
 Q.nationalism_disp = Math.round(Q.nationalism);
 Q.socialism_disp = Math.round(Q.socialism);
+// Socialist Left breakdown for the projected poll numbers, mirroring the split applied
+// to the last election's results (see the aggregate TIP_r breakdown above), but based on
+// the current TIP_votes projection instead.
+if (Q.socialist_left_formed) {
+    Q.TKP_votes = Q.TIP_votes * 0.25;
+    Q.TSIP_votes = Q.TIP_votes * 0.25;
+    Q.TEP_votes = Q.TIP_votes * 0.10;
+    Q.SDP_votes = Q.TIP_votes * 0.20;
+    Q.TIP_socialist_left_votes = Q.TIP_votes * 0.20;
+} else {
+    Q.TKP_votes = 0;
+    Q.TSIP_votes = 0;
+    Q.TEP_votes = 0;
+    Q.SDP_votes = 0;
+    Q.TIP_socialist_left_votes = Q.TIP_votes;
+}
 !}
 
 = Projected election results
@@ -551,7 +567,7 @@ Q.socialism_disp = Math.round(Q.socialism);
 
 <span style="color: #750a6f;">**AP**</span>: [+ z_votes +]%
 
-[? if socialist_left_formed: Socialist Left: [+ TIP_votes +]% ?][? if not socialist_left_formed: <span style="color: #8B0000;">**TIP**</span>: [+ TIP_votes +]% ?]
+[? if socialist_left_formed: <span class="wide_tooltip-wrap">Socialist Left<span class="wide_tooltip-tip">TİP: [+ TIP_socialist_left_votes +]%<br>TKP: [+ TKP_votes +]%<br>TSİP: [+ TSIP_votes +]%<br>TEP: [+ TEP_votes +]%<br>SDP: [+ SDP_votes +]%</span></span>: [+ TIP_votes +]% ?][? if not socialist_left_formed: <span style="color: #8B0000;">**TIP**</span>: [+ TIP_votes +]% ?]
 
 {!<span style="color: #5a5f63;">!}**[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]**{!</span>!}: [+ CGP_votes +]%
 
