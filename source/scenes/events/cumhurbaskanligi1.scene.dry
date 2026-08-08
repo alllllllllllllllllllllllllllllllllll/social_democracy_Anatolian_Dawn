@@ -93,7 +93,7 @@ if (window && d3) {
 With the support of CHP, CGP and AP; Korutürk has begun his presidency. While he is generally viewed as a mediating force, we will see how his presidency will go.	
 
 @farukgurler
-choose-if: left_kemalists_strength <= 40	
+choose-if: left_kemalists_strength <= 4000
 unavailable-subtitle: Our reformist delegates are against serving the desires of the military and prevent us from taking such an action!	
 on-arrival: z_relation -= 10; workers_chp -= 5; rural_chp -= 4; state_employees_chp -= 2; alevis_chp -= 3; kurds_chp -= 3; coup_timer -= 3; left_kemalists_dissent += 15; {!	
 Q.president = "Faruk Gürler"
