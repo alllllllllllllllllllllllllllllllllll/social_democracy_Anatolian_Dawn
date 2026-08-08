@@ -249,8 +249,8 @@ on-display: {!
 data = [
     {
         "id": "TIP",
-        "legend": "TIP",
-        "name": "TIP",
+        "legend": Q.socialist_left_formed ? "Socialist Left" : "TIP",
+        "name": Q.socialist_left_formed ? "Socialist Left" : "TIP",
         "seats": Q.TIP_seats,
     }
 ];
@@ -335,7 +335,7 @@ go-to: coalition_menu
 
 [? if sapd_formed : {!<tr><td><div class="box" style='background-color:#C40000'> </div> !}SAPD: {!</td><td>!} [+ sapd_r +]% {!</td><td>!} [+ str_change_sapd +] {!</td><td>!} [+ sapd_seats +] {!</td></tr>!} ?]
 
-{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !}TIP: {!</td><td>!} [+ TIP_r +]% {!</td><td>!} [+ str_change_TIP +] {!</td><td>!} [+ TIP_seats +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !}[? if socialist_left_formed: Socialist Left?][? if not socialist_left_formed: TIP?]: {!</td><td>!} [+ TIP_r +]% {!</td><td>!} [+ str_change_TIP +] {!</td><td>!} [+ TIP_seats +] {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#5a5f63'> </div> !} [+ CGP_name +]: {!</td><td>!} [+ CGP_r +]% {!</td><td>!} [+ str_change_CGP +] {!</td><td>!} [+ CGP_seats +] {!</td></tr>!}
 
