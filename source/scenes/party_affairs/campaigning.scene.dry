@@ -1,6 +1,6 @@
 title: Campaigning
 new-page: true
-on-arrival: month_actions += 1; campaigning_timer = 3
+on-arrival: month_actions += 1; campaigning_timer = 2
 max-visits: 36
 is-card: true
 frequency: 100
