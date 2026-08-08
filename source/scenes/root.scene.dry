@@ -168,6 +168,10 @@ Q.nationalization_adopted = 0;
 Q.moderate_plan_support = 0;
 Q.moderate_plan_adopted = 0;
 
+// Cyprus
+Q.cyprus_mode = 0;
+
+
 // organizations
 
 // inter-party relations
