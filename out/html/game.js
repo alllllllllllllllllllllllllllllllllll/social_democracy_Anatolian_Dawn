@@ -347,6 +347,22 @@ function getPartyIdeology(party, Q) {
             var ideology = getPartyIdeology(searchString, Q);
             return baseTooltip.explanationText + '<br>Politics: ' + ideology;
         }
+        if (searchString === 'TSİP') {
+            var ideology = getPartyIdeology(searchString, Q);
+            return baseTooltip.explanationText + '<br>Politics: ' + ideology;
+        }
+        if (searchString === 'TEP') {
+            var ideology = getPartyIdeology(searchString, Q);
+            return baseTooltip.explanationText + '<br>Politics: ' + ideology;
+        }
+        if (searchString === 'TKP') {
+            var ideology = getPartyIdeology(searchString, Q);
+            return baseTooltip.explanationText + '<br>Politics: ' + ideology;
+        }
+        if (searchString === 'SDP') {
+            var ideology = getPartyIdeology(searchString, Q);
+            return baseTooltip.explanationText + '<br>Politics: ' + ideology;
+        }
         if (searchString === 'paramilitary-name' && Q['paramilitary-name_strength'] !== undefined) {
             var strength = Q['paramilitary-name_strength'] ? Q['paramilitary-name_strength'].toFixed(1) : '0';
             var militancy = getMilitancyText(Q['paramilitary-name_militancy']);
