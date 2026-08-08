@@ -245,7 +245,7 @@ A working majority in this simulation requires 226 seats.
 
 **AP (Adalet Partisi):** [+ z_r +]%
 
-**[? if sim_year == 1979: <span class="wide_tooltip-wrap">Socialist Left<span class="wide_tooltip-tip">TİP: [+ TIP_socialist_left_r +]%<br>TKP: [+ TKP_r +]%<br>TSİP: [+ TSIP_r +]%<br>TEP: [+ TEP_r +]%<br>SDP: [+ SDP_r +]%</span></span>?][? if sim_year != 1979: TİP (Türkiye İşçi Partisi)?]:** [+ TIP_r +]%
+**[? if sim_year == 1979: <span class="wide_tooltip-wrap">Socialist Left<span class="wide_tooltip-tip">[? if socialist_left_formed: : [+ TIP_votes +]% ?]</span></span>?][? if sim_year != 1979: TİP (Türkiye İşçi Partisi)?]:** [+ TIP_r +]%
 
 **[+ CGP_name +] (Cumhuriyetçi Güven Partisi):** [+ CGP_r +]%
 
@@ -274,4 +274,3 @@ A working majority in this simulation requires 226 seats.
 **Far-right Coalition** (MSP + MHP): [+ far_right_coalition +] seats
 
 **Nationalist Front Coalition** (AP + [+ CGP_name +] + MSP + MHP): [+ nationalist_front_coalition +] seats
-
