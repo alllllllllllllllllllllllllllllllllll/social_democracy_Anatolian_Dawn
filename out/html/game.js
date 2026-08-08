@@ -254,6 +254,10 @@ function getPartyIdeology(party, Q) {
             if (Q.TIP_party_leader === "Behice Boran") return '<span style="color: #780808;">Far Left</span>  (Marxism-Leninism)';
             if (Q.TIP_party_leader === "Mehmet Ali Aybar") return '<span style="color: #C42424;">Left Wing</span> (Democratic Socialism)';
             return 'Unknown';
+        case 'TSİP': return '<span style="color: #780808;">Far Left</span> (Marxism-Leninism)';
+        case 'TKP ': return '<span style="color: #780808;">Far Left</span> (Marxism-Leninism)';
+        case 'TEP': return '<span style="color: #910a0a;">Left Wing-Far Left</span> (National Democratic Revolution)';
+        case 'SDP': return '<span style="color: #780808;">Left Wing</span> (Democratic Socialism)';
         case 'CGP':
             if (Q.CGP_party_leader === "Feyzioğlu") return '<span style="color: #484863;">Center-Center Right</span> (Right Kemalism)';
             return 'Unknown';
