@@ -572,7 +572,7 @@ if (Q.socialist_left_formed) {
 
 <span style="color: #750a6f;">**AP**</span>: [+ z_votes +]%
 
-[? if socialist_left_formed: <span class="wide_tooltip-wrap">Socialist Left<span class="wide_tooltip-tip">[? if socialist_left_formed: : [+ TIP_votes +]% ?][? if not socialist_left_formed: : [+ TIP_votes +]% ?]</span></span>: [+ TIP_votes +]% ?][? if not socialist_left_formed: <span style="color: #8B0000;">**TIP**</span>: [+ TIP_votes +]% ?]
+[? if socialist_left_formed: <span class="wide_tooltip-wrap">Socialist Left<span class="wide_tooltip-tip"><br>[? if socialist_left_formed: : [+ TIP_votes +]% ?][? if not socialist_left_formed: : [+ TIP_votes +]% ?]</span></span>: [+ TIP_votes +]% ?][? if not socialist_left_formed: <span style="color: #8B0000;">**TIP**</span>: [+ TIP_votes +]% ?]
 
 {!<span style="color: #5a5f63;">!}**[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]**{!</span>!}: [+ CGP_votes +]%
 
