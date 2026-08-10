@@ -170,6 +170,7 @@ Q.moderate_plan_adopted = 0;
 
 // Cyprus
 Q.cyprus_mode = 0;
+Q._last_cyprus_mode = 0; // Track previous cyprus_mode to detect changes for music switching
 
 
 // organizations
