@@ -9,7 +9,7 @@ new-page: true
 
 Hello! You have stumbled upon the game while I am still working on the Cyprus minigame update so this section is still WIP; I hope you are enjoying the current version and please check out the game again once the invasion of cyprus minigame has been completed! 
 
-- @root
+- @root:
 
 @root
 on-arrival: cyprus_mode = 0
