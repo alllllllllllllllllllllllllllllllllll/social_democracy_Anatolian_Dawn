@@ -1,0 +1,15 @@
+title: The end of Cyprus Minigame
+subtitle: 
+view-if: year == 1974 and month = 9 and week = 1
+max-visits: 1
+tags: event
+new-page: true
+
+= The end of Cyprus Minigame
+
+Hello! You have stumbled upon the game while I am still working on the Cyprus minigame update so this section is still WIP; I hope you are enjoying the current version and please check out the game again once the invasion of cyprus minigame has been completed! 
+
+- @root
+
+@root
+on-arrival: cyprus_mode = 0
