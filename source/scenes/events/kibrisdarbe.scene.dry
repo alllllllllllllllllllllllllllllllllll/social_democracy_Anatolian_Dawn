@@ -22,4 +22,4 @@ The next day Ecevit was in Ankara, meeting with government officials.
 - @root: Barış İçin Savaş...
 
 @root
-on-arrival: cyprus_mode = "true"
+on-arrival: cyprus_mode = 1
