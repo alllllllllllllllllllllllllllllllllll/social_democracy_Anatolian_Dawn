@@ -1,0 +1,25 @@
+title: Coup d'etat in Cyprus
+subtitle: Makarios has been overthrown by far-right EOKA-B!
+view-if: year == 1974 and month = 7 and week = 2
+max-visits: 1
+tags: event
+new-page: true
+
+= Coup d'etat in Cyprus
+
+Bülent Ecevit was speaking in a mass rally in the rural province of Afyon. The masses, of a quantity Afyon may have never seen before, carried colored placards with slogans such as "Halkçı Ecevit", "Umudumuz Karaoğlan", "Ne ezen ne ezilen" and "insanca hakça bir düzen". Ecevit's bus advanced through the crowd admist a rain of praise and love, and when Ecevit began to speak through the microphone, he struggled a few seconds to make his voice heard amongst cries of support and sympathy.
+
+However, as he went through his speech, one of his advisors kept trying to signal him to end the speech as soon as possible. Upon finally making his ending remarks and turning behind his back, he saw his advisor calling to descend from the podium at the top of the bus to the inside of the bus. 
+
+"May I learn what is wrong?" Said Ecevit. His advisor struggled to talk. "Sayın Ecevit, its about Cyprus." 
+
+"Ultranationalists in EOKA-B have overthrown Makarios and taken over Cypriot government." "The wellbeing of the Turks in Cyprus is in dire danger"
+
+The next day Ecevit was in Ankara, meeting with government officials.
+
+(this is a test event for testing mechanics of the cyprus minigame)
+
+@root: Barış İçin Savaş...
+
+@root
+on-arrival: cyprus_mode = "true"
