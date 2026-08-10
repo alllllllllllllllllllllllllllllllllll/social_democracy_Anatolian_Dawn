@@ -19,7 +19,7 @@ The next day Ecevit was in Ankara, meeting with government officials.
 
 (this is a test event for testing mechanics of the cyprus minigame)
 
-@root: Barış İçin Savaş...
+- @root: Barış İçin Savaş...
 
 @root
 on-arrival: cyprus_mode = "true"
