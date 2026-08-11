@@ -1022,3 +1022,6 @@ if (Q.CHP_party_leader == "Ecevit" || Q.CHP_party_leader == "ecevit") Q.leader_p
 [? if not right_kemalist_split : {!<div><span style="color: #353057;">Right Kemalists:</span> !}[+ q5_rk_label +]{!</div>!} ?]
 {!</div>
 </div>!}
+
+@cyprus
+view-if: cyprus_mode != 0
