@@ -1032,6 +1032,6 @@ var image = new Image();
 imageclassName = "face-img";
 image.src = "cyprusgame/cyprus_districts_clickable.svg";
 cardEl.appendChild(image);
-var contentDiv = document.querySelector(" #tools_wrapper #party_sidebar");
+var contentDiv = document.querySelector(" #tools_wrapper #party_sidebar #cyprus_tab");
 contentDiv.appendChild(cardEl);
 !}
