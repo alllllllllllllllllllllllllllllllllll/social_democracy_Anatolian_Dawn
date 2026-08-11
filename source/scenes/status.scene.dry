@@ -1027,7 +1027,7 @@ if (Q.CHP_party_leader == "Ecevit" || Q.CHP_party_leader == "ecevit") Q.leader_p
 view-if: cyprus_mode != 0
 on-display: {!
 var cardEl = document.createElement('div');
-cardEl.className = "face-figure2";
+cardEl.className = "tools right";
 var image = new Image();
 imageclassName = "face-img";
 image.src = "cyprusgame/cyprus_districts_clickable.svg";
