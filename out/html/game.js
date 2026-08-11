@@ -447,13 +447,20 @@ function getPartyIdeology(party, Q) {
 
   window.updatePartySidebar = function() {
       $('#party_qualities').empty();
-      var scene = dendryUI.game.scenes['status.the_party'];
+      var newTab = window.statusTabRight || 'status.the_party';
+      var scene = dendryUI.game.scenes[newTab];
       if (!scene) return;
+      if (!dendryUI.dendryEngine._runPredicate(scene.viewIf, true)) {
+          $('#party_qualities').append('<p>This tab is not currently available.</p>');
+          return;
+      }
       dendryUI.dendryEngine._runActions(scene.onArrival);
       var displayContent = dendryUI.dendryEngine._makeDisplayContent(scene.content, true);
       $('#party_qualities').append(dendryUI.contentToHTML.convert(displayContent));
-      // Render d3 parliament diagram after DOM update
-      window.renderPartyParliament();
+      // Render d3 parliament diagram after DOM update, only when the party tab is active
+      if (newTab === 'status.the_party') {
+          window.renderPartyParliament();
+      }
   };
 
   window._lastParliamentDataKey = null;
@@ -520,6 +527,17 @@ function getPartyIdeology(party, Q) {
       window.updateSidebar();
   };
 
+  window.changeRightTab = function(newTab, tabId) {
+      var tabButton = document.getElementById(tabId);
+      var tabButtons = document.getElementById('party_sidebar').getElementsByClassName('tab_button');
+      for (i = 0; i < tabButtons.length; i++) {
+        tabButtons[i].className = tabButtons[i].className.replace(' active', '');
+      }
+      tabButton.className += ' active';
+      window.statusTabRight = newTab;
+      window.updatePartySidebar();
+  };
+
   window.onDisplayContent = function() {
       window.updateSidebar();
       window.updatePartySidebar();
@@ -559,6 +577,7 @@ function getPartyIdeology(party, Q) {
 
   window.justLoaded = true;
   window.statusTab = "status";
+  window.statusTabRight = "status.the_party";
   window.dendryModifyUI = main;
   console.log("Modifying stats: see dendryUI.dendryEngine.state.qualities");
 
