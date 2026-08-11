@@ -1025,5 +1025,5 @@ if (Q.CHP_party_leader == "Ecevit" || Q.CHP_party_leader == "ecevit") Q.leader_p
 
 @cyprus
 view-if: cyprus_mode != 0
-on-arrival: 
+
 {!<svg id="out/html/cyprusgame/cyprus_districts_clickable.svg"> </svg>!}
