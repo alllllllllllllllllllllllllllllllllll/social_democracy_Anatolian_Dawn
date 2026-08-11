@@ -1025,7 +1025,7 @@ if (Q.CHP_party_leader == "Ecevit" || Q.CHP_party_leader == "ecevit") Q.leader_p
 
 @cyprus
 view-if: cyprus_mode != 0
-on-display: {!
+on-arrival: {!
 var cardEl = document.createElement('div');
 cardEl.className = "face-figure2";
 var image = new Image();
