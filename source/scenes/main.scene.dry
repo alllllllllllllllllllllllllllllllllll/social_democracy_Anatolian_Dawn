@@ -32,7 +32,7 @@ if (Q.advisor_action_timer <= 0) {
 } else {
     Q.pinnedCardsDescription = 'Party Leadership - next action available in ' + Q.advisor_action_timer + ' months.';
 }
-this.ui.setBg(Q.cyprus_mode ? 'img/kibriss.jpg' : 'img/map_4.jpg');
+this.ui.setBg(Q.cyprus_mode != 0 ? 'cyprusgame/cyprus_districts_clickable (1).svg' : 'img/map_4.jpg');
 !}
 max-cards: 4
 
