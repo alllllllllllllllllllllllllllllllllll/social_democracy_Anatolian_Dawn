@@ -1026,3 +1026,13 @@ if (Q.CHP_party_leader == "Ecevit" || Q.CHP_party_leader == "ecevit") Q.leader_p
 @cyprus
 view-if: cyprus_mode != 0
 {!<svg id="out/html/cyprusgame/cyprus_districts_clickable.svg"> </svg>!}
+on-display: {!
+var cardEl = document.createElement('div');
+cardEl.className = "face-figure2";
+var image = new Image();
+imageclassName = "face-img";
+image.src = "cyprusgame/cyprus_districts_clickable.svg";
+cardEl.appendChild(image);
+var contentDiv = document.querySelector(" #tools_wrapper #party_sidebar");
+contentDiv.appendChild(cardEl);
+!}
