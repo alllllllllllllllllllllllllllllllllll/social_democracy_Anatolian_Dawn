@@ -1030,7 +1030,7 @@ var cardEl = document.createElement('div');
 cardEl.className = "face-figure2";
 var image = new Image();
 image.className = "face-img";
-image.src = "out/html/cyprusgame/cyprus_districts_clickable.svg";
+image.src = "cyprusgame/cyprus_districts_clickable.svg";
 cardEl.appendChild(image);
 var contentDiv = document.querySelector("#page #mid_panel #content");
 contentDiv.appendChild(cardEl);
