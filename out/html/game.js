@@ -546,6 +546,7 @@ function getPartyIdeology(party, Q) {
   window.onDisplayContent = function() {
       window.updateSidebar();
       window.updatePartySidebar();
+      updateCyprusWidth();
   };
 
   /*
