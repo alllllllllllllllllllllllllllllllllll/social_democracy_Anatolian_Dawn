@@ -108,10 +108,13 @@ header h1, header h2 {
   font-weight: normal;
   margin: 0;
   font-size: 1em;
-  margin-left: 400px;
 }
 header h1 {
   font-weight: bold;
+  margin-left: 400px;
+}
+header h2 {
+  margin-right: 400px;
 }
 header h2:before {
   content: "by";
