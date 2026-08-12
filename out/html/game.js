@@ -24,7 +24,12 @@
   window.loadMod = function(url) {
       ui.loadGame(url);
   };
-
+  window.updateCyprusWidth = function() {
+  const el = document.getElementById('content');
+  if (!el) return;
+  el.classList.toggle('wide-mode', Q.cyprus_mode != 0);
+  el.classList.toggle('normal-mode', Q.cyprus_mode == 0);
+  };
   window.showStats = function() {
     if (window.dendryUI.dendryEngine.state.sceneId.startsWith('library')) {
         window.dendryUI.dendryEngine.goToScene('backSpecialScene');
