@@ -29,8 +29,9 @@
   if (!el) return;
   const Q = window.dendryUI.dendryEngine.state.qualities;
   if (!Q) return;
-  el.classList.toggle('wide-mode', Q.cyprus_mode != 0);
-  el.classList.toggle('normal-mode', Q.cyprus_mode == 0);
+  const mode = Q.cyprus_mode || 0;
+  el.classList.toggle('wide-mode', mode != 0);
+  el.classList.toggle('normal-mode', mode == 0);
   };
   window.showStats = function() {
     if (window.dendryUI.dendryEngine.state.sceneId.startsWith('library')) {
