@@ -6,6 +6,21 @@ tags: event
 new-page: true
 set-bg: img/kibriss.jpg
 audio: music/cyprus.m4a
+on-arrival: {
+header, #content, footer {
+  color: var(--text-color);
+  max-width: 700px;
+  margin: 0 auto;
+  overflow: auto;
+}
+#tools_wrapper {
+  position: absolute;
+  width: 100%;
+  max-width: 80em;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}}
 
 = Coup d'etat in Cyprus
 
