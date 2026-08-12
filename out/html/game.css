@@ -76,7 +76,7 @@ header {
 #header-links {
   text-align: left;
   float: left;
-  margin-bottom: 1.5em;
+  margin-left: 400px;
   padding: 0;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
   background-color: transparent;
@@ -87,7 +87,6 @@ header {
   margin-right: 0.4em;
   border-radius: 4px;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
-  margin-left: 400px;
 }
 #header-links a:last-of-type {
   margin-right: 0;
@@ -109,7 +108,7 @@ header h1, header h2 {
   font-weight: normal;
   margin: 0;
   font-size: 1em;
-  left-margin: 400px;
+  margin-left: 400px;
 }
 header h1 {
   font-weight: bold;
