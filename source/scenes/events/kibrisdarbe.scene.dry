@@ -4,6 +4,8 @@ view-if: year == 1974 and month = 7 and week = 2
 max-visits: 1
 tags: event
 new-page: true
+set-bg: img/kibriss.jpg
+audio: music/cyprus1.m4a
 
 = Coup d'etat in Cyprus
 
