@@ -27,6 +27,8 @@
   window.updateCyprusWidth = function() {
   const el = document.getElementById('content');
   if (!el) return;
+  const Q = window.dendryUI.dendryEngine.state.qualities;
+  if (!Q) return;
   el.classList.toggle('wide-mode', Q.cyprus_mode != 0);
   el.classList.toggle('normal-mode', Q.cyprus_mode == 0);
   };
