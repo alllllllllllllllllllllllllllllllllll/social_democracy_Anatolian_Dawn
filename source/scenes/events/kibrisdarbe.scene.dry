@@ -6,21 +6,11 @@ tags: event
 new-page: true
 set-bg: img/kibriss.jpg
 audio: music/cyprus.m4a
-on-arrival: {
-header, #content, footer {
-  color: var(--text-color);
-  max-width: 700px;
-  margin: 0 auto;
-  overflow: auto;
-}
-#tools_wrapper {
-  position: absolute;
-  width: 100%;
-  max-width: 80em;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-}}
+on-arrival: {!
+Q.cyprus_mode = 1;
+Q._last_cyprus_mode = 1;
+updateCyprusWidth();
+!}
 
 = Coup d'etat in Cyprus
 
@@ -39,4 +29,3 @@ The next day Ecevit was in Ankara, meeting with government officials.
 - @root: Barış İçin Savaş...
 
 @root
-on-arrival: cyprus_mode = 1
