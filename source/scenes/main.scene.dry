@@ -14,6 +14,8 @@ max-cards: 3
 
 #Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
 
+[? if cyprus_mode > 0 : {!<div style="color:red;font-size:2em;">CYPRUS TEST</div>!} ?]
+
 [? if year = 1928 and month = 2 : The current bourgeois-right government has fallen. The next elections are slated for May of this year. ?]
 
 - @party
@@ -39,8 +41,6 @@ max-cards: 4
 #Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
 
 {!<div class="scrollable-box">!}
-
-[? if cyprus_mode > 0 : {!<div style="color:red;font-size:2em;">CYPRUS TEST</div>!} ?]
 
 {!<p class="both">!}[? if year = 1972 and month = 1 and week = 1: Its a pretty bleak time for the Turkish Republic. In response to the <span style="color: #750a6f;">**AP**</span> government's inability to suppress the leftist movements within higher education and solve inter-class conflicts between the large industrialists and the petty bourgeoisie, the army had sent a memorandum to the <span style="color: #750a6f;">**AP**</span> Demirel government to resign and as we approach 1972, the "technocratic" Nihat Erim appointed by the military still holds on, though no one knows for how long more. ?]{!</p>!}
 
