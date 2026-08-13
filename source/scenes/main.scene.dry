@@ -40,7 +40,7 @@ max-cards: 4
 
 {!<div class="scrollable-box">!}
 
-[? if cyprus_mode != 0 : {!<div id="cyprus-map-wrap" style="max-width:100%;margin:10px auto;">!} ?]
+[? if cyprus_mode > 0 : {!<div id="cyprus-map-wrap" style="max-width:100%;margin:10px auto;">!} ?]
 [? if cyprus_mode != 0 : {!<svg
    version="1.1"
    id="svg1"
@@ -104,7 +104,7 @@ max-cards: 4
     </polygon>
   </g>
 </svg>!} ?]
-[? if cyprus_mode != 0 : {!</div>!} ?]
+[? if cyprus_mode > 0 : {!</div>!} ?]
 
 {!<p class="both">!}[? if year = 1972 and month = 1 and week = 1: Its a pretty bleak time for the Turkish Republic. In response to the <span style="color: #750a6f;">**AP**</span> government's inability to suppress the leftist movements within higher education and solve inter-class conflicts between the large industrialists and the petty bourgeoisie, the army had sent a memorandum to the <span style="color: #750a6f;">**AP**</span> Demirel government to resign and as we approach 1972, the "technocratic" Nihat Erim appointed by the military still holds on, though no one knows for how long more. ?]{!</p>!}
 
