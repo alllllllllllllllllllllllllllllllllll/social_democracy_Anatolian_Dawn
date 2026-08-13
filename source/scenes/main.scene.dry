@@ -25,7 +25,7 @@ max-cards: 3
    xmlns="http://www.w3.org/2000/svg">
   <style>
     .district {
-      fill: #ffffff;
+      fill: #9b7d07;
       fill-opacity: 0;
       stroke: #ffffff;
       stroke-opacity: 0;
