@@ -609,6 +609,7 @@ function getPartyIdeology(party, Q) {
       window.updateSidebar();
       window.updatePartySidebar();
       updateCyprusWidth();
+      window.setupCyprusMapClicks();
   };
 
   /*
