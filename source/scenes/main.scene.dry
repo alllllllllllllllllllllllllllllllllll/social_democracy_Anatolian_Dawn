@@ -80,9 +80,9 @@ max-cards: 3
 </svg>!} ?]
 [? if cyprus_mode != 0 : {!</div>!} ?]
 [? if cyprus_mode > 0 : {!<div id="cyprus-action-buttons" style="display:none;margin-top:12px;text-align:center;">!} ?]
-[? if cyprus_mode > 0 : {!<button id="cyprus-btn-smuggle" class="cyprus-action-btn"><img src="img/icon_smuggling.png" alt=""><span id="cyprus-btn-smuggle-label">Smuggle arms</span></button>!} ?]
-[? if cyprus_mode > 0 : {!<button id="cyprus-btn-airstrike" class="cyprus-action-btn"><img src="img/icon_aerial.webp" alt=""><span id="cyprus-btn-airstrike-label">Aerially strike positions</span></button>!} ?]
-[? if cyprus_mode > 0 : {!<button id="cyprus-btn-naval" class="cyprus-action-btn"><img src="img/icon_naval.webp" alt=""><span id="cyprus-btn-naval-label">Navally bombard</span></button>!} ?]
+[? if cyprus_mode > 0 : {!<button id="cyprus-btn-smuggle" class="cyprus-action-btn"><img src="img/icon_smuggling.png" alt=""><span id="cyprus-btn-smuggle-label">Turkish Land Forces</span></button>!} ?]
+[? if cyprus_mode > 0 : {!<button id="cyprus-btn-airstrike" class="cyprus-action-btn"><img src="img/icon_aerial.webp" alt=""><span id="cyprus-btn-airstrike-label">Turkish Air Forces</span></button>!} ?]
+[? if cyprus_mode > 0 : {!<button id="cyprus-btn-naval" class="cyprus-action-btn"><img src="img/icon_naval.webp" alt=""><span id="cyprus-btn-naval-label">Turkish Naval Forces</span></button>!} ?]
 [? if cyprus_mode > 0 : {!</div>!} ?]
 
 [? if year = 1928 and month = 2 : The current bourgeois-right government has fallen. The next elections are slated for May of this year. ?]
