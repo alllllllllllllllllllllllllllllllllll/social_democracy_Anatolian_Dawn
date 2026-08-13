@@ -33,6 +33,13 @@
   el.classList.toggle('wide-mode', mode != 0);
   el.classList.toggle('normal-mode', mode == 0);
   };
+  window.setupCyprusMapClicks = function() {
+  document.querySelectorAll('#cyprus-map-wrap .district').forEach(function(el) {
+    el.onclick = function() {
+      window.dendryUI.dendryEngine.goToScene('cyprus_' + el.id);
+    };
+  });
+};
   window.showStats = function() {
     if (window.dendryUI.dendryEngine.state.sceneId.startsWith('library')) {
         window.dendryUI.dendryEngine.goToScene('backSpecialScene');
