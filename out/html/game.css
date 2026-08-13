@@ -441,7 +441,7 @@ a.card:focus .card-tooltip, a.card:hover .card-tooltip {
   align-items: center;
   gap: 8px;
   margin: 4px;
-  padding: 8px 14px;
+  padding: 8px 8px;
   cursor: pointer;
   background: #2a2a2a;
   color: #eee;
@@ -455,7 +455,7 @@ a.card:focus .card-tooltip, a.card:hover .card-tooltip {
   border-color: #888;
 }
 .cyprus-action-btn img {
-  width: 28px;
+  width: 50px;
   height: 28px;
   object-fit: contain;
 }
