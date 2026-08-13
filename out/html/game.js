@@ -61,11 +61,11 @@
     selected = { id: el.id, label: el.getAttribute('data-name') };
 
     document.getElementById('cyprus-btn-smuggle-label').textContent =
-      'Smuggle arms to ' + selected.label;
+      'Take land actions in ' + selected.label;
     document.getElementById('cyprus-btn-airstrike-label').textContent =
-      'Aerially strike positions in ' + selected.label;
+      'Take aerial actions in ' + selected.label;
     document.getElementById('cyprus-btn-naval-label').textContent =
-      'Navally bombard ' + selected.label;
+      'Take naval actions in ' + selected.label;
 
     buttonsBox.style.display = 'block';
   }
