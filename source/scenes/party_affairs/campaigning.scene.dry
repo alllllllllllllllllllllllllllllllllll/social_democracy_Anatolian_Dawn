@@ -48,7 +48,7 @@ We have increased our campaigning among the bureaucracy. [? if nationalism >= 51
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: rural_chp += 1*(1-dissent); resources -= 1; rural_chp += 2*(1-dissent) if rural_policy >= 2; rural_chp += 2*(1-dissent) if rural_land_reform_policy >= 1; rural_chp += 2*(1-dissent) if land_reform == 1; rural_chp += 3*(1-dissent) if land_reform == 2; rural_chp += 3*(1-dissent) if land_reform == 3
+on-arrival: rural_chp += 0.7*(1-dissent); resources -= 1; rural_chp += 1.5*(1-dissent) if rural_policy >= 2; rural_chp += 2*(1-dissent) if rural_land_reform_policy >= 1; rural_chp += 2*(1-dissent) if land_reform == 1; rural_chp += 3*(1-dissent) if land_reform == 2; rural_chp += 3*(1-dissent) if land_reform == 3
 
 We have increased our campaigning among farmers. [? if peoples_party == 0: We have not historically campaigned much among the farmers, and they do not trust us. ?][? if peoples_party > 0: As a people's party, we have an easier time increasing support among farmers than before. ?][? if rural_policy >= 2 : Our rural policies have made it easier for us to build support among farmers. ?][? if rural_land_reform_policy >= 1 : Our land reform policies give us additional credibility with rural voters. ?][? if land_reform == 1 : Our agricultural cooperatives law has improved our standing with farmers. ?][? if land_reform == 2 : Our land distribution law has significantly boosted our rural appeal. ?][? if land_reform == 3 : The enacted Köykent project has revolutionized our rural support. ?]
 
