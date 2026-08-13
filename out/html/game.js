@@ -25,14 +25,27 @@
       ui.loadGame(url);
   };
   window.updateCyprusWidth = function() {
-  const el = document.getElementById('content');
-  if (!el) return;
+  const content = document.getElementById('content');
+  const toolsWrapper = document.getElementById('tools_wrapper');
+
+  if (!content) return;
+
   const Q = window.dendryUI.dendryEngine.state.qualities;
   if (!Q) return;
+
   const mode = Q.cyprus_mode || 0;
-  el.classList.toggle('wide-mode', mode != 0);
-  el.classList.toggle('normal-mode', mode == 0);
-  };
+  const isCyprus = mode != 0;
+
+  // Content width
+  content.classList.toggle('wide-mode', isCyprus);
+  content.classList.toggle('normal-mode', !isCyprus);
+
+  // Tools wrapper width
+  if (toolsWrapper) {
+    toolsWrapper.classList.toggle('wide-mode', isCyprus);
+    toolsWrapper.classList.toggle('normal-mode', !isCyprus);
+  }
+};
   window.setupCyprusMapClicks = function() {
   var buttonsBox = document.getElementById('cyprus-action-buttons');
   var mapWrap = document.getElementById('cyprus-map-wrap');
