@@ -657,6 +657,7 @@ function getPartyIdeology(party, Q) {
     window.pinnedCardsDescription = "Party Leadership - actions are only usable once per 6 months.";
     window.updateMusicBtn();
     updateCyprusWidth();
+    window.setupCyprusMapClicks();
   };
 
   // Override displayPinnedCards to add gold/silver borders and sort leader > secretary > members
