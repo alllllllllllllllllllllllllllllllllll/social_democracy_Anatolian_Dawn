@@ -34,11 +34,50 @@
   el.classList.toggle('normal-mode', mode == 0);
   };
   window.setupCyprusMapClicks = function() {
-  document.querySelectorAll('#cyprus-map-wrap .district').forEach(function(el) {
-    el.onclick = function() {
-      window.dendryUI.dendryEngine.goToScene('cyprus_' + el.id);
-    };
+  var buttonsBox = document.getElementById('cyprus-action-buttons');
+  var mapWrap = document.getElementById('cyprus-map-wrap');
+  if (!buttonsBox || !mapWrap) return; // map isn't on this passage right now
+
+  var selected = null; // { id, label }
+
+  function selectDistrict(el) {
+    mapWrap.querySelectorAll('.district.selected').forEach(function(s) {
+      s.classList.remove('selected');
+    });
+    el.classList.add('selected');
+    selected = { id: el.id, label: el.getAttribute('data-name') };
+
+    document.getElementById('cyprus-btn-smuggle-label').textContent =
+      'Smuggle arms to ' + selected.label;
+    document.getElementById('cyprus-btn-airstrike-label').textContent =
+      'Aerially strike positions in ' + selected.label;
+    document.getElementById('cyprus-btn-naval-label').textContent =
+      'Navally bombard ' + selected.label;
+
+    buttonsBox.style.display = 'block';
+  }
+
+  mapWrap.querySelectorAll('.district').forEach(function(el) {
+    el.onclick = function() { selectDistrict(el); };
   });
+
+  function doAction(sceneName) {
+    if (!selected) return;
+    var Q = window.dendryUI.dendryEngine.state.qualities;
+    Q.cyprus_target_district = selected.id;
+    Q.cyprus_target_district_label = selected.label;
+    window.dendryUI.dendryEngine.goToScene(sceneName);
+  }
+
+  document.getElementById('cyprus-btn-smuggle').onclick = function() {
+    doAction('cyprus_smuggle_arms');
+  };
+  document.getElementById('cyprus-btn-airstrike').onclick = function() {
+    doAction('cyprus_air_strike');
+  };
+  document.getElementById('cyprus-btn-naval').onclick = function() {
+    doAction('cyprus_naval_bombard');
+  };
 };
   window.showStats = function() {
     if (window.dendryUI.dendryEngine.state.sceneId.startsWith('library')) {
