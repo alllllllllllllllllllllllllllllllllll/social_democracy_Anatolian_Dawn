@@ -1,10 +1,10 @@
 
-(..5) Hostile
-(5..14.9) Unsympathetic
-(14.9..29.9) Unfavorable
-(29.9..39.9) Suspicious
-(39.9..54.9) Neutral
-(54.9..64.9) Receptive
-(64.9..74.9) Favorable
-(74.9..84.9) Supportive
-(84.9..) Very Supportive
+(..5) <span style="color: #CC0000;"><strong>Hostile</strong></span>
+(5..14.9) <span style="color: #DD3300;"><strong>Unsympathetic</strong></span>
+(14.9..29.9) <span style="color: #EE7700;"><strong>Unfavorable</strong></span>
+(29.9..39.9) <span style="color: #CCBB00;"><strong>Suspicious</strong></span>
+(39.9..54.9) <span style="color: #888888;"><strong>Neutral</strong></span>
+(54.9..64.9) <span style="color: #88BB00;"><strong>Receptive</strong></span>
+(64.9..74.9) <span style="color: #44AA00;"><strong>Favorable</strong></span>
+(74.9..84.9) <span style="color: #228800;"><strong>Supportive</strong></span>
+(84.9..) <span style="color: #006600;"><strong>Very Supportive</strong></span>
