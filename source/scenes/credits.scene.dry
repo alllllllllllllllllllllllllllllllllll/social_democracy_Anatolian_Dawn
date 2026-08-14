@@ -1,12 +1,13 @@
 title: Credits
 
-Many works were referenced in the making of this game.
+Many works were referenced in the making of this game. In addition, many features invented by fellow developers have been used in accordance with their consent.
 
 - @books: Books
 - @articles: Articles
 - @images: Image sources
 - @music: Music sources
 - @ai: AI usage in the making of the game.
+- @dev: Special thanks.
 - @root: Back
 
 @books
@@ -286,6 +287,29 @@ Ilse ASCH - Sopran. Lied der Pompadour, 1922. http://archive.org/details/ilse-as
 Rudolf DEMAN - Violine, Otto URACK-Piano. Liebesleid (Fritz Kreisler), 1922. http://archive.org/details/deman-liebesleid. Public Domain
 
 Marek Weber mit seiner Künstlerkapelle vom Esplanade and Arno Billing. Das lila Lied. Parlophon, 1921. http://archive.org/details/78_das-lila-lied_marek-weber-mit-seiner-knstlerkapelle-vom-esplanade-arno-billing_gbia7004182b. Public Domain
+
+@dev
+
+Special thanks to Communist45 for:
+Assistance throughout much of the development with his expertise in coding
+The code for the different kinds of tooltips
+Being a good friend in general
+
+Special thanks to originn(aka the modman) for:
+Help with the parliament chart generation
+Help with adjusting the panel sizes
+Being an inspiration for many developers including myself with the breakthroughs of the dynamic SDAAH mod
+
+Special thanks to placedstone for:
+Concept for the placement of the game's banner in the opening screen
+
+Special thanks to Monsieur Atatürk for:
+His assistance with historical accuracy and realism
+Help in the design of the government cards
+
+Special thanks to Umuth for:
+His advices on the css and UI
+Concepts for party cards and intra-party content
 
 @ai
 
