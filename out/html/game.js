@@ -111,10 +111,10 @@
                      'August','September','October','November','December'];
   Q.cyprus_date_display = monthNames[Q.cyprus_month] + ' ' + Q.cyprus_day + ', ' + Q.cyprus_year;
 
-  // --- daily resource tick ---
+  //daily resource tick
   Q.military_strength = (Q.military_strength || 0) + 5;
 
-  // --- attitude drift (placeholder - adjust the actual drift logic later) ---
+  //attitude drift
   // e.g. Q.us_attitude += someDriftAmount;
 
   window.updateCyprusDisplay();
