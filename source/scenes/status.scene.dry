@@ -1036,13 +1036,13 @@ view-if: cyprus_mode != 0
     <button id="cyprus-greece-btn" class="cyprus-diplomacy-btn" type="button">
       <img src="cyprusgame/greek.webp" alt="Greece">
       <span>Greek Junta</span>
-      [? if cyprus_mode != 0 : {!<span class="cyprus-attitude-display">!} ?][+ greece_attitude : attitude +][? if cyprus_mode != 0 : {!</span>!} ?]
+      if cyprus_mode != 0 : {!<span class="cyprus-attitude-display">!} ?][+ greece_attitude : attitude +][? if cyprus_mode != 0 : {!</span>!}
     </button>
 
     <button id="cyprus-uk-btn" class="cyprus-diplomacy-btn" type="button">
       <img src="cyprusgame/uk.webp" alt="United Kingdom">
       <span>United Kingdom</span>
-      [? if cyprus_mode != 0 : {!<span class="cyprus-attitude-display">!} ?][+ uk_attitude : attitude +][? if cyprus_mode != 0 : {!</span>!} ?]
+      if cyprus_mode != 0 : {!<span class="cyprus-attitude-display">!} ?][+ uk_attitude : attitude +][? if cyprus_mode != 0 : {!</span>!}
     </button>
 
   </div>
@@ -1052,7 +1052,7 @@ view-if: cyprus_mode != 0
     <button id="cyprus-us-btn" class="cyprus-diplomacy-btn" type="button">
       <img src="cyprusgame/us.png" alt="United States">
       <span>United States</span>
-      [? if cyprus_mode != 0 : {!<span class="cyprus-attitude-display">!} ?][+ us_attitude : attitude +][? if cyprus_mode != 0 : {!</span>!} ?]
+      if cyprus_mode != 0 : {!<span class="cyprus-attitude-display">!} ?][+ us_attitude : attitude +][? if cyprus_mode != 0 : {!</span>!}
     </button>
 
   </div>
