@@ -14,11 +14,12 @@ var cardEl = document.createElement('div');
 cardEl.className = "face-figure2";
 var image = new Image();
 image.className = "face-img";
-image.src = "img/banner.jpg";
+image.src = "img/yenibirturkiyee.jpg";
 cardEl.appendChild(image);
 var contentDiv = document.querySelector("#page #mid_panel #content");
 contentDiv.appendChild(cardEl);
 !}
+set-bg: img/banner.jpg
 
 - @start: Start game
 - @election_simulation: Election simulation
