@@ -4,7 +4,7 @@ is-card: true
 tags: govt_affairs, cabinet
 on-arrival: economic_policy_timer += 8; month_actions += 1;
 view-if: CHP_in_government = 1 and economic_minister_party == "CHP" and economic_policy_timer <= 0
-card-image: img/portraits/DenizBaykal.jpg
+card-image: img/portraits/Muezzinoglu.jpg
 go-to: economy_menu
 #subtitle: Policies to address the economic crisis.
 
