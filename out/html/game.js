@@ -92,6 +92,32 @@
     doAction('cyprus_naval_bombard');
   };
 };
+  window.cyprusAdvanceDay = function() {
+  var Q = window.dendryUI.dendryEngine.state.qualities;
+
+  var daysInMonth = { 7: 31, 8: 31, 9: 30 }; // extend if the arc can run into October+
+
+  Q.cyprus_day += 1;
+  if (Q.cyprus_day > daysInMonth[Q.cyprus_month]) {
+    Q.cyprus_day = 1;
+    Q.cyprus_month += 1;
+    if (Q.cyprus_month > 12) {
+      Q.cyprus_month = 1;
+      Q.cyprus_year += 1;
+    }
+  }
+
+  var monthNames = ['', 'January','February','March','April','May','June','July',
+                     'August','September','October','November','December'];
+  Q.cyprus_date_display = monthNames[Q.cyprus_month] + ' ' + Q.cyprus_day + ', ' + Q.cyprus_year;
+
+  // decrement any Cyprus-specific day-based timers here, same pattern as your monthly ones:
+  // if (Q.some_timer > 0) { Q.some_timer -= 1; }
+
+  // re-render the current scene so the updated date actually shows on screen
+  var sceneId = window.dendryUI.dendryEngine.state.sceneId;
+  window.dendryUI.dendryEngine.goToScene(sceneId);
+};
   window.showStats = function() {
     if (window.dendryUI.dendryEngine.state.sceneId.startsWith('library')) {
         window.dendryUI.dendryEngine.goToScene('backSpecialScene');
