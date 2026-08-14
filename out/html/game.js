@@ -107,6 +107,19 @@
     }
   }
 
+  var monthNames = ['', 'January','February','March','April','May','June','July',
+                     'August','September','October','November','December'];
+  Q.cyprus_date_display = monthNames[Q.cyprus_month] + ' ' + Q.cyprus_day + ', ' + Q.cyprus_year;
+
+  // --- daily resource tick ---
+  Q.military_strength = (Q.military_strength || 0) + 5;
+
+  // --- attitude drift (placeholder - adjust the actual drift logic later) ---
+  // e.g. Q.us_attitude += someDriftAmount;
+
+  window.updateCyprusDisplay();
+};
+
     window.updateCyprusDisplay = function() {
   var Q = window.dendryUI.dendryEngine.state.qualities;
   var map = {
