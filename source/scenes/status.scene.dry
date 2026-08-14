@@ -1025,13 +1025,27 @@ if (Q.CHP_party_leader == "Ecevit" || Q.CHP_party_leader == "ecevit") Q.leader_p
 
 @cyprus
 view-if: cyprus_mode != 0
-on-display: {!
-var cardEl = document.createElement('div');
-cardEl.className = "tools right";
-var image = new Image();
-imageclassName = "face-img";
-image.src = "cyprusgame/cyprus_districts_clickable.svg";
-cardEl.appendChild(image);
-var contentDiv = document.querySelector(" #tools_wrapper #party_sidebar #cyprus_tab");
-contentDiv.appendChild(cardEl);
-!}
+on-display: [? if cyprus_mode != 0 : {!
+<div id="cyprus-diplomacy-header">
+
+  <div class="cyprus-diplomacy-top">
+    <button id="cyprus-greece-btn" class="cyprus-diplomacy-btn">
+      <img src="cyprusgame/flag_greece.png" alt="Greece">
+      <span>Greece</span>
+    </button>
+
+    <button id="cyprus-uk-btn" class="cyprus-diplomacy-btn">
+      <img src="cyprusgame/flag_uk.png" alt="United Kingdom">
+      <span>UK</span>
+    </button>
+  </div>
+
+  <div class="cyprus-diplomacy-bottom">
+    <button id="cyprus-us-btn" class="cyprus-diplomacy-btn">
+      <img src="cyprusgame/flag_us.png" alt="United States">
+      <span>USA</span>
+    </button>
+  </div>
+
+</div>
+!} ?]
