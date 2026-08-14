@@ -78,6 +78,7 @@ max-cards: 3
     </polygon>
   </g>
 </svg>!} ?]
+[? if cyprus_mode != 0 : {!</div>!} ?]
 [? if cyprus_mode > 0 : {!<div style="text-align:center;margin-bottom:8px;">!} ?]
 [? if cyprus_mode > 0 : {!<span style="font-size:1.1em;font-weight:bold;">!}[+ cyprus_date_display +]{!</span>!} ?]
 [? if cyprus_mode > 0 : {!<button onclick="window.cyprusAdvanceDay()" style="margin-left:14px;padding:4px 10px;cursor:pointer;">End Day</button>!} ?]
