@@ -1025,7 +1025,12 @@ if (Q.CHP_party_leader == "Ecevit" || Q.CHP_party_leader == "ecevit") Q.leader_p
 
 @cyprus
 view-if: cyprus_mode != 0
-on-display: <div class="cyprus-diplomacy-top">
+
+[? if cyprus_mode != 0 : {!
+<div id="cyprus-diplomacy-header">
+
+  <div class="cyprus-diplomacy-top">
+
     <button id="cyprus-greece-btn" class="cyprus-diplomacy-btn" type="button">
       <img src="cyprusgame/greek.webp" alt="Greece">
       <span>Greece</span>
@@ -1035,13 +1040,16 @@ on-display: <div class="cyprus-diplomacy-top">
       <img src="cyprusgame/uk.webp" alt="United Kingdom">
       <span>UK</span>
     </button>
+
   </div>
 
   <div class="cyprus-diplomacy-bottom">
+
     <button id="cyprus-us-btn" class="cyprus-diplomacy-btn" type="button">
       <img src="cyprusgame/us.png" alt="United States">
       <span>USA</span>
     </button>
+
   </div>
 
 </div>
