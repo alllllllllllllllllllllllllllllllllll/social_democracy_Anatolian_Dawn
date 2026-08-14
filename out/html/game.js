@@ -107,6 +107,23 @@
     }
   }
 
+    window.updateCyprusDisplay = function() {
+  var Q = window.dendryUI.dendryEngine.state.qualities;
+  var map = {
+    'cyprus-date-display': Q.cyprus_date_display,
+    'cyprus-military-strength': Q.military_strength,
+    'cyprus-us-attitude': Q.us_attitude,
+    'cyprus-uk-attitude': Q.uk_attitude,
+    'cyprus-greece-attitude': Q.greece_attitude,
+    'cyprus-leverage-points': Q.leverage_points
+  };
+  for (var id in map) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = map[id];
+  }
+};
+
+
   var monthNames = ['', 'January','February','March','April','May','June','July',
                      'August','September','October','November','December'];
   Q.cyprus_date_display = monthNames[Q.cyprus_month] + ' ' + Q.cyprus_day + ', ' + Q.cyprus_year;
