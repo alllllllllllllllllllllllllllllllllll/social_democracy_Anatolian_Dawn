@@ -834,3 +834,8 @@ table {
     display: block;
     font-size: 0.8em;
 }
+.cyprus-attitude-display {
+    display: block;
+    font-size: 0.85em;
+    font-weight: 700;
+    margin-top: 2px;
