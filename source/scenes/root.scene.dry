@@ -19,7 +19,6 @@ cardEl.appendChild(image);
 var contentDiv = document.querySelector("#page #mid_panel #content");
 contentDiv.appendChild(cardEl);
 !}
-set-bg: img/banner.jpg
 
 - @start: Start game
 - @election_simulation: Election simulation
