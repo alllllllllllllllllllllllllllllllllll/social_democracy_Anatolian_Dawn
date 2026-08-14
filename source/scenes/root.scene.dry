@@ -11,15 +11,15 @@ go-to: start_menu_2
 @start_menu_2
 on-display: {!
 var cardEl = document.createElement('div');
-cardEl.className = "face-figure2 anatoliandawn-figure";
+cardEl.className = "face-figure2";
 var image = new Image();
-image.className = "face-img anatoliandawn-img";
-image.src = "img/yenibirturkiyee.jpg";
+image.className = "face-img";
+image.src = "img/banner.jpg";
 cardEl.appendChild(image);
 var contentDiv = document.querySelector("#page #mid_panel #content");
 contentDiv.appendChild(cardEl);
 !}
-set-bg: img/banner.jpg
+set-bg: img/yenibirturkiyee.jpg
 
 - @start: Start game
 - @election_simulation: Election simulation
