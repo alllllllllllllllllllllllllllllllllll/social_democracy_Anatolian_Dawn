@@ -136,18 +136,6 @@
   }
 };
 
-
-  var monthNames = ['', 'January','February','March','April','May','June','July',
-                     'August','September','October','November','December'];
-  Q.cyprus_date_display = monthNames[Q.cyprus_month] + ' ' + Q.cyprus_day + ', ' + Q.cyprus_year;
-
-  // decrement any Cyprus-specific day-based timers here, same pattern as your monthly ones:
-  // if (Q.some_timer > 0) { Q.some_timer -= 1; }
-
-  // re-render the current scene so the updated date actually shows on screen
-  var sceneId = window.dendryUI.dendryEngine.state.sceneId;
-  window.dendryUI.dendryEngine.goToScene(sceneId);
-};
   window.showStats = function() {
     if (window.dendryUI.dendryEngine.state.sceneId.startsWith('library')) {
         window.dendryUI.dendryEngine.goToScene('backSpecialScene');
