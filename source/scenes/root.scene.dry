@@ -9,6 +9,16 @@ go-to: start_menu_2
 = Anatolian Dawn: An Alternate History
 
 @start_menu_2
+on-display: {!
+var cardEl = document.createElement('div');
+cardEl.className = "face-figure2";
+var image = new Image();
+image.className = "face-img";
+image.src = "img/banner.jpg";
+cardEl.appendChild(image);
+var contentDiv = document.querySelector("#page #mid_panel #content");
+contentDiv.appendChild(cardEl);
+!}
 set-bg: img/banner.jpg
 
 - @start: Start game
