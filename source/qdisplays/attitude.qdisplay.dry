@@ -1,0 +1,9 @@
+(..5) Hostile
+(5..14.9) Unsympathetic
+(14.9..29.9) Unfavorable
+(29.9..39.9) Suspicious
+(39.9..54.9) Neutral
+(54.9..64.9) Receptive
+(64.9..74.9) Favorable
+(74.9..84.9) Supportive
+(84.9..) Very Supportive
