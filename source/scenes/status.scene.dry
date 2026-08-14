@@ -1034,13 +1034,15 @@ view-if: cyprus_mode != 0
   <div class="cyprus-diplomacy-top">
 
     <button id="cyprus-greece-btn" class="cyprus-diplomacy-btn" type="button">
-      <img src="cyprusgame/greek.webp" alt="Greek Junta">
-      <span>**Greek Junta**</span>
+      <img src="cyprusgame/greek.webp" alt="Greece">
+      <span>Greek Junta</span>
+      <span id="cyprus-greece-attitude" class="cyprus-attitude-display"></span>
     </button>
 
     <button id="cyprus-uk-btn" class="cyprus-diplomacy-btn" type="button">
       <img src="cyprusgame/uk.webp" alt="United Kingdom">
-      <span>**United Kingdom**</span>
+      <span>United Kingdom</span>
+      <span id="cyprus-uk-attitude" class="cyprus-attitude-display"></span>
     </button>
 
   </div>
@@ -1049,7 +1051,8 @@ view-if: cyprus_mode != 0
 
     <button id="cyprus-us-btn" class="cyprus-diplomacy-btn" type="button">
       <img src="cyprusgame/us.png" alt="United States">
-      <span>**United States**</span>
+      <span>United States</span>
+      <span id="cyprus-us-attitude" class="cyprus-attitude-display"></span>
     </button>
 
   </div>
