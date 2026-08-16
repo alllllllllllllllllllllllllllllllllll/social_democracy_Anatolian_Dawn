@@ -134,6 +134,21 @@
   }
 };
 
+window.updateTitleScreenImages = function() {
+  const sceneId = window.dendryUI.dendryEngine.state.sceneId;
+  const isTitleScreen = (sceneId === 'root.start_menu_2');
+ 
+  const statsSidebar = document.getElementById('stats_sidebar');
+  const partySidebar = document.getElementById('party_sidebar');
+  const leftImg = document.getElementById('cyprus-title-left-img');
+  const rightImg = document.getElementById('cyprus-title-right-img');
+ 
+  if (statsSidebar) statsSidebar.style.display = isTitleScreen ? 'none' : '';
+  if (partySidebar) partySidebar.style.display = isTitleScreen ? 'none' : '';
+  if (leftImg) leftImg.style.display = isTitleScreen ? '' : 'none';
+  if (rightImg) rightImg.style.display = isTitleScreen ? '' : 'none';
+};
+  
   window.showStats = function() {
     if (window.dendryUI.dendryEngine.state.sceneId.startsWith('library')) {
         window.dendryUI.dendryEngine.goToScene('backSpecialScene');
