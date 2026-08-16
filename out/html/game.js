@@ -716,6 +716,7 @@ function getPartyIdeology(party, Q) {
     window.updateMusicBtn();
     updateCyprusWidth();
     window.setupCyprusMapClicks();
+    window.updateTitleScreenImages();
   };
 
   // Override displayPinnedCards to add gold/silver borders and sort leader > secretary > members
