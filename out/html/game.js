@@ -42,7 +42,7 @@
   }
   // End Day header link
   const endDayLink = document.getElementById('cyprus-end-day-link');
-  if (endDayLink) endDayLink.style.display = isCyprus ? 'inline' : 'none';
+  if (endDayLink) endDayLink.style.display = isCyprus ? 'inline-block' : 'none';
 };
   window.setupCyprusMapClicks = function() {
   var buttonsBox = document.getElementById('cyprus-action-buttons');
