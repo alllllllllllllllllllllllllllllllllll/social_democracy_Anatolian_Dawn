@@ -138,13 +138,17 @@ window.updateTitleScreenImages = function() {
   const sceneId = window.dendryUI.dendryEngine.state.sceneId;
   const isTitleScreen = (sceneId === 'root.start_menu_2');
  
-  const statsSidebar = document.getElementById('stats_sidebar');
-  const partySidebar = document.getElementById('party_sidebar');
+  const statsTabs = document.getElementById('stats_tab_container');
+  const qualities = document.getElementById('qualities');
+  const partyTabs = document.getElementById('party_tab_container');
+  const partyQualities = document.getElementById('party_qualities');
   const leftImg = document.getElementById('cyprus-title-left-img');
   const rightImg = document.getElementById('cyprus-title-right-img');
  
-  if (statsSidebar) statsSidebar.style.display = isTitleScreen ? 'none' : '';
-  if (partySidebar) partySidebar.style.display = isTitleScreen ? 'none' : '';
+  if (statsTabs) statsTabs.style.display = isTitleScreen ? 'none' : '';
+  if (qualities) qualities.style.display = isTitleScreen ? 'none' : '';
+  if (partyTabs) partyTabs.style.display = isTitleScreen ? 'none' : '';
+  if (partyQualities) partyQualities.style.display = isTitleScreen ? 'none' : '';
   if (leftImg) leftImg.style.display = isTitleScreen ? '' : 'none';
   if (rightImg) rightImg.style.display = isTitleScreen ? '' : 'none';
 };
