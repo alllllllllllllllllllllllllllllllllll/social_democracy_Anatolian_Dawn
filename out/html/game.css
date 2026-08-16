@@ -844,3 +844,9 @@ table {
     font-family: "Minion Pro", Georgia, serif;
     font-weight: 700;
     margin-top: 2px;
+  
+cyprus-title-img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+}
