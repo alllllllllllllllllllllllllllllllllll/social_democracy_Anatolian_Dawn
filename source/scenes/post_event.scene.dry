@@ -1092,7 +1092,8 @@ if (Q.week == 1 && !Q.army_in_government && !Q.tsk_pacified) {
 !}
 go-to: game_over if coup_roll_success = 1; economy_health_calculator if calculate_economy_health = 1; events_choice if has_event = 1; main if has_event = 0 and difficulty >= 0; main.main_easy if has_event = 0 and difficulty < 0
 
-= [+ month : month +] [+ year +]
+= [? if cyprus_mode = 0 : = [+ month : month +] [+ year +] ?]
+= [? if cyprus_mode > 0 : {!<h1 id="cyprus-date-display">!}[+ cyprus_date_display +]{!</h1>!} ?]
 
 @events_choice
 
