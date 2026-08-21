@@ -287,7 +287,7 @@ Next general election: [+ next_election_month : month +] [+ next_election_year +
 
 <span style="color: #4a4d04;">**DP**</span>:  [? if DP_party_leader == "Bozbeyli" : Conservative Populism (Bozbeyli) ?]
 
-<span style="color: #054521;">**MSP**</span>:  [? if MSP_party_leader == "Süleyman Arif" : Islamic Conservatism (Süleyman Arif) ?][? if MSP_party_leader == "Erbakan" : Social Islamism (Erbakan) ?]
+<span style="color: #054521;">**MSP**</span>:  [? if MSP_party_leader == "Süleyman Arif" : Islamic Conservatism (Süleyman Arif) ?][? if MSP_party_leader == "Erbakan" : National Vision (Erbakan) ?]
 
 <span style="color: #954B00;">**MHP**</span>:  [? if MHP_party_leader == "Alparslan Türkeş" : Turkic-Islamic Synthesis (Türkeş) ?]
 
