@@ -1,0 +1,34 @@
+title: Necmettin Erbakan designated as the chairman of the MSP!
+subtitle: An introduction to AP, our primary adversary.
+view-if: year == 1973 and month = 11 and week = 1
+max-visits: 1
+tags: event
+new-page: true
+face-image: img/mnpp.jpeg
+on-display: {!
+var cardEl = document.createElement('div');
+cardEl.className = "face-figure2";
+var image = new Image();
+image.className = "face-img";
+image.src = "img/hoca.webp";
+cardEl.appendChild(image);
+var contentDiv = document.querySelector("#page #mid_panel #content");
+contentDiv.appendChild(cardEl);
+!}
+
+= Erbakan's accession
+
+In contrast with how party affairs usually work, the MSP leadership have announced the conservative Süleyman Arif Emre’s resignation as the party chairman and Necmettin Erbakan’s, a mechanical engineer and the leading figure of the Islamist politics, designation as the leader. Erbakan’ ascension represents a victory for his unique vision of Islamism: a vision he calls the “National Vision”.
+
+Since the MNP’s, the predecessor of the MSP, formation in 1970 there have been disagreements in the party over which principles should define the Islamic Conservative party, a political brand that hadn’t been adopted by any Turkish party until now. One camp advocated for continuing allegiance to the traditional right and desired the party to appeal simply to the Right Wing of AP. Another camp however, the one headed by Erbakan, wanted a complete break with the conventional right and for the establishment of a “Third Way” in politics, one that espouses National and Religious wellbeing against the dangers of both Communism and Capitalism.
+
+The followers of the National Vision advocate for a dismantlement of excessive state institutions and their replacement with religious orders that would establish a degree of control over the lives of the citizens and thus be able to defend Islamic values. The movement also has a specific audience that we have found to be receptive to its messaging: the petty bourgeoisie. Even though the petty bourgeoisie already had conservative leanings before, as they are the local defendants of the political and economic order, they have recently found their true place in politics under the wings of Erbakan who promises them defence from “Capitalism” led by large corporations that came to crush many of them during Demirel’ tenure. Even though our views are irreconcilable, their economist interventionist stance paradoxically parallels ours. 
+
+As Erbakan rises over the top and establishes firm control over his party, it is best to remember how he came to be where he is today. Originally a mechanical engineer affiliated with the Süleyman ağa cult, he first entered politics in the aftermath of the 1960 coup. Even partaking in the discussions over the new economic agenda of the junta, he began advocating for a form of decentralized industrialization where local producers would unite to form larger factories which would provide the backbone of a new economy. Even though his ideas were rejected by the economics committee of the junta, he found a receptive audience among the local producers of Istanbul that he began to organize a cartel. The organization gradually spread across Anatolia and Erbakan had become a figure too big to ignore.
+
+Such was the reason when in 1969 Demirel, sensing the threat of an insurgent anti-monopoly movement, got Erbakan thrown out of TOBB that he had just been elected as the chairman of. The relations between the two figures worsened over time in a series of disputes and this dynamic to a degree may be responsible for Erbakan’s staunch denouncement of attachment to the AP. Nevertheless, he is no longer the man to direct MSP from the shadows and has once again, dangerously for the right, “become too big to ignore”.
+
+- @root: Out of the shadows.
+
+@root
+on-arrival:  MSP_party_leader = "Erbakan"
