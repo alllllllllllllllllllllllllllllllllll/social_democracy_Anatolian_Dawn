@@ -401,7 +401,7 @@ function getPartyIdeology(party, Q) {
             return 'Unknown';
         case 'MSP':
             if (Q.MSP_party_leader === "Süleyman Arif") return '<span style="color: #3c3e4e;">Far Right</span> (Islamic Conservatism)';
-            if (Q.MSP_party_leader === "Erbakan") return '<span style="color: #3c3e4e ;">Far Right</span> (Social Islamism)';
+            if (Q.MSP_party_leader === "Erbakan") return '<span style="color: #3c3e4e ;">Far Right</span> (National Vision)';
             return 'Unknown';
         case 'MHP':
             if (Q.MHP_party_leader === "Alparslan Türkeş") return '<span style="color: #3c3e4e ;">Far Right</span> (Turkic-Islamic Synthesis)';
