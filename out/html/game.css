@@ -829,6 +829,7 @@ table {
     background: transparent;
     cursor: pointer;
     text-align: center;
+    color: var(--text-color);
 }
 
 .cyprus-diplomacy-btn img {
