@@ -1,10 +1,10 @@
 
-(..5) <span style="color: #5e0707;"><strong>Hostile</strong></span>
-(5..14.9) <span style="color: #DD3300;"><strong>Unsympathetic</strong></span>
-(14.9..29.9) <span style="color: #EE7700;"><strong>Unfavorable</strong></span>
-(29.9..39.9) <span style="color: #CCBB00;"><strong>Suspicious</strong></span>
-(39.9..54.9) <span style="color: #ccaf08;"><strong>Neutral</strong></span>
-(54.9..64.9) <span style="color: #88BB00;"><strong>Receptive</strong></span>
-(64.9..74.9) <span style="color: #44AA00;"><strong>Favorable</strong></span>
-(74.9..84.9) <span style="color: #228800;"><strong>Supportive</strong></span>
-(84.9..) <span style="color: #0c6e09;"><strong>Very Supportive</strong></span>
+(..5) <span style="color: #9e2626;"><strong>Hostile</strong></span>
+(5..14.9) <span style="color: #c1502f;"><strong>Unsympathetic</strong></span>
+(14.9..29.9) <span style="color: #d4823a;"><strong>Unfavorable</strong></span>
+(29.9..39.9) <span style="color: #d9a441;"><strong>Suspicious</strong></span>
+(39.9..54.9) <span style="color: #c2b657;"><strong>Neutral</strong></span>
+(54.9..64.9) <span style="color: #9bb84a;"><strong>Receptive</strong></span>
+(64.9..74.9) <span style="color: #6ba33f;"><strong>Favorable</strong></span>
+(74.9..84.9) <span style="color: #4a8f3c"><strong>Supportive</strong></span>
+(84.9..) <span style="color: #2f7a3a;"><strong>Very Supportive</strong></span>
