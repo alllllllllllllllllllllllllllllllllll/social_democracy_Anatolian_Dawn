@@ -1041,7 +1041,7 @@ view-if: cyprus_mode != 0
 
     <button id="cyprus-uk-btn" class="cyprus-diplomacy-btn" type="button">
       <img src="cyprusgame/uk.webp" alt="United Kingdom">
-      <span><p>United Kingdom>/p></span>
+      <span><p>United Kingdom</p></span>
       <span class="cyprus-attitude-display">!}[+ uk_attitude : attitude +]{!</span>
     </button>
 
