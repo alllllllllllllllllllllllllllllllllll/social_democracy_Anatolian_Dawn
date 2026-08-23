@@ -16,7 +16,7 @@ max-cards: 3
 
 [? if cyprus_mode != 0 : {!</div>!} ?]
 [? if cyprus_mode > 0 : {!<div style="text-align:center;margin-bottom:8px;">!} ?]
-[? if if cyprus_mode != 0 : <h1 id="cyprus-date-display"> ?]
+[? if cyprus_mode != 0 : <h1 id="cyprus-date-display"> ?]
 [? if cyprus_mode != 0 : {!<div id="cyprus-map-wrap" style="max-width:100%;margin:10px auto;">!} ?]
 [? if cyprus_mode != 0 : {!<svg
    version="1.1"
