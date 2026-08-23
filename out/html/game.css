@@ -155,6 +155,10 @@ p {
   margin-bottom: 1em;
   text-indent: 1em;
 }
+cyprustext {
+  margin-bottom: 0em
+  text-indent: 1em;
+}
 p.game-over {
   border: 2px solid #bbb;
   padding: 0.5em;
@@ -850,3 +854,4 @@ table {
   height: 332px;
   object-fit: cover;
 }
+
