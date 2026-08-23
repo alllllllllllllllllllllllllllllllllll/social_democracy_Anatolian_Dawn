@@ -120,7 +120,6 @@
 };
     
   window.updateCyprusDisplay();
-};
 
     window.updateCyprusDisplay = function() {
   var Q = window.dendryUI.dendryEngine.state.qualities;
