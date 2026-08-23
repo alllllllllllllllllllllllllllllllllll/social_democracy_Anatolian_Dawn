@@ -310,7 +310,13 @@ window.updateTitleScreenImages = function() {
   // This function allows you to modify the text before it's displayed.
   // E.g. wrapping chat-like messages in spans.
 
-    
+ function updateCyprusDate() {
+  const Q = window.dendryUI.dendryEngine.state.qualities;
+  const dateDisplay = document.querySelector("#cyprus-date-display");
+  if (dateDisplay) {
+    dateDisplay.textContent = "Day " + Q.cyprus_date;
+  }
+}
 
   // This function allows you to do something in response to signals.
     
