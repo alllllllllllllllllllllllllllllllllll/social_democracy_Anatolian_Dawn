@@ -496,11 +496,6 @@ Q.kurdish_radicalism = 0.25; // Starting position: Medium-low (0.24-0.44)
 // Women's Rights
 Q.women_reform = 0
 
-//Cyprus attitudes
-Q.greece_attitude = 4;
-Q.uk_attitude = 50 + (Q.west_relation - 50);
-Q.us_attitude = 35 + (Q.us_relation - 50);
-
 // Factors affecting Kurdish Nationalism
 // Consciousness
 Q.eastern_crime = 5
@@ -1149,6 +1144,10 @@ Q.sh_ban_timer = 0;
 Q.TIP_ultimatum_timer = 0;
 Q.march_on_berlin_timer = 0;
 
+//Cyprus attitudes
+Q.greece_attitude = 4;
+Q.uk_attitude = 50 + (Q.west_relation - 50);
+Q.us_attitude = 35 + (Q.us_relation - 50);
 
 // all the initial advisors are centrists.
 // Leader and Secretary have advisor=1 for display but are NOT counted in n_advisors.
