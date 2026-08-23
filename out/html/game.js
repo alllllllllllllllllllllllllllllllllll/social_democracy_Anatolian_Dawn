@@ -92,8 +92,7 @@
 };
   window.cyprusAdvanceDay = function() {
   var Q = window.dendryUI.dendryEngine.state.qualities;
-
-  var daysInMonth = { 7: 31, 8: 31, 9: 30 }; // extend if the arc can run into October+
+  var daysInMonth = { 7: 31, 8: 31, 9: 30 };
 
   Q.cyprus_day += 1;
   if (Q.cyprus_day > daysInMonth[Q.cyprus_month]) {
@@ -109,12 +108,17 @@
                      'August','September','October','November','December'];
   Q.cyprus_date_display = monthNames[Q.cyprus_month] + ' ' + Q.cyprus_day + ', ' + Q.cyprus_year;
 
-  //daily resource tick
   Q.military_strength = (Q.military_strength || 0) + 5;
 
-  //attitude drift
-  // e.g. Q.us_attitude += someDriftAmount;
+  window.updateCyprusDisplay();
 
+  // Explicit date-triggered event check
+  if (Q.cyprus_day === 18 && Q.cyprus_month === 7 && Q.cyprus_year === 1974) {
+    window.dendryUI.dendryEngine.goToScene('ayse');
+    return;
+  }
+};
+    
   window.updateCyprusDisplay();
 };
 
