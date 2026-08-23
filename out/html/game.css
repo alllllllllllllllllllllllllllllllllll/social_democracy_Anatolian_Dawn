@@ -848,5 +848,5 @@ table {
 cyprus-title-img {
   width: 100%;
   height: 332px;
-  object-fit: cover;
+  object-fit: contain;
 }
