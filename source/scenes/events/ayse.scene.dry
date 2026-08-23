@@ -1,0 +1,13 @@
+title: The Democratic Party
+subtitle: An introduction to the right wing periphary of republican politics.
+view-if: cyprus_day == 16 and cyprus_month == 7 and cyprus_year == 1974
+max-visits: 1
+tags: event
+new-page: true
+face-image: img/yeter.jpg
+
+= asdasdas
+
+blablabla
+
+- @root: yeyeyeyey
