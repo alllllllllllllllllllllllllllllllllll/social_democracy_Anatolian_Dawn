@@ -157,7 +157,6 @@ p {
 }
 .cyprustext {
   margin-bottom: 0em;
-  text-indent: 1em;
   color: var(--text-color);
 }
 p.game-over {
