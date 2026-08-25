@@ -1059,4 +1059,6 @@ view-if: cyprus_mode != 0
 
 </div>!} ?]
 
+= Negotiations
+
 Diplomatic Leverage: [+ leverage_points +]
