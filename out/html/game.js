@@ -108,7 +108,6 @@
                      'August','September','October','November','December'];
   Q.cyprus_date_display = monthNames[Q.cyprus_month] + ' ' + Q.cyprus_day + ', ' + Q.cyprus_year;
 
-  var Q = window.dendryUI.dendryEngine.state.qualities;
    Q.military_strength = (Q.military_strength || 0) +
   ((Q.army_land_strength || 0) + (Q.army_aerial_strength || 0) + (Q.army_naval_strength || 0)) / 3 * 10;
 
