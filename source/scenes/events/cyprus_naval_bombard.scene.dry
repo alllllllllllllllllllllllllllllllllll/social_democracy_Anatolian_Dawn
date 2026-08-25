@@ -13,11 +13,11 @@ In an amphibious invasion, the cooperation with naval forces will prove crucial 
 - @root: Don't take any naval actions for now.
 
 @bombard
-choose-if: military_strength >= 10;
+choose-if: military_strength >= 10
 unavailable-subtitle: We dont have enough military resources!
 on-arrival: military_strength -= 10; leverage_points += 2
 
 @blockade
-choose-if: military_strength >= 10;
+choose-if: military_strength >= 10
 unavailable-subtitle: We dont have enough military resources!
 on-arrival: military_strength -= 10; leverage_points += 2

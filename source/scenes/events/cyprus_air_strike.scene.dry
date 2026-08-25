@@ -13,13 +13,13 @@ In an amphibious invasion, the cooperation with aerial forces will prove crucial
 - @root: Don't take any aerial actions for now.
 
 @strike
-choose-if: military_strength >= 10;
+choose-if: military_strength >= 10
 unavailable-subtitle: We dont have enough military resources!
 on-arrival: military_strength -= 10; leverage_points += 2
 
 Our aerial forces attacked military positions in [+ cyprus_target_district_label +].
 
 @paratrooper
-choose-if: military_strength >= 10;
+choose-if: military_strength >= 10
 unavailable-subtitle: We dont have enough military resources!
 on-arrival: military_strength -= 10; leverage_points += 2
