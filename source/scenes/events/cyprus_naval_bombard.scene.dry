@@ -6,4 +6,6 @@ new-page: true
 
 In an amphibious invasion, the cooperation with naval forces will prove crucial for success. However we should be careful how we utilize our armed forces; these are weapons of destruction we are controlling.
 
-- @bombard: Bombard coastal defences in [+ selected.label +]
+- @bombard: Bombard coastal defences in [+ cyprus_target_district_label +]
+
+@bombard
