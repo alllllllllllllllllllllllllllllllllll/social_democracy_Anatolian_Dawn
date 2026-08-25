@@ -18,4 +18,16 @@ contentDiv.appendChild(cardEl);
 
 asdasd
 
-- @root: Smuggle weapons to TMT
+- @reinforce: Reinforce troops in 
+- @smuggle: Smuggle weapons to TMT in 
+- @root: Don't take any land actions for now.
+
+@reinforce
+choose-if: military_strength >= 10;
+unavailable-subtitle: We dont have enough military resources!
+on-arrival: military_strength -= 10; leverage_points += 2
+
+@smuggle
+choose-if: military_strength >= 10;
+unavailable-subtitle: We dont have enough military resources!
+on-arrival: military_strength -= 10; leverage_points += 2

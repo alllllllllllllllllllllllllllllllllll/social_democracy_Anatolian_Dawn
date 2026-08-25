@@ -9,5 +9,15 @@ new-page: true
 In an amphibious invasion, the cooperation with naval forces will prove crucial for success. However we should be careful how we utilize our armed forces; these are weapons of destruction we are controlling.
 
 - @bombard: Bombard coastal defences in [+ cyprus_target_district_label +]
+- @blockade: Impose a blockade in [+ cyprus_target_district_label +]
+- @root: Don't take any naval actions for now.
 
 @bombard
+choose-if: military_strength >= 10;
+unavailable-subtitle: We dont have enough military resources!
+on-arrival: military_strength -= 10; leverage_points += 2
+
+@blockade
+choose-if: military_strength >= 10;
+unavailable-subtitle: We dont have enough military resources!
+on-arrival: military_strength -= 10; leverage_points += 2

@@ -1,0 +1,25 @@
+title: Turkish Aerial Forces
+view-if: year = 1999 and month = 9 and week = 2 and right_kemalist_split = 1
+max-visits: 1
+tags: event
+new-page: true
+
+= Turkish Aerial Forces
+
+In an amphibious invasion, the cooperation with aerial forces will prove crucial for success. However we should be careful how we utilize our armed forces; these are weapons of destruction we are controlling.
+
+- @strike: Strike positions in [+ cyprus_target_district_label +]
+- @paratrooper: Land paratroopers in [+ cyprus_target_district_label +]
+- @root: Don't take any aerial actions for now.
+
+@strike
+choose-if: military_strength >= 10;
+unavailable-subtitle: We dont have enough military resources!
+on-arrival: military_strength -= 10; leverage_points += 2
+
+Our aerial forces attacked military positions in [+ cyprus_target_district_label +].
+
+@paratrooper
+choose-if: military_strength >= 10;
+unavailable-subtitle: We dont have enough military resources!
+on-arrival: military_strength -= 10; leverage_points += 2
