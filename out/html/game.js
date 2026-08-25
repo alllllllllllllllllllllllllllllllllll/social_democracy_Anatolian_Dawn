@@ -119,6 +119,13 @@
     return;
   }
 };
+
+window.updateCyprusTabVisibility = function() {
+  var Q = window.dendryUI.dendryEngine.state.qualities;
+  var tab = document.getElementById('cyprus_tab');
+  if (!tab) return;
+  tab.style.display = (Q.cyprus_mode || 0) != 0 ? '' : 'none';
+};
     
     window.updateCyprusDisplay = function() {
   var Q = window.dendryUI.dendryEngine.state.qualities;
@@ -678,6 +685,7 @@ function getPartyIdeology(party, Q) {
       window.updateSidebar();
       window.updatePartySidebar();
       updateCyprusWidth();
+      window.updateCyprusTabVisibility();
       window.setupCyprusMapClicks();
       window.updateTitleScreenImages();
   };
@@ -728,6 +736,7 @@ function getPartyIdeology(party, Q) {
     window.pinnedCardsDescription = "Party Leadership - actions are only usable once per 6 months.";
     window.updateMusicBtn();
     updateCyprusWidth();
+    window.updateCyprusTabVisibility();
     window.setupCyprusMapClicks();
     window.updateTitleScreenImages();
   };
