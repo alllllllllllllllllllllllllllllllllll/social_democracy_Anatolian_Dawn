@@ -1059,4 +1059,4 @@ view-if: cyprus_mode != 0
 
 </div>!} ?]
 
-Diplomatic Leverage: Q.leverage_points
+Diplomatic Leverage: [+ Q.leverage_points +]
