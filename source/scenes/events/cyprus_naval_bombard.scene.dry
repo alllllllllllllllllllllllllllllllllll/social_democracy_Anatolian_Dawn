@@ -1,6 +1,7 @@
 title: Turkish Naval Forces
+view-if: year = 1999 and month = 9 and week = 2 and right_kemalist_split = 1
+max-visits: 1
 tags: event
-new-page: true
 
 = Turkish Naval Forces
 

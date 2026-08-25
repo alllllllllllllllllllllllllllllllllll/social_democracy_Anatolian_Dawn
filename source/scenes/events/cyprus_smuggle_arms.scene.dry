@@ -1,5 +1,5 @@
 title: Right Kemalist delegates join CGP.
-view-if: year = 1972 and month = 9 and week = 2 and right_kemalist_split = 1
+view-if: year = 1999 and month = 9 and week = 2 and right_kemalist_split = 1
 max-visits: 1
 tags: event
 new-page: true
