@@ -587,6 +587,7 @@ img {
 }
 
 /* Tooltip styles - these need to be outside media queries to work on all screen sizes */
+// This section of the code has been taken from Communist45, the developer of Beeshana Kalaya with their permission! Ask for their permission before copying and using it.
 .mytooltip {
   position: relative;
   cursor: pointer;
