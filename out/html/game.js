@@ -118,6 +118,10 @@
     window.dendryUI.dendryEngine.goToScene('ayse');
     return;
   }
+  if (Q.cyprus_day === 24 && Q.cyprus_month === 7 && Q.cyprus_year === 1974) {
+    window.dendryUI.dendryEngine.goToScene('plane');
+    return;
+  }  
 };
 
 window.updateCyprusTabVisibility = function() {
