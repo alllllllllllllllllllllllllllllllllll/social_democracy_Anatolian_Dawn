@@ -332,7 +332,7 @@ window.updateTitleScreenImages = function() {
 }
 
   // This function allows you to do something in response to signals.
-    
+  // This section of the code has been taken from Communist45, the developer of Beeshana Kalaya with their permission! Ask for their permission before copying and using it.
 
   window.handleSignal = function (signal, event, scene_id) {};
 
