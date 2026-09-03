@@ -1,5 +1,5 @@
 title: The Democratic Party
-subtitle: <span class="wide_tooltip-wrap"><span style="color: #E3000F;">* Flavour Content</span><span class="wide_tooltip-tip"><span>This is a flavour event that does not have a direct impact on gameplay and is extra content purposed for immersion and narration. Though it's advised you keep them for maximum enjoyment of the game, you can turn them off in the Options menu above.</span></span></span>
+subtitle: An introduction to the right wing periphary of republican politics.
 view-if: year == 1972 and month = 11 and week = 2 and flavour_events
 max-visits: 1
 tags: event
@@ -7,6 +7,7 @@ new-page: true
 face-image: img/yeter.jpg
 
 = The Democratic Party
+<span class="wide_tooltip-wrap"><span style="color: #E3000F;">* Flavour Content</span><span class="wide_tooltip-tip"><span>This is a flavour event that does not have a direct impact on gameplay and is extra content purposed for immersion and narration. Though it's advised you keep them for maximum enjoyment of the game, you can turn them off in the Options menu above.</span></span></span>
 
 When multiparty elections took place for the first time and CHP was decrowned for the first time in 1950, two men were the architects of this victory: Adnan Menderes and Celal Bayar. The first was the public face of the Democrat Party who rallied the rural masses and the newly fostered Turkish bourgeoisie against the Kemalist CHP with his agrarian and right wing populism. The latter used to represent the liberal wing of CHP in the 1930's, even serving as Atatürk's and İnönü's prime minister between 1937 and 1939.
 

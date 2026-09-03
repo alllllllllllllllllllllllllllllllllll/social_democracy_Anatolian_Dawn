@@ -1,5 +1,5 @@
 title: Justice Party
-subtitle: <span class="wide_tooltip-wrap"><span style="color: #E3000F;">* Flavour Content</span><span class="wide_tooltip-tip"><span>This is a flavour event that does not have a direct impact on gameplay and is extra content purposed for immersion and narration. Though it's advised you keep them for maximum enjoyment of the game, you can turn them off in the Options menu above.</span></span></span>
+subtitle: An introduction to AP, our primary adversary.
 view-if: year == 1972 and month = 9 and week = 2 and flavour_events
 max-visits: 1
 tags: event
@@ -16,6 +16,7 @@ contentDiv.appendChild(cardEl);
 !}
 
 = Justice Party
+<span class="wide_tooltip-wrap"><span style="color: #E3000F;">* Flavour Content</span><span class="wide_tooltip-tip"><span>This is a flavour event that does not have a direct impact on gameplay and is extra content purposed for immersion and narration. Though it's advised you keep them for maximum enjoyment of the game, you can turn them off in the Options menu above.</span></span></span>
 
 AP is the center right to right wing party that has been dominating Turkish politics for the last 10 years. Formed as a successor to the banned Democrat Party after the coup of 1960, AP quickly came to outgrow all the other self proclaimed successors to the 'Demirkırat', a vulgarized version of the word 'Democrat' created by the masses not used to the word, tradition of the Democrat Party and established itself as the primary party of the right.
 

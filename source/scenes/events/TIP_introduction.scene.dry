@@ -1,5 +1,5 @@
 title: Workers' Party of Turkey
-subtitle: <span class="wide_tooltip-wrap"><span style="color: #E3000F;">* Flavour Content</span><span class="wide_tooltip-tip"><span>This is a flavour event that does not have a direct impact on gameplay and is extra content purposed for immersion and narration. Though it's advised you keep them for maximum enjoyment of the game, you can turn them off in the Options menu above.</span></span></span>
+subtitle: An introduction to the former powerhouse of Socialist politics.
 view-if: year == 1972 and month = 8 and week = 2 and flavour_events
 max-visits: 1
 tags: event
@@ -7,6 +7,7 @@ new-page: true
 face-image: img/tipp.jpg
 
 = Workers' Party of Turkey
+<span class="wide_tooltip-wrap"><span style="color: #E3000F;">* Flavour Content</span><span class="wide_tooltip-tip"><span>This is a flavour event that does not have a direct impact on gameplay and is extra content purposed for immersion and narration. Though it's advised you keep them for maximum enjoyment of the game, you can turn them off in the Options menu above.</span></span></span>
 
 A spectre used to haunt Anatolia just like it did across Europe a few decades prior, before it was exorcised by the army in the 12 March Memorandum. Workers' Party of Turkey, TİP, was formed in 1961 after the new liberal constitution lessened political restrictions and allowed for new forms of political expression to arise. The party, even though it was originally founded by non ideological cadres, evolved to represent a vision for Socialism uniquely suited to the circumstances surrounding Turkey and wholly committed to liberal democracy.
 
