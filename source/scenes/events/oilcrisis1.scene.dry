@@ -6,7 +6,8 @@ new-page: true
 face-image: img/petrol.jpg
 
 = The Oil Crisis
-<span class="wide_tooltip-wrap"><span style="color: #E3000F;">* Flavour Content</span><span class="wide_tooltip-tip"><span>This is a flavour event that does not have a direct impact on gameplay and is extra content purposed for immersion and narration. Though it's advised you keep them for maximum enjoyment of the game, you can turn them off in the Options menu above.</span></span></span>
+
+<span class="wide_tooltip-wrap"><span style="color: #E3000F;">* Flavour Content *</span><span class="wide_tooltip-tip"><span>This is a flavour event that does not have a direct impact on gameplay and is extra content purposed for immersion and narration. Though it's advised you keep them for maximum enjoyment of the game, you can turn them off in the Options menu above.</span></span></span>
 
 The oil refineries in the Middle East are being replaced with refineries of blood
   
