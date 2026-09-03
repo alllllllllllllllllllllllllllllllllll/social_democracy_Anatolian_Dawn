@@ -5,7 +5,16 @@ max-visits: 1
 tags: event
 new-page: true
 face-image: img/ecevitttt.jpeg
-
+on-display: {!
+var cardEl = document.createElement('div');
+cardEl.className = "face-figure2 anatoliandawn-figure";
+var image = new Image();
+image.className = "face-img anatoliandawn-img";
+image.src = "img/yenibirturkiyee.jpg";
+cardEl.appendChild(image);
+var contentDiv = document.querySelector("#page #mid_panel #content");
+contentDiv.appendChild(cardEl);
+!}
 
 
 = A New Turkey
