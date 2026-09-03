@@ -45,6 +45,8 @@ Q.historical_mode = 0;
 Q.old_demographics = 0;
 // use decimals for reichstag seats
 Q.use_decimals = 1; // Enable decimal display for Turkish election results
+// Show narrative-only flavour events by default
+Q.flavour_events = 1;
 
 // party resources
 Q.resources = 2;

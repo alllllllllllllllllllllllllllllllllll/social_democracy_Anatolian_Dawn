@@ -1,6 +1,6 @@
 title: Workers' Party of Turkey
-subtitle: An introduction to the former powerhouse of Socialist politics.
-view-if: year == 1972 and month = 8 and week = 2
+subtitle: <span class="wide_tooltip-wrap"><span style="color: #E3000F;">* Flavour Content</span><span class="wide_tooltip-tip"><span>This is a flavour event that does not have a direct impact on gameplay and is extra content purposed for immersion and narration. Though it's advised you keep them for maximum enjoyment of the game, you can turn them off in the Options menu above.</span></span></span>
+view-if: year == 1972 and month = 8 and week = 2 and flavour_events
 max-visits: 1
 tags: event
 new-page: true
