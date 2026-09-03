@@ -2,26 +2,36 @@ title: Status
 new-page: true
 is-special: true
 on-arrival: {!
-// Recalculate economic values from base + modifier before displaying
-// This ensures economy card changes are reflected immediately
-Q.inflation = (Q.base_inflation || 0) + (Q.inflation_modifier || 0);
-Q.economic_growth = (Q.base_growth || 0) + (Q.growth_modifier || 0);
-Q.unemployed = (Q.base_unemployment || 0) + (Q.unemployment_modifier || 0);
+/**
+ * toNumber coerces a candidate into a finite Number, or returns a fallback when coercion fails.
+ * @param {*} value - candidate value that may be numeric, stringified, or undefined
+ * @param {number} fallback - numeric fallback to use when value is not finite
+ * @returns {number}
+ */
+var toNumber = function(value, fallback) {
+    var num = Number(value);
+    return Number.isFinite(num) ? num : fallback;
+};
+
+// Use already-calculated per-round headline values (kept up to date elsewhere)
+Q.inflation = toNumber(Q.inflation, 0);
+Q.economic_growth = toNumber(Q.economic_growth, 0);
+Q.unemployed = toNumber(Q.unemployed, 0);
 
 // Format economic indicators with proper fallbacks only for display
-Q.unemployed_2 = (Q.unemployed !== undefined && Q.unemployed !== null) ? Q.unemployed.toFixed(1) : '4.6';
-Q.inflation_2 = (Q.inflation !== undefined && Q.inflation !== null) ? Q.inflation.toFixed(1) : '15.3';
-Q.economic_growth_2 = (Q.economic_growth !== undefined && Q.economic_growth !== null) ? Q.economic_growth.toFixed(1) : '9.2';
+Q.unemployed_2 = toNumber(Q.unemployed, 4.6).toFixed(1);
+Q.inflation_2 = toNumber(Q.inflation, 15.3).toFixed(1);
+Q.economic_growth_2 = toNumber(Q.economic_growth, 9.2).toFixed(1);
 
 // Format production indices
-Q.industrial_index_formatted = Q.industrial_production_index ? Q.industrial_production_index.toFixed(1) : '100.0';
-Q.agricultural_index_formatted = Q.agricultural_production_index ? Q.agricultural_production_index.toFixed(1) : '100.0';
+Q.industrial_index_formatted = toNumber(Q.industrial_production_index, 100.0).toFixed(1);
+Q.agricultural_index_formatted = toNumber(Q.agricultural_production_index, 100.0).toFixed(1);
 
 // Format agricultural market data
-Q.agricultural_prices_formatted = Q.agricultural_product_prices ? Q.agricultural_product_prices.toFixed(2) : '1.00';
+Q.agricultural_prices_formatted = toNumber(Q.agricultural_product_prices, 1.00).toFixed(2);
 
 // Format forex pressure and determine status
-Q.forex_pressure_formatted = Q.forex_pressure ? Q.forex_pressure.toFixed(1) : '45.0';
+Q.forex_pressure_formatted = toNumber(Q.forex_pressure, 45.0).toFixed(1);
 if (Q.forex_pressure <= 20) {
     Q.forex_pressure_status = "Low";
 } else if (Q.forex_pressure > 20 && Q.forex_pressure <= 40) {
