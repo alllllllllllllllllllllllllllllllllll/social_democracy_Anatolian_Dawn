@@ -1,6 +1,6 @@
 title: Anatolian Dawn
 subtitle: A sparkling light on the horizon..
-view-if: year == 1972 and month = 1 and week = 2
+view-if: year == 1972 and month = 1 and week = 2 and flavour_events
 max-visits: 1
 tags: event
 new-page: true
@@ -19,6 +19,7 @@ contentDiv.appendChild(cardEl);
 
 
 = A New Turkey
+<span class="wide_tooltip-wrap"><span style="color: #E3000F;">* Flavour Content</span><span class="wide_tooltip-tip"><span>This is a flavour event that does not have a direct impact on gameplay and is extra content purposed for immersion and narration. Though it's advised you keep them for maximum enjoyment of the game, you can turn them off in the Options menu above.</span></span></span>
 
 The Republican People's Party, CHP, stands at a historic crossroads. Since the formation of the republic in 1923, <span style="color: #E3000F;">**CHP**</span> has always been the representative of progressive and republican values within the nation. However with the switch to a multi party democracy at the end of the 40's, our party has struggled greatly with representing the values of Kemalism and progress against the rising tide of anti revolutionary forces. Many within the party have tied this situation to the elitist stance of the party, wanting to transform the people in the context of their static interpretation of westernism and civilization. 
 

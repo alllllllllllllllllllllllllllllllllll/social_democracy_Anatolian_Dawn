@@ -270,6 +270,16 @@ window.updateTitleScreenImages = function() {
       window.dendryUI.saveSettings();
   };
 
+  window.disableFlavour = function() {
+      window.dendryUI.dendryEngine.state.qualities.flavour_events = 0;
+      window.dendryUI.save();
+  };
+
+  window.enableFlavour = function() {
+      window.dendryUI.dendryEngine.state.qualities.flavour_events = 1;
+      window.dendryUI.save();
+  };
+
   window.disableImages = function() {
       window.dendryUI.show_portraits = false;
       window.dendryUI.saveSettings();
@@ -292,6 +302,7 @@ window.updateTitleScreenImages = function() {
     var animate = window.dendryUI.animate;
     var disable_audio = window.dendryUI.disable_audio;
     var show_portraits = window.dendryUI.show_portraits;
+    var flavour_events = window.dendryUI.dendryEngine.state.qualities.flavour_events;
     if (disable_bg) {
         $('#backgrounds_no')[0].checked = true;
     } else {
@@ -311,6 +322,11 @@ window.updateTitleScreenImages = function() {
         $('#images_yes')[0].checked = true;
     } else {
         $('#images_no')[0].checked = true;
+    }
+    if (flavour_events) {
+        $('#flavour_yes')[0].checked = true;
+    } else {
+        $('#flavour_no')[0].checked = true;
     }
     if (window.dendryUI.dark_mode) {
         $('#dark_mode')[0].checked = true;

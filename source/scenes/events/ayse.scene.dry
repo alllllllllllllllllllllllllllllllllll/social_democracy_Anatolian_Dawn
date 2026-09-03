@@ -1,11 +1,12 @@
 title: The Democratic Party
 subtitle: An introduction to the right wing periphary of republican politics.
-view-if: cyprus_day == 16 and cyprus_month == 7 and cyprus_year == 1974
+view-if: cyprus_day == 16 and cyprus_month == 7 and cyprus_year == 1974 and flavour_events
 max-visits: 1
 tags: event
 new-page: true
 
 = A Star Shaped Hole
+<span class="wide_tooltip-wrap"><span style="color: #E3000F;">* Flavour Content</span><span class="wide_tooltip-tip"><span>This is a flavour event that does not have a direct impact on gameplay and is extra content purposed for immersion and narration. Though it's advised you keep them for maximum enjoyment of the game, you can turn them off in the Options menu above.</span></span></span>
 
 Mustafa and his squad marched through the hills of the Five Finger Mountains. Their bags, rifles and boots were covered in the filth that they had to pass through while advancing along the Greek lines. On their shoulders they carried the weight of the 4.4 kilograms G3 rifle, 10 kilograms of infantry hardware and varying amounts of ammunition hanging from all over their bodies. However the most pressing weight of it all was the terror of realizing the fallacy of innocence and not knowing whether you will be alive tomorrow or not. So the young men kept marching through the steep hills and the rocky terrain, for that was the only way of not thinking about what they were going through.
 
