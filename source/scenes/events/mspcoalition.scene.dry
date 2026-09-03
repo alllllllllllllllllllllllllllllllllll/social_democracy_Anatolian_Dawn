@@ -16,7 +16,7 @@ contentDiv.appendChild(cardEl);
 !}
 
 = An Unholy Coalition
-<span class="wide_tooltip-wrap"><span style="color: #E3000F;">* Flavour Content</span><span class="wide_tooltip-tip"><span>This is a flavour event that does not have a direct impact on gameplay and is extra content purposed for immersion and narration. Though it's advised you keep them for maximum enjoyment of the game, you can turn them off in the Options menu above.</span></span></span>
+<span class="wide_tooltip-wrap"><span style="color: #E3000F;">* Flavour Content *</span><span class="wide_tooltip-tip"><span>This is a flavour event that does not have a direct impact on gameplay and is extra content purposed for immersion and narration. Though it's advised you keep them for maximum enjoyment of the game, you can turn them off in the Options menu above.</span></span></span>
 
 Even though we made great gains in the last general elections, our party was still unable to reach a parliamentary majority. This resulted in a majority right wing parliament with a sizeable center left CHP presence and many expected us to be locked out of power once more. However due to disagreements between AP and MSP, we have been able to form a government for the first time in a decade. However it would be erronous to think of this government as a truly stable cabinet to govern for an entire term; it is merely a stepping stone for both sides in pursuit of their political objectives, after which it would be thrown into the dustbin of history.
 
