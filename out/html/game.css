@@ -216,7 +216,37 @@ ul.choices li:last-child {
   border-bottom: none;
 }
 ul.choices a {
+  position: relative;
+  display: block;
   text-decoration: none;
+}
+
+.choice-tooltip {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  width: max-content;
+  max-width: min(420px, calc(100vw - 2em));
+  z-index: 9999;
+  bottom: calc(100% + 0.4em);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.6em 0.75em;
+  border: 2px solid var(--tooltip-border-color);
+  background-color: var(--tooltip-bg-color);
+  color: var(--text-color);
+  box-shadow: 2px 4px 12px var(--tooltip-shadow-color);
+  font-size: 0.85em;
+  line-height: 1.35;
+  text-align: left;
+  pointer-events: none;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+a:focus .choice-tooltip,
+a:hover .choice-tooltip {
+  visibility: visible;
+  opacity: 1;
 }
 blockquote {
   margin: 1em 2em;
