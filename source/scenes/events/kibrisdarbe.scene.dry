@@ -1,5 +1,5 @@
-title: Coup d'etat in Cyprus
-subtitle: Makarios has been overthrown by far-right EOKA-B!
+title: Turmoil in Cyprus
+subtitle: Worrying news arrive from Cyprus!
 view-if: year == 1974 and month = 7 and week = 2
 max-visits: 1
 tags: event
@@ -16,20 +16,18 @@ Q.cyprus_date_display = 'July 15, 1974';
 updateCyprusWidth();
 !}
 
-= Coup d'etat in Cyprus
+= Turmoil in Cyprus
 
 Bülent Ecevit was speaking in a mass rally in the rural province of Afyon. The masses, of a quantity Afyon may have never seen before, carried colored placards with slogans such as "Halkçı Ecevit", "Umudumuz Karaoğlan", "Ne ezen ne ezilen" and "insanca hakça bir düzen". Ecevit's bus advanced through the crowd admist a rain of praise and love, and when Ecevit began to speak through the microphone, he struggled a few seconds to make his voice heard amongst cries of support and sympathy.
 
-However, as he went through his speech, one of his advisors kept trying to signal him to end the speech as soon as possible. Upon finally making his ending remarks and turning behind his back, he saw his advisor calling to descend from the podium at the top of the bus to the inside of the bus. 
+It was a hot and relatively calm day across the nation. [? if justice_ministry_party == "MSP" : The governor of Çorum had ordered the banning a magazine which displayed so called "inappropriate imagery" on its front page in accordance with the orders from the Justice Minister Kazan of the MSP. ?] As the newspapers wrote, "people threw themselves into the sea even from the roads". The Mayor of Ankara Vedat Dalokay from our party had suggested importing cows as the solution for increasing milk prices. [? if justice_ministry_party == "MSP" : The CHP-MSP coalition considered an oddity by the many was completing its first 6 months and negotiations over its legislative agenda were taking place. ?] Overall, there was a calm atmosphere over national politics and many among the crowd circling Ecevit's campaign bus constantly wiped off sweat off their forehead.  
+ 
+Ecevit in his speech called on the farmers of Afyon to assist the state with combating poppy smugglers and promised further financial support for the struggling ruralty. During his speech however, one of his advisors kept making hand signals for him to cut the speech short and enter the campaign bus. As he ended his speech with a salutation, he entered the bus amid a sparkling and burning applause.         
 
-"May I learn what is wrong?" Said Ecevit. His advisor struggled to talk. "Sayın Ecevit, its about Cyprus." 
+"May I learn what is wrong?" said Ecevit. His advisor handed over a file with a text of "<span style="color: #E3000F;>**TOP SECRET**</span>" imprinted on front. Ecevit pulled the paper from the file carefully and read the message outloud.
 
-"Ultranationalists in EOKA-B have overthrown Makarios and taken over Cypriot government." "The wellbeing of the Turks in Cyprus is in dire danger"
+"It has been reported that at 8.30 AM a coup has taken place against <span class="wide_tooltip-wrap"><span style="color: #1269C7;>Makarios</span><span class="wide_tooltip-tip"><img src="img/makarios.jpeg">Archbishop Makarios III. The spiritual leader of the Greek Cypriots and the president of the Republic of Cyprus since its foundation in 1960.</span></span>. Sounds of gunfire are heard around the palace of the Archbishop."
 
-The next day Ecevit was in Ankara, meeting with government officials.
-
-(this is a test event for testing mechanics of the cyprus minigame)
-
-- @root: Barış İçin Savaş...
+- @root: Ecevit in an instant realized that the next 30 days would be even hotter.
 
 @root
