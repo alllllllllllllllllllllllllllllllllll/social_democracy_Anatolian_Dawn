@@ -26,13 +26,18 @@
       displayChoices(choices);
       var tooltips = window.buttonTooltips || {};
       choices.forEach(function(choice, index) {
-        var tooltip = tooltips[String(choice.id || '').replace(/^@/, '')];
+        var choiceId = String(choice.id || '');
+        var tooltip = tooltips[choiceId] || tooltips[choiceId.replace(/^@/, '')];
         if (!tooltip) return;
         var button = document.querySelector('ul.choices a[data-choice="' + index + '"]');
         if (button) {
+          var tooltipId = 'choice-tooltip-' + index;
           button.setAttribute('aria-label', tooltip);
+          button.setAttribute('aria-describedby', tooltipId);
           var tooltipElement = document.createElement('span');
           tooltipElement.className = 'choice-tooltip';
+          tooltipElement.id = tooltipId;
+          tooltipElement.setAttribute('role', 'tooltip');
           tooltipElement.textContent = tooltip;
           button.appendChild(tooltipElement);
         }
