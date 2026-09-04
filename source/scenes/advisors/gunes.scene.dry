@@ -1,7 +1,7 @@
 title: Turan Güneş
 is-pinned-card: true
 tags: advisor, left_kemalists
-card-image: img/portraits/TuranGunes.jpg
+card-image: img/guness.png
 view-if: gunes_advisor = 1
 new-page: true 
 
