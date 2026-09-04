@@ -833,7 +833,15 @@ function getPartyIdeology(party, Q) {
         $a.append($img);
       }
       if (card.subtitle) {
-        var $tooltip = window.jQuery("<span>").addClass("card-tooltip").text(card.subtitle);
+        var tooltipText = String(card.subtitle)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;')
+          .replace(/\bincrease\b/gi, '<span class="effect-increase">$&</span>')
+          .replace(/\bdecrease\b/gi, '<span class="effect-decrease">$&</span>');
+        var $tooltip = window.jQuery("<span>").addClass("card-tooltip").html(tooltipText);
         $a.append($tooltip);
       }
 
