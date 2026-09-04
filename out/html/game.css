@@ -205,6 +205,12 @@ ul.choices li div.subtitle {
   pointer-events: none;
   transition: opacity 0.2s ease, visibility 0.2s ease;
 }
+.card-tooltip .effect-increase {
+  color: #2f6f36;
+}
+.card-tooltip .effect-decrease {
+  color: #a31616;
+}
 ul.choices li:hover div.subtitle,
 ul.choices li:focus-within div.subtitle {
   visibility: visible;
