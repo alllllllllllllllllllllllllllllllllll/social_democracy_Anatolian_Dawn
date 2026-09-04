@@ -12,6 +12,11 @@ body {
   --tab-hover-color: #ececec;
   --card-border-color: #ccc; 
   --card-bg-color: #ddd; 
+  --tooltip-bg-color: #fff;
+  --tooltip-border-color: #888;
+  --tooltip-shadow-color: rgba(0, 0, 0, 0.4);
+  --effect-increase-color: #2f6f36;
+  --effect-decrease-color: #a31616;
   font-family: "Minion Pro", Georgia, serif;
   background-color: var(--bg-color);
   padding: 0;
@@ -30,6 +35,11 @@ body.dark-mode {
   --tab-hover-color: #242424;
   --card-border-color: #4c4c4c;
   --card-bg-color: #3f3f3f;
+  --tooltip-bg-color: #303030;
+  --tooltip-border-color: #aaa;
+  --tooltip-shadow-color: rgba(0, 0, 0, 0.8);
+  --effect-increase-color: #78c878;
+  --effect-decrease-color: #ff7777;
 }
 body.dark-mode #content {
   border-style: double;
@@ -195,8 +205,8 @@ ul.choices li div.subtitle {
   padding: 0.6em 0.75em;
   color: var(--text-color);
   background-color: var(--content-bg-color);
-  border: 2px solid #888;
-  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.4);
+  border: 2px solid var(--tooltip-border-color);
+  box-shadow: 2px 4px 12px var(--tooltip-shadow-color);
   font-size: 0.85em;
   line-height: 1.35;
   font-style: normal;
@@ -205,11 +215,13 @@ ul.choices li div.subtitle {
   pointer-events: none;
   transition: opacity 0.2s ease, visibility 0.2s ease;
 }
-.card-tooltip .effect-increase {
-  color: #2f6f36;
+.card-tooltip .effect-increase,
+ul.choices li div.subtitle .effect-increase {
+  color: var(--effect-increase-color);
 }
-.card-tooltip .effect-decrease {
-  color: #a31616;
+.card-tooltip .effect-decrease,
+ul.choices li div.subtitle .effect-decrease {
+  color: var(--effect-decrease-color);
 }
 ul.choices li:hover div.subtitle,
 ul.choices li:focus-within div.subtitle {
@@ -469,10 +481,10 @@ div.blank-card {
   left: 50%;
   transform: translateX(-50%);
   padding: 0.6em 0.75em;
-  border: 2px solid #888;
-  background-color: var(--content-bg-color);
+  border: 2px solid var(--tooltip-border-color);
+  background-color: var(--tooltip-bg-color);
   color: var(--text-color);
-  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 4px 12px var(--tooltip-shadow-color);
   font-size: 0.85em;
   line-height: 1.35;
   text-align: left;
