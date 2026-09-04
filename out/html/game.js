@@ -13,7 +13,7 @@
     ui = dendryUI;
     game = ui.game;
 
-    // Add optional native tooltips to choice buttons without changing subtitles.
+    // Add optional styled tooltips to choice buttons without changing subtitles.
     window.buttonTooltips = {
       'campaigning.workers': 'Build support among urban workers.',
       'campaigning.petty_bourgeoisie': 'Build support among artisans and shopkeepers.',
@@ -30,8 +30,11 @@
         if (!tooltip) return;
         var button = document.querySelector('ul.choices a[data-choice="' + index + '"]');
         if (button) {
-          button.title = tooltip;
           button.setAttribute('aria-label', tooltip);
+          var tooltipElement = document.createElement('span');
+          tooltipElement.className = 'choice-tooltip';
+          tooltipElement.textContent = tooltip;
+          button.appendChild(tooltipElement);
         }
       });
     };
