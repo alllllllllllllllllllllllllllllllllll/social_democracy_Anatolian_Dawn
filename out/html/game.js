@@ -13,6 +13,29 @@
     ui = dendryUI;
     game = ui.game;
 
+    // Add optional native tooltips to choice buttons without changing subtitles.
+    window.buttonTooltips = {
+      'campaigning.workers': 'Build support among urban workers.',
+      'campaigning.petty_bourgeoisie': 'Build support among artisans and shopkeepers.',
+      'campaigning.state_employees': 'Build support among civil servants.',
+      'campaigning.rural': 'Build support among rural workers and small farmers.',
+      'campaigning.capitalists': 'Build support among industrialists and landlords.'
+    };
+    var displayChoices = ui.displayChoices.bind(ui);
+    ui.displayChoices = function(choices) {
+      displayChoices(choices);
+      var tooltips = window.buttonTooltips || {};
+      choices.forEach(function(choice, index) {
+        var tooltip = tooltips[choice.id];
+        if (!tooltip) return;
+        var button = document.querySelector('ul.choices a[data-choice="' + index + '"]');
+        if (button) {
+          button.title = tooltip;
+          button.setAttribute('aria-label', tooltip);
+        }
+      });
+    };
+
     // Add your custom code here.
   };
 
