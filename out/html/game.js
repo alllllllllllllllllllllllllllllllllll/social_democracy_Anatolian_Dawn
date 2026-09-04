@@ -26,7 +26,7 @@
       displayChoices(choices);
       var tooltips = window.buttonTooltips || {};
       choices.forEach(function(choice, index) {
-        var tooltip = tooltips[choice.id];
+        var tooltip = tooltips[String(choice.id || '').replace(/^@/, '')];
         if (!tooltip) return;
         var button = document.querySelector('ul.choices a[data-choice="' + index + '"]');
         if (button) {
