@@ -145,7 +145,15 @@
   window.updateCyprusDisplay();
 
   // Explicit date-triggered event check
-  if (Q.cyprus_day === 18 && Q.cyprus_month === 7 && Q.cyprus_year === 1974) {
+  if (Q.cyprus_day === 16 && Q.cyprus_month === 7 && Q.cyprus_year === 1974) {
+    window.dendryUI.dendryEngine.goToScene('meetingopposition');
+    return;
+  }
+  if (Q.cyprus_day === 17 && Q.cyprus_month === 7 && Q.cyprus_year === 1974) {
+    window.dendryUI.dendryEngine.goToScene('cyprusintro');
+    return;
+  }
+  if (Q.cyprus_day === 21 && Q.cyprus_month === 7 && Q.cyprus_year === 1974) {
     window.dendryUI.dendryEngine.goToScene('ayse');
     return;
   }
