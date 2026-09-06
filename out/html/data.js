@@ -172,5 +172,25 @@ const colourList = [{
 {
         word: "Blue Mosque",
         style: "color: #42b6f5; font-weight: bold;"
-},                                        
+},
+{
+        word: "EOKA",
+        style: "color: #3a6cbd; font-weight: bold;"
+},
+{
+        word: "EOKA-B",
+        style: "color: #26549e; font-weight: bold;"
+},
+{
+        word: "TMT",
+        style: "color: #E30A17; font-weight: bold;"
+},
+{
+        word: "Makarios",
+        style: "color: #1269C7; font-weight: bold;"
+},
+{
+        word: "Sampson",
+        style: "color: #1057a3; font-weight: bold;"
+},                    
 ];
