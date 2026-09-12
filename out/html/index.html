@@ -168,17 +168,31 @@
     <div id="cold-war-map-overlay" class="overlay cold-war-map-overlay" role="dialog" aria-modal="true" aria-labelledby="cold-war-map-title" style="display: none;">
         <div class="cold-war-map-panel">
             <button id="cold-war-map-close" class="cold-war-map-close" type="button" onclick="window.hideColdWarMap();" aria-label="Close Cold War map">×</button>
-            <h1 id="cold-war-map-title">The Cold War</h1>
+            <h1 id="cold-war-map-title">Cold War Phase: Detente</h1>
+            <div class="cold-war-effects" aria-label="Effects of detente">
+                <div class="cold-war-effect cold-war-effect-dark-green">The risk of Nuclear Warfare <strong>Greatly Reduced</strong></div>
+                <div class="cold-war-effect">European stability <strong>Increased</strong></div>
+                <div class="cold-war-effect">Communication between the superpowers <strong>Established</strong></div>
+            </div>
             <div id="cold-war-map" class="cold-war-map">
                 <img src="img/globe_with_borders.svg" alt="Map of the Cold War world">
-                <button class="cold-war-region cold-war-region-north-america" type="button" data-region="North America" data-tooltip="The United States and Canada anchored the Western bloc." aria-label="North America"></button>
-                <button class="cold-war-region cold-war-region-europe" type="button" data-region="Europe" data-tooltip="Europe was divided by the Iron Curtain between the Western alliance and the Soviet sphere." aria-label="Europe"></button>
+                <button class="cold-war-region cold-war-region-canada" type="button" data-region="Canada" data-tooltip="Canada was a founding NATO member and a key North American partner of the United States." aria-label="Canada"></button>
+                <button class="cold-war-region cold-war-region-united-states" type="button" data-region="United States" data-tooltip="The United States led the Western alliance and supplied much of its military and economic strength." aria-label="United States"></button>
+                <button class="cold-war-region cold-war-region-mexico" type="button" data-region="Mexico" data-tooltip="Mexico remained formally non-aligned while maintaining close economic ties with the United States." aria-label="Mexico"></button>
+                <button class="cold-war-region cold-war-region-cuba" type="button" data-region="Cuba" data-tooltip="Cuba became a socialist ally of the Soviet Union after the 1959 revolution." aria-label="Cuba"></button>
+                <button class="cold-war-region cold-war-region-united-kingdom" type="button" data-region="United Kingdom" data-tooltip="The United Kingdom was a nuclear-armed NATO power and one of Washington's closest European allies." aria-label="United Kingdom"></button>
+                <button class="cold-war-region cold-war-region-france" type="button" data-region="France" data-tooltip="France belonged to the Western bloc but pursued an independent nuclear and diplomatic strategy." aria-label="France"></button>
+                <button class="cold-war-region cold-war-region-west-germany" type="button" data-region="West Germany" data-tooltip="West Germany was a central NATO member on the front line of the divided continent." aria-label="West Germany"></button>
+                <button class="cold-war-region cold-war-region-east-germany" type="button" data-region="East Germany" data-tooltip="East Germany was a Warsaw Pact state situated directly across the Iron Curtain from West Germany." aria-label="East Germany"></button>
+                <button class="cold-war-region cold-war-region-italy" type="button" data-region="Italy" data-tooltip="Italy was a founding NATO member and hosted important American military facilities." aria-label="Italy"></button>
+                <button class="cold-war-region cold-war-region-poland" type="button" data-region="Poland" data-tooltip="Poland was a Warsaw Pact member under Soviet political and military influence." aria-label="Poland"></button>
+                <button class="cold-war-region cold-war-region-czechoslovakia" type="button" data-region="Czechoslovakia" data-tooltip="Czechoslovakia was an industrialized Warsaw Pact state until the Prague Spring and its suppression." aria-label="Czechoslovakia"></button>
                 <button class="cold-war-region cold-war-region-soviet-union" type="button" data-region="Soviet Union" data-tooltip="The Soviet Union led the Eastern bloc and maintained influence across Eastern Europe and Asia." aria-label="Soviet Union"></button>
-                <button class="cold-war-region cold-war-region-middle-east" type="button" data-region="Middle East" data-tooltip="The Middle East was a contested region where both blocs sought allies and strategic access." aria-label="Middle East"></button>
-                <button class="cold-war-region cold-war-region-asia" type="button" data-region="East Asia" data-tooltip="East Asia was shaped by the Chinese Revolution, the Korean War, and competing alliances." aria-label="East Asia"></button>
-                <button class="cold-war-region cold-war-region-latin-america" type="button" data-region="Latin America" data-tooltip="Latin America became an arena for Cold War rivalry, intervention, and revolutionary movements." aria-label="Latin America"></button>
+                <button class="cold-war-region cold-war-region-china" type="button" data-region="China" data-tooltip="The People's Republic of China was communist, though its relationship with Moscow became increasingly strained." aria-label="China"></button>
+                <button class="cold-war-region cold-war-region-north-korea" type="button" data-region="North Korea" data-tooltip="North Korea was a communist state supported by both China and the Soviet Union." aria-label="North Korea"></button>
+                <button class="cold-war-region cold-war-region-north-vietnam" type="button" data-region="North Vietnam" data-tooltip="North Vietnam was a communist state whose struggle for reunification became a major Cold War conflict." aria-label="North Vietnam"></button>
             </div>
-            <div id="cold-war-map-tooltip" class="cold-war-map-tooltip" role="status" aria-live="polite">Click a region of the map to learn about its Cold War alignment.</div>
+            <div id="cold-war-map-tooltip" class="cold-war-map-tooltip" role="status" aria-live="polite">Select a blue or red nation to learn about its Cold War alignment.</div>
         </div>
     </div>
 
