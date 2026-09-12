@@ -241,6 +241,9 @@ window.updateTitleScreenImages = function() {
     var overlay = document.getElementById('cold-war-map-overlay');
     if (!overlay) return;
     overlay.style.display = 'block';
+    overlay.classList.remove('cold-war-map-opening');
+    void overlay.offsetWidth;
+    overlay.classList.add('cold-war-map-opening');
     document.body.classList.add('cold-war-map-open');
     window.setupColdWarMap();
     var closeButton = document.getElementById('cold-war-map-close');
