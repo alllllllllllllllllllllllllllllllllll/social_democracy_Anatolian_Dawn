@@ -710,6 +710,11 @@ Soviet Union: [+ soviet_relation : relationships +]
 
 Middle East: [+ middle_east_relation : relationships +]
 
+{!<button id="cold-war-map-button" class="cold-war-map-button" type="button" onclick="window.showColdWarMap();" aria-haspopup="dialog">
+  <span class="cold-war-map-button-colors" aria-hidden="true"><span></span><span></span></span>
+  <span>The Cold War</span>
+</button>!}
+
 = The Cyprus Problem
 
 Cyprus Problem: [? if cyprus_problem == 0: Unresolved ?][? if cyprus_problem == 1: Status Quo ?][? if cyprus_problem == 2: 1960 Agreement Restored ?][? if cyprus_problem == 3: Divided ?][? if cyprus_problem == 4: Confederation ?]

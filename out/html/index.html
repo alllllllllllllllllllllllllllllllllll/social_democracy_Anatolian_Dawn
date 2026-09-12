@@ -165,6 +165,23 @@
         </div>
     </div>
 
+    <div id="cold-war-map-overlay" class="overlay cold-war-map-overlay" role="dialog" aria-modal="true" aria-labelledby="cold-war-map-title" style="display: none;">
+        <div class="cold-war-map-panel">
+            <button id="cold-war-map-close" class="cold-war-map-close" type="button" onclick="window.hideColdWarMap();" aria-label="Close Cold War map">×</button>
+            <h1 id="cold-war-map-title">The Cold War</h1>
+            <div id="cold-war-map" class="cold-war-map">
+                <img src="img/globe_with_borders.svg" alt="Map of the Cold War world">
+                <button class="cold-war-region cold-war-region-north-america" type="button" data-region="North America" data-tooltip="The United States and Canada anchored the Western bloc." aria-label="North America"></button>
+                <button class="cold-war-region cold-war-region-europe" type="button" data-region="Europe" data-tooltip="Europe was divided by the Iron Curtain between the Western alliance and the Soviet sphere." aria-label="Europe"></button>
+                <button class="cold-war-region cold-war-region-soviet-union" type="button" data-region="Soviet Union" data-tooltip="The Soviet Union led the Eastern bloc and maintained influence across Eastern Europe and Asia." aria-label="Soviet Union"></button>
+                <button class="cold-war-region cold-war-region-middle-east" type="button" data-region="Middle East" data-tooltip="The Middle East was a contested region where both blocs sought allies and strategic access." aria-label="Middle East"></button>
+                <button class="cold-war-region cold-war-region-asia" type="button" data-region="East Asia" data-tooltip="East Asia was shaped by the Chinese Revolution, the Korean War, and competing alliances." aria-label="East Asia"></button>
+                <button class="cold-war-region cold-war-region-latin-america" type="button" data-region="Latin America" data-tooltip="Latin America became an arena for Cold War rivalry, intervention, and revolutionary movements." aria-label="Latin America"></button>
+            </div>
+            <div id="cold-war-map-tooltip" class="cold-war-map-tooltip" role="status" aria-live="polite">Click a region of the map to learn about its Cold War alignment.</div>
+        </div>
+    </div>
+
     <div id="save" class="overlay" style="display: none;">
         <table id="saves_table" class="overlay_top">
             <tr>

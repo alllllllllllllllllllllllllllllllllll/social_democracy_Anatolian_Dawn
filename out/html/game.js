@@ -237,6 +237,41 @@ window.updateTitleScreenImages = function() {
       }
   };
 
+  window.showColdWarMap = function() {
+    var overlay = document.getElementById('cold-war-map-overlay');
+    if (!overlay) return;
+    overlay.style.display = 'block';
+    document.body.classList.add('cold-war-map-open');
+    window.setupColdWarMap();
+    var closeButton = document.getElementById('cold-war-map-close');
+    if (closeButton) closeButton.focus();
+  };
+
+  window.hideColdWarMap = function() {
+    var overlay = document.getElementById('cold-war-map-overlay');
+    if (!overlay) return;
+    overlay.style.display = 'none';
+    document.body.classList.remove('cold-war-map-open');
+    var button = document.getElementById('cold-war-map-button');
+    if (button) button.focus();
+  };
+
+  window.setupColdWarMap = function() {
+    var map = document.getElementById('cold-war-map');
+    var tooltip = document.getElementById('cold-war-map-tooltip');
+    if (!map || !tooltip || map.dataset.ready) return;
+    map.dataset.ready = 'true';
+    map.querySelectorAll('.cold-war-region').forEach(function(region) {
+      region.addEventListener('click', function() {
+        map.querySelectorAll('.cold-war-region.active').forEach(function(activeRegion) {
+          activeRegion.classList.remove('active');
+        });
+        region.classList.add('active');
+        tooltip.innerHTML = '<strong>' + region.dataset.region + '</strong><br>' + region.dataset.tooltip;
+      });
+    });
+  };
+
   window.hideOptions = function() {
       var save_element = document.getElementById('options');
       save_element.style.display = "none";

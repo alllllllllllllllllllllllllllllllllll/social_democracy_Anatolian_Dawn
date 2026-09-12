@@ -921,3 +921,120 @@ table {
   height: 332px;
   object-fit: cover;
 }
+
+.cold-war-map-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  width: 100%;
+  margin: 0.8em 0 0;
+  padding: 0.55em 0.7em;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  background: var(--content-bg-color);
+  color: var(--text-color);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+.cold-war-map-button:hover,
+.cold-war-map-button:focus {
+  background: var(--link-hover-color);
+}
+.cold-war-map-button-colors {
+  display: inline-flex;
+  width: 2.4em;
+  height: 1.35em;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+.cold-war-map-button-colors span {
+  width: 50%;
+}
+.cold-war-map-button-colors span:first-child {
+  background: #b4142b;
+  clip-path: polygon(0 0, 100% 0, 82% 35%, 100% 60%, 78% 100%, 0 100%);
+}
+.cold-war-map-button-colors span:last-child {
+  background: #1c4f9c;
+  clip-path: polygon(18% 0, 100% 0, 100% 100%, 22% 100%, 0 62%, 20% 35%);
+}
+.cold-war-map-overlay {
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.84);
+}
+.cold-war-map-panel {
+  position: relative;
+  width: min(92vw, 820px);
+  margin: 3vh auto;
+  padding: 1.2em 1.2em 1em;
+  border: 2px solid var(--border-color);
+  background: var(--content-bg-color);
+  color: var(--text-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+.cold-war-map-panel h1 {
+  margin: 0 0 0.6em;
+}
+.cold-war-map-close {
+  position: absolute;
+  top: 0.4em;
+  right: 0.4em;
+  width: 2em;
+  height: 2em;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 1.3em;
+  line-height: 1;
+}
+.cold-war-map-close:hover,
+.cold-war-map-close:focus {
+  background: var(--link-hover-color);
+}
+.cold-war-map {
+  position: relative;
+  width: min(100%, 700px);
+  margin: auto;
+  line-height: 0;
+}
+.cold-war-map img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.cold-war-region {
+  position: absolute;
+  display: block;
+  width: 15%;
+  height: 15%;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.02);
+  cursor: pointer;
+}
+.cold-war-region:hover,
+.cold-war-region:focus,
+.cold-war-region.active {
+  border-color: #ffd54a;
+  background: rgba(255, 213, 74, 0.2);
+  outline: none;
+}
+.cold-war-region-north-america { left: 13%; top: 30%; }
+.cold-war-region-europe { left: 47%; top: 25%; }
+.cold-war-region-soviet-union { left: 60%; top: 17%; width: 25%; }
+.cold-war-region-middle-east { left: 55%; top: 42%; }
+.cold-war-region-asia { left: 72%; top: 40%; }
+.cold-war-region-latin-america { left: 30%; top: 60%; }
+.cold-war-map-tooltip {
+  min-height: 2.8em;
+  margin-top: 0.8em;
+  padding: 0.65em 0.8em;
+  border: 1px solid var(--tooltip-border-color);
+  background: var(--tooltip-bg-color);
+  line-height: 1.35;
+  text-align: left;
+}
