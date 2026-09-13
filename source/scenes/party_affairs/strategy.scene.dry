@@ -11,9 +11,9 @@ card-image: img/strategy.jpg
 
 Even though our ideological stance has already solidified, what we can decide on is how to achieve it electorally. Different approaches have been offered by our party members that we can focus on.
 
-- @united: We should integrate groups to our left into the CHP and form a <style><color: United Front based on Left Populism.
-- @socdem: We should aim for an electoral majority for the Left of Center without straying off our course and preserving the possibility of cooperation with the other parties.
-- @res: We should become a responsible Center Left party and aim for better relations with the parties to our right.
+- @united: We should integrate groups to our left into the CHP and form a <span style="color: #C42424;">**United Front**</span> based on Left Populism.
+- @socdem: We should aim for an electoral majority for the <span style="color: #E3000F;">**Left of Center**</span> without straying off our course and preserving the possibility of cooperation with the other parties.
+- @res: We should become a responsible <span style="color: #c76082;">**Center Left**</span> party and aim for better relations with the parties to our right.
 - @socfas: We should lean onto our Nationalist credentials and foster a patriotic and anti-imperialist rhetoric based on Ecevit's persona, like in Latin American Populism.
 - @root: We either don't want to or cannot decide on a party strategy right now.
 - @easy_discard
