@@ -29,7 +29,7 @@ on-arrival: strategy_united = 0; strategy_socdem = 1; strategy_res = 0; strategy
 We stay on a course which balances our left wing allegiances and pragmatism. As it is the approach expected of us, not much changes.
 
 @res
-on-arrival: z_relation += 5; MSP_relation += 5; DP_relation += 5; TIP_relation -= 10; disk_relation -= 5; workers_chp -= 4;  workers_TIP += 4; strategy_united = 0; kemalist_marxists_dissent += 5; strategy_socdem = 0; strategy_res = 1; strategy_socfas = 0; democracy_status += 3
+on-arrival: z_relation += 5; MSP_relation += 5; DP_relation += 5; TIP_relation -= 10; disk_relation -= 5; workers_chp -= 4;  workers_TIP += 4; strategy_united = 0; kemalist_marxists_dissent += 5; strategy_united = 0; strategy_socdem = 0; strategy_res = 1; strategy_socfas = 0; democracy_status += 3
 
 We sideline our connections with the labour and left wing movements in favour of closer relations with the Right, a disappointing stance for much of our base. Nevertheless, this allows us to foster better relations with parties to our right which may come in handy later on. This also improves the stability of our democracy somewhat.
 
@@ -37,7 +37,7 @@ We sideline our connections with the labour and left wing movements in favour of
 subtitle: This will incur dissent in the party. Are we sure?
 choose-if: cyprus_problem == 3
 unavailable-subtitle: There are no prerequisites for such a shift! 
-on-arrival: workers_chp += 1; rural_chp += 1; state_employees_chp += 1; petty_bourgeoisie_chp += 1; alevis_chp += 1; kemalist_marxists_dissent += 5; left_kemalists_dissent += 5; third_worldists_dissent += 5; orthodox_kemalists_dissent += 5
+on-arrival: workers_chp += 1; rural_chp += 1; state_employees_chp += 1; petty_bourgeoisie_chp += 1; alevis_chp += 1; kemalist_marxists_dissent += 5; left_kemalists_dissent += 5; third_worldists_dissent += 5; orthodox_kemalists_dissent += 5; strategy_united = 0; strategy_socdem = 0; strategy_res = 0; strategy_socfas = 0
 
 Much to the dismay of our party organizations, our party begins focusing on primarily nationalist and anti-imperialist rhetoric based on Ecevit's persona and his public image as the 'Conqueror of Cyprus'. While this attitude works well in appealing to new voters across class lines, our members are visibly annoyed by watching the party of Social Democracy become the party of Ecevit.
 
