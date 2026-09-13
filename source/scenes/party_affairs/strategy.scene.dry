@@ -1,0 +1,43 @@
+title: Party Strategy
+new-page: true
+on-arrival: month_actions += 1; strategy_timer = 12
+is-card: true
+frequency: 150
+tags: party_affairs
+view-if: CHP_party_leader == "Ecevit" and strategy_timer == 0
+card-image: img/strategy.jpg
+
+= Party Strategy
+
+Even though our ideological stance has already solidified, what we can decide on is how to achieve it electorally. Different approaches have been offered by our party members that we can focus on.
+
+- @united: We should integrate groups to our left into the CHP and form a <style><color: United Front based on Left Populism.
+- @socdem: We should aim for an electoral majority for the Left of Center without straying off our course and preserving the possibility of cooperation with the other parties.
+- @res: We should become a responsible Center Left party and aim for better relations with the parties to our right.
+- @socfas: We should lean onto our Nationalist credentials and foster a patriotic and anti-imperialist rhetoric based on Ecevit's persona, like in Latin American Populism.
+- @root: We either don't want to or cannot decide on a party strategy right now.
+- @easy_discard
+
+@united
+on-arrival: TIP_relation += 5; disk_relation += 5; workers_chp += 6; z_relation -= 10; DP_relation -= 10; MSP_relation -= 10; CGP_relation -= 8; q0_km_str += 1; q6_km_str += 1; strategy_united = 1; strategy_socdem = 0; strategy_res = 0; strategy_socfas = 0
+
+We embrace a united front strategy in order to boost our electoral chances. Our working class base, DİSK and the remnants of TİP appreciate this move, while our relations with the right wing parties who accuse us of 'revealing our true colors' visibly deteriorate. This move strengthens the party left as well.
+
+@socdem
+on-arrival: strategy_united = 0; strategy_socdem = 1; strategy_res = 0; strategy_socfas = 0
+
+We stay on a course which balances our left wing allegiances and pragmatism. As it is the approach expected of us, not much changes.
+
+@res
+on-arrival: z_relation += 5; MSP_relation += 5; DP_relation += 5; TIP_relation -= 10; disk_relation -= 5; workers_chp -= 4;  workers_TIP += 4; strategy_united = 0; kemalist_marxists_dissent += 5; strategy_socdem = 0; strategy_res = 1; strategy_socfas = 0
+
+We sideline our connections with the labour and left wing movements in favour of closer relations with the Right, a disappointing stance for much of our base. Nevertheless, this allows us to foster better relations with parties to our right which may come in handy later on.
+
+@socfas
+subtitle: This will incur dissent in the party. Are we sure?
+choose-if: cyprus_problem == 3
+unavailable-subtitle: There are no prerequisites for such a shift! 
+on-arrival: workers_chp += 1; rural_chp += 1; state_employees_chp += 1; petty_bourgeoisie_chp += 1; alevis_chp += 1; kemalist_marxists_dissent += 5; left_kemalists_dissent += 5; third_worldists_dissent += 5; orthodox_kemalists_dissent += 5
+
+Much to the dismay of our party organizations, our party begins focusing on primarily nationalist and anti-imperialist rhetoric based on Ecevit's persona and his public image as the 'Conqueror of Cyprus'. While this attitude works well in appealing to new voters across class lines, our members are visibly annoyed by watching the party of Social Democracy become the party of Ecevit.
+
