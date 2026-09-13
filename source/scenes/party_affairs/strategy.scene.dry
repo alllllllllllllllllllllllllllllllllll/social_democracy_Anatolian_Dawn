@@ -29,9 +29,9 @@ on-arrival: strategy_united = 0; strategy_socdem = 1; strategy_res = 0; strategy
 We stay on a course which balances our left wing allegiances and pragmatism. As it is the approach expected of us, not much changes.
 
 @res
-on-arrival: z_relation += 5; MSP_relation += 5; DP_relation += 5; TIP_relation -= 10; disk_relation -= 5; workers_chp -= 4;  workers_TIP += 4; strategy_united = 0; kemalist_marxists_dissent += 5; strategy_socdem = 0; strategy_res = 1; strategy_socfas = 0
+on-arrival: z_relation += 5; MSP_relation += 5; DP_relation += 5; TIP_relation -= 10; disk_relation -= 5; workers_chp -= 4;  workers_TIP += 4; strategy_united = 0; kemalist_marxists_dissent += 5; strategy_socdem = 0; strategy_res = 1; strategy_socfas = 0; democracy_status += 3
 
-We sideline our connections with the labour and left wing movements in favour of closer relations with the Right, a disappointing stance for much of our base. Nevertheless, this allows us to foster better relations with parties to our right which may come in handy later on.
+We sideline our connections with the labour and left wing movements in favour of closer relations with the Right, a disappointing stance for much of our base. Nevertheless, this allows us to foster better relations with parties to our right which may come in handy later on. This also improves the stability of our democracy somewhat.
 
 @socfas
 subtitle: This will incur dissent in the party. Are we sure?
