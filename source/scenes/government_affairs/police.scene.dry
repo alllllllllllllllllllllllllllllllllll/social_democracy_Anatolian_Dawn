@@ -25,7 +25,7 @@ The Interior Ministry controls internal security throughout the Turkish Republic
 - @cancel_advisor_action
 
 @loyalty
-on-arrival: police_loyalty += 0.1
+on-arrival: interior_police_loyalty += 0.1
 
 There are measures we can take to unveil the ideological cliques, prioritizing the advancement of their ideology to the wellbeing of the state, within the police forces. We can improve training and recruiting procedures, and identify and remove known extremists and the like.
 
